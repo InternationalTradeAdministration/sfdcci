@@ -1,0 +1,234 @@
+<apex:page id="Registration" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="tradeRegistration_Controller" title="{!$Label.site.user_registration}" action="{!validate}">
+
+<!--
+- The MIL Corporation
+- ITA Trade Community Registration
+- Product Tag: Registration / Work#:
+- Created: 2016.02.17: MIL Corp
+ -->
+
+<apex:composition template="Site_Template">
+<apex:define name="page">
+    <head>
+        <title>Trade Registration</title>
+        <link href="{!URLFor($Resource.registration, 'registration/registration.css')}" rel="stylesheet" />
+    </head>
+<script>
+    function displaydiv(value){
+        if(value=='Business'){
+            document.getElementById('company').style.display='';  
+        }else{
+            document.getElementById('company').style.display='none';
+        }
+    }
+
+    function rerender(value) {
+        if(value=='US'){
+             document.getElementById('postalcode').innerHTML= 'Postal Code';
+             document.getElementById('state').innerHTML= 'State';
+        }else{
+            document.getElementById('postalcode').innerHTML= 'Postal Code (optional)';
+            document.getElementById('state').innerHTML= 'State (optional)';
+        }
+    }
+    
+    $(document).ready(function() {
+        $('input[type=password][name$="theForm:password"]').keyup(function() {
+            // set password variable
+            var pswd = $(this).val();
+            
+            //validate the length
+            if (pswd.length < {!minimumPasswordCharacters}) {
+                $('#pswd_length').removeClass('valid').addClass('invalid');
+            } else {
+                $('#pswd_length').removeClass('invalid').addClass('valid');
+            }
+            
+            //validate lower case letter
+            var requireLowerCase = {!passwordRequireLowerCase};
+            if (requireLowerCase && pswd.match(/[a-z]/)) {
+                $('#pswd_lowerCase').removeClass('invalid').addClass('valid');
+            } else {
+                $('#pswd_lowerCase').removeClass('valid').addClass('invalid');
+            }
+            
+            //validate upper case letter
+            var requireUpperCase = {!passwordRequireUpperCase};
+            if (requireUpperCase && pswd.match(/[A-Z]/)) {
+                $('#pswd_upperCase').removeClass('invalid').addClass('valid');
+            } else {
+                $('#pswd_upperCase').removeClass('valid').addClass('invalid');
+            }
+            
+            //validate number
+            var requireNumeric = {!passwordRequireNumeric};
+            if (requireNumeric && pswd.match(/\d/)) {
+                $('#pswd_number').removeClass('invalid').addClass('valid');
+            } else {
+                $('#pswd_number').removeClass('valid').addClass('invalid');
+            }
+            
+            //validate special character
+            var requireSpecialChar = {!passwordRequireSpecialChar};
+            if (requireSpecialChar && pswd.match(/[!#$%\-_=+<>]/)) {
+                $('#pswd_specialChar').removeClass('invalid').addClass('valid');
+            } else {
+                $('#pswd_specialChar').removeClass('valid').addClass('invalid');
+            }
+        }).focus(function() {
+            $('#pswd_info').show();
+        }).blur(function() {
+            $('#pswd_info').hide();
+        });
+    });
+</script>
+<div class="container itaBr">
+    <div class="col-md-12">
+      
+    <apex:form id="theForm" forceSSL="true">
+    <!-- --Error Section - Start- -->
+        <apex:messages styleClass="alert alert-danger fade in itaNoUL" />
+    <!-- --Error Section - End- -->
+    <div class="col-md-6" style="display:{!if(webSite == 'Privacy Shield','','none')}">
+        <h1>{!webSite}</h1>
+    </div>  
+    <!-- All other Sites Start
+    <div class="col-md-6" style="display:{!if(webSite == 'Privacy Shield','','none')}">
+        <h3 class="lead text">If your organization already appears on the EU-U.S. Privacy Shield list, it is not "New to Privacy Shield" and already has a set of credentials.</h3> 
+
+        <h3 class="lead text">Please be sure to check the public Privacy Shield list (link) to verify whether your organization appears as a registered entity before attempting to create new credentials.</h3> 
+
+        <h3 class="lead text">If your organization cannot recall the user name and password used to register with Privacy Shield, please contact the Privacy Shield team at privacyshield@trade.gov</h3>
+    </div>       -->
+    <!-- All other Sites End -->
+    <!-- Privacy Shield Start-->
+    <div class="col-md-6 intro" style="display:{!if(webSite == 'Privacy Shield','none','')}">
+        <h3 class="lead intro">Connect with America's international trade expertise and the world around you on {!webSite}</h3>
+        <ul class="regList">
+            <li><i class="fa fa-search fa-lg regListIconSearch"></i><strong>Search</strong> Domestic and International Intelligence, Events, FAQs </li>
+            <li><i class="fa fa-group fa-lg regListIconCollab"></i><strong>Collaborate</strong> on trade research and strategy </li>
+            <li><i class="fa fa-map-marker fa-lg regListIconMap"></i>  <strong>Identify</strong> strategic partners in the U.S. and around the world</li>
+        </ul>
+    </div>  
+    <!-- Privacy Shield End-->  
+    <div class="col-md-6 regListBoarder">
+    <!-- --Logo Branding Start-- -->
+        <div id="logo_wrapper" class="col-md-12">
+                    <center><img id="logo" class="standard_logo" src="/servlet/servlet.FileDownload?file={!logo}" alt="Trade Community" border="0" name="logo"/></center>
+        </div>
+<!-- --Log0 Branding End-- -->
+    <div class="col-md-12">
+        <div class="col-md-2"></div>
+        <!-- Center Reg Box Start -->
+        <div id="main_wrapper" class="col-md-10 itaCaseBox itaFormBox" style="width:100%">
+                    <!-- --Email Field Start-- 
+                    <div style="display:{!if(page == 0,'','none')};" id="email">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                            <center><h2 class="itaFormHeader">Join us today.</h2></center>
+                                <div class="itaFormLabel">E-mail</div>
+                                <apex:inputText id="email" value="{!c.email}" label="{!$Label.site.email}" styleClass="itaFormField" />
+                                <apex:commandButton action="{!checkUser}" value="SIGN UP" id="register" styleClass="itaLoginBtn"/>
+                                <br /><div class="itaFormLabel" style="float:left;">Already registered? <a href="{!$Site.Prefix}/communitieslogin">Log In</a></div>
+                            </div>
+                        </div> 
+                    </div>
+                    --Email Field End-- -->
+
+                    <!-- --Registration Form Start- -->
+                    <div id="reg">
+                        <div class="col-md-12">
+                            <center><h2 class="itaFormHeader">Join us today.</h2></center>  
+                            
+                            <div class="col-md-6">
+                                <div class="itaFormLabel">First Name</div>
+                                <apex:inputField id="firstName" value="{!c.firstName}" label="First Name" styleClass="itaFormField"/>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="itaFormLabel">Last Name</div>  
+                                 <apex:inputText id="lastName" value="{!c.lastName}" label="Last Name" styleClass="itaFormField"/>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <div class="itaFormLabel">E-mail</div>
+                                <apex:inputText value="{!c.email}" label="{!$Label.site.email}" styleClass="itaFormField" />
+                                <div class="itaFormLabel">Password</div>
+                                <apex:inputSecret id="password" value="{!password}" styleClass="itaFormField"/>
+                                
+                                <div id="pswd_info">
+                                    <h5>Password must have:</h5>
+                                    <ul>
+                                        <li id="pswd_length" class="invalid">At least <strong>{!minimumPasswordCharacters} characters</strong></li>
+                                        <li id="pswd_lowerCase" class="invalid" style="display:{!IF(passwordRequireLowerCase, 'block', 'none')}">At least <strong>one lower case letter</strong></li>
+                                        <li id="pswd_upperCase" class="invalid" style="display:{!IF(passwordRequireUpperCase, 'block', 'none')}">At least <strong>one upper case letter</strong></li>
+                                        <li id="pswd_number" class="invalid" style="display:{!IF(passwordRequireNumeric, 'block', 'none')}">At least <strong>one number</strong></li>
+                                        <li id="pswd_specialChar" class="invalid" style="display:{!IF(passwordRequireSpecialChar, 'block', 'none')}">At least <strong>one special character</strong></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="itaFormLabel">Confirm Password</div>
+                                <apex:inputSecret id="confirmPassword" value="{!confirmPassword}" styleClass="itaFormField"/>
+                            </div>
+                                                            
+                            <hr/>
+                            <div class="col-md-6">
+                                <div class="itaFormLabel">Registration Type</div>
+                                <div class="col-xs-5 selectContainer itaFormDrop">
+                                    <apex:inputField id="acocunttype" onchange="displaydiv(this.value)" value="{!a.Account_Type__c}" label="account type" styleClass="form-control"/>
+                                </div>
+                                <div id="company" style="display:'';text-align: left;">
+                                    <div class="itaFormLabel">Company</div>
+                                    <apex:inputText id="companyname" value="{!a.Name}" label="company name" maxlength="80" styleClass="itaFormField"/>
+                                </div>
+                            </div>
+                            <!--    <div class="itaFormLabel">Street</div>
+                                <apex:inputText id="companystreet" value="{!a.BillingStreet}" label="company street" maxlength="80" styleClass="itaFormField"/>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="itaFormLabel">City</div>
+                                <apex:inputText id="companycity" value="{!a.BillingCity}" maxlength="80" label="company city" styleClass="itaFormField" />
+                            </div>
+
+                            <div class="col-md-6" id="companyState">
+                               <div id="state" class="itaFormLabel">State</div>
+                               <div class="selectContainer itaFormDrop"><span>
+                                    <apex:inputField styleClass="form-control" label="company state" value="{!a.BillingStateCode}"/>
+                                    <apex:actionFunction name="rerendercompanyState" rerender="companyState" /></span>
+                                </div>
+                            </div>
+                            <br/>-->
+                            <div class="col-md-6" >
+                                <div class="itaFormLabel">Country</div>
+                                <div class="col-xs-5 selectContainer itaFormDrop"><span>
+                                    <apex:inputField id="companyCountry" onchange="rerender(this.value)" label="company country" value="{!a.BillingCountryCode}" styleClass="form-control"/></span> 
+                                </div>
+                            
+                                <div >
+                                    <div id="postalcode" class="itaFormLabel">Postal Code</div>
+                                    <apex:inputText id="companyzip" value="{!a.BillingPostalCode}" maxlength="10" label="company zip" styleClass="itaFormField"/>
+                                    <apex:actionFunction name="rerenderpostalcode" rerender="postalcode" />
+                                </div>
+                            </div>
+                            <div class="col-md-12" >
+                                <div style="margin-bottom: 55px" class="g-recaptcha" data-sitekey="{!captcha_Site_Key}"></div>
+
+                                <apex:commandButton action="{!newContact}" value="Sign Up" id="RegisterPage1" styleClass="itaLoginBtn"/>
+                                
+                                <br /><div class="itaFormLabel" style="float:left;">Already registered? <a href="{!$Site.Prefix}/communitieslogin">Log In</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- --Registration Form End- -->
+        </div>
+        
+        </div> 
+        </div>      
+        </apex:form>
+</div>      
+</div>
+    
+</apex:define>
+</apex:composition>
+</apex:page>
