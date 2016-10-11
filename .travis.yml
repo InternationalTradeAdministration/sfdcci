@@ -7,4 +7,4 @@ sudo: false
 branches:
      only:
           - master
-script: ./build/scripts/run_build.sh          
+script: ./build/scripts/deploy.sh          
