@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - node
+git:
+  depth: 1
+install:
+  - npm install -g sfdc-travisci-coveralls
+script:
+  - sfdc-travisci-coveralls
+after_success:
+  - ./build/scripts/run_tests.sh
