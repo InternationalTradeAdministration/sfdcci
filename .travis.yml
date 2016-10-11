@@ -3,7 +3,5 @@ node_js:
   - node
 git:
   depth: 1
-script:
-  - sfdc-travisci-coveralls
 after_success:
   - ./build/scripts/run_tests.sh
