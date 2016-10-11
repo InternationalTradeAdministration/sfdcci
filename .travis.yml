@@ -7,5 +7,5 @@ sudo: false
 branches:
      only:
           - master
-before_script: ./build/scripts/setup_credentials.sh
+
 script: ./build/scripts/deploy.sh
