@@ -3,5 +3,4 @@ node_js:
   - node
 git:
   depth: 1
-after_success:
-  - ./build/scripts/run_tests.sh
+
