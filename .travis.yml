@@ -7,5 +7,4 @@ sudo: false
 branches:
      only:
           - master
-
-
+script: ./build/scripts/run_build.sh          
