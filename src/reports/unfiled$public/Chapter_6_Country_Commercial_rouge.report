@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Title</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Stage__c</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Level_1__c</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Summary</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Country_Commercial__ka.Country_Commercial__kav$Level_1__c</column>
+            <operator>contains</operator>
+            <value>Chapter 6: Investment Climate Statement</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Country_Commercial__ka.Country_Commercial__kav$Summary</column>
+            <operator>contains</operator>
+            <value>?</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Chapter 6 Country Commercial rouge &quot;?&quot;</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Country_Commercial__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Country_Commercial__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

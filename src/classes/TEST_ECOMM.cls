@@ -39,7 +39,7 @@ public static testmethod void TEST_1(){
         new PaymentSettings__c(name='EVENTS_SERVICES_APP_ID', value__c = 'dummy'),
         new PaymentSettings__c(name='EVENTS_SERVICES_APP', value__c = 'es')
     };
-    insert settings;
+    insert settings; 
     insert new CertificationPricePoints__c(name='value tbd', price__c=600.00);
     Third_Party_Master_List__c[] TPML = new Third_Party_Master_List__c[]{
         new Third_Party_Master_List__c(name = 'DRP 1', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = true),
@@ -230,6 +230,259 @@ public static testmethod void TEST_3(){
     ApexPages.currentPage().getParameters().put('id', participant.id);
     ApexPages.StandardController stdController = new ApexPages.StandardController(participant);
     profile_controller controller = new profile_controller(stdController);
+    
+    //Added on 09/27/16
+    System.assert(controller.getIsContact() == false);
+    System.debug(controller.participations);
+    Profile_Controller controller2 = new Profile_Controller();    //Try the other constructor
+}
+
+public static testmethod void TEST_4(){
+    //test the payment refund controller instantiation for credit card and ach
+    PaymentSettings__c[] settings = new PaymentSettings__c[]{
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP_ID', value__c = 'TCSITAUSMASSHQA'),
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP', value__c = 'ps'),
+        new PaymentSettings__c(name='EVENTS_SERVICES_APP_ID', value__c = 'dummy'),
+        new PaymentSettings__c(name='EVENTS_SERVICES_APP', value__c = 'es'),
+        new PaymentSettings__c(name='AGENCY_ID', value__c = 'es'),
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP_NAME', value__c = 'Privacy Shield')   
+    };
+    insert settings;
+    
+    Account acc = new Account(name='Acme', billingstreet = '101 binary way', billingcity = 'New York', billingstatecode='NY', billingpostalcode='10101');
+        insert acc;
+    Product2 product = new product2(name='Framework Participation', isActive = true);
+        insert product;
+    Asset asset = new Asset(name=product.name, AccountId = acc.id, product2id = product.id, status='Installed');
+        insert asset;
+    Program__c program = new Program__c(name='Initiative Name', isActive__c = true);
+        insert program;
+    Framework__c framework = new Framework__c(name = 'Framework', product__c = product.id, program__c = program.id, isActive__c = true);
+        insert framework;
+    Third_Party_Master_List__c[] TPML = new Third_Party_Master_List__c[]{
+        new Third_Party_Master_List__c(name = 'DRP 1', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site'),
+        new Third_Party_Master_List__c(name = 'DRP 2', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site')
+    };
+        insert TPML;
+
+    Participation__c participant = new Participation__c(organization__c = acc.id, name=acc.name, postal_code__c = acc.billingpostalcode);
+        insert participant;
+    Participant__c participation = new Participant__c(framework__c = framework.id, participant__c = participant.id, status__c = 'Active');    
+        insert participation;
+    Order order = new Order();
+        order.accountid = acc.id;
+        order.Participation__c = participation.id;
+        order.participant__c = participant.id;
+        order.program__c = program.id;
+        order.effectivedate = Date.today();
+        order.status = 'Draft';
+    insert order;
+    Payment__c payment = new Payment__c();
+        payment.order__c = order.id;
+        payment.Application__c = 'Privacy Shield';
+        payment.Transaction_Status__c = 'Success';
+        payment.Payment_Date__c = date.today();
+        payment.Transaction_Date__c = datetime.now();
+        payment.Pay_Gov_Tracking_Id__c = 'payGovTrackingId';
+        payment.Transaction_Amount__c = 500.00;
+        payment.Application__c = 'Privacy Shield';
+        insert payment;
+        
+        ApexPages.StandardController sc = new ApexPages.StandardController(Payment);
+        RefundController controller = new RefundController(sc);
+        
+        //PageReference pageRef = Page.PaymentRefund;
+        //pageRef.getParameters().put('id', String.valueOf(payment.id));
+        Test.startTest();
+        Test.setMock(WebServiceMock.class, new TEST_PaymentDetailsControllerMockImpl());
+    
+        //Test Credit Card
+        PageReference ccPageRef = new PageReference('creditCard');
+        Test.setCurrentPage(ccPageRef);
+        System.debug('1');
+        controller.issueRefund();
+        System.debug('2');
+    
+        //Test ACH
+        PageReference achPageRef = new PageReference('ach');
+        Test.setCurrentPage(achPageRef);
+        controller.issueRefund();
+        Test.stopTest();
+}
+
+public static testmethod void TEST_5(){
+    //test the payment refund controller redirect
+    PaymentSettings__c[] settings = new PaymentSettings__c[]{
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP_ID', value__c = 'dummy'),
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP', value__c = 'ps'),
+        new PaymentSettings__c(name='EVENTS_SERVICES_APP_ID', value__c = 'dummy'),
+        new PaymentSettings__c(name='EVENTS_SERVICES_APP', value__c = 'es'),
+        new PaymentSettings__c(name='AGENCY_ID', value__c = 'es'),
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP_NAME', value__c = 'Privacy Shield')
+    };
+    insert settings;
+    
+    Account acc = new Account(name='Acme', billingstreet = '101 binary way', billingcity = 'New York', billingstatecode='NY', billingpostalcode='10101');
+        insert acc;
+    Product2 product = new product2(name='Framework Participation', isActive = true);
+        insert product;
+    Asset asset = new Asset(name=product.name, AccountId = acc.id, product2id = product.id, status='Installed');
+        insert asset;
+    Program__c program = new Program__c(name='Initiative Name', isActive__c = true);
+        insert program;
+    Framework__c framework = new Framework__c(name = 'Framework', product__c = product.id, program__c = program.id, isActive__c = true);
+        insert framework;
+    Third_Party_Master_List__c[] TPML = new Third_Party_Master_List__c[]{
+        new Third_Party_Master_List__c(name = 'DRP 1', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site'),
+        new Third_Party_Master_List__c(name = 'DRP 2', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site')
+    };
+        insert TPML;
+
+    Participation__c participant = new Participation__c(organization__c = acc.id, name=acc.name, postal_code__c = acc.billingpostalcode);
+        insert participant;
+    Participant__c participation = new Participant__c(framework__c = framework.id, participant__c = participant.id, status__c = 'Active');    
+        insert participation;
+    Order order = new Order();
+        order.accountid = acc.id;
+        order.Participation__c = participation.id;
+        order.participant__c = participant.id;
+        order.program__c = program.id;
+        order.effectivedate = Date.today();
+        order.status = 'Draft';
+    insert order;
+    Payment__c payment = new Payment__c();
+        payment.order__c = order.id;
+        payment.Application__c = 'Privacy Shield';
+        payment.Transaction_Status__c = 'Success';
+        payment.Payment_Date__c = date.today();
+        payment.Transaction_Date__c = datetime.now();
+        payment.Transaction_Amount__c = 500.00;
+        insert payment;
+        
+        ApexPages.StandardController sc = new ApexPages.StandardController(Payment);
+        RefundController controller = new RefundController(sc);
+        
+        PageReference pageRef = Page.PaymentRefund;
+        pageRef.getParameters().put('id', String.valueOf(payment.id));
+        Test.setCurrentPage(pageRef);
+        controller.redirectToPayment();
+}
+
+public static testmethod void TEST_6(){
+    //test the payment refund controller without tcsappid
+    PaymentSettings__c[] settings = new PaymentSettings__c[]{
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP_ID', value__c = ''),
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP', value__c = 'ps'),
+        new PaymentSettings__c(name='EVENTS_SERVICES_APP_ID', value__c = 'dummy'),
+        new PaymentSettings__c(name='EVENTS_SERVICES_APP', value__c = 'es'),
+        new PaymentSettings__c(name='AGENCY_ID', value__c = 'es'),
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP_NAME', value__c = 'Privacy Shield')
+    };
+    insert settings;
+    
+    Account acc = new Account(name='Acme', billingstreet = '101 binary way', billingcity = 'New York', billingstatecode='NY', billingpostalcode='10101');
+        insert acc;
+    Product2 product = new product2(name='Framework Participation', isActive = true);
+        insert product;
+    Asset asset = new Asset(name=product.name, AccountId = acc.id, product2id = product.id, status='Installed');
+        insert asset;
+    Program__c program = new Program__c(name='Initiative Name', isActive__c = true);
+        insert program;
+    Framework__c framework = new Framework__c(name = 'Framework', product__c = product.id, program__c = program.id, isActive__c = true);
+        insert framework;
+    Third_Party_Master_List__c[] TPML = new Third_Party_Master_List__c[]{
+        new Third_Party_Master_List__c(name = 'DRP 1', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site'),
+        new Third_Party_Master_List__c(name = 'DRP 2', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site')
+    };
+        insert TPML;
+
+    Participation__c participant = new Participation__c(organization__c = acc.id, name=acc.name, postal_code__c = acc.billingpostalcode);
+        insert participant;
+    Participant__c participation = new Participant__c(framework__c = framework.id, participant__c = participant.id, status__c = 'Active');    
+        insert participation;
+    Order order = new Order();
+        order.accountid = acc.id;
+        order.Participation__c = participation.id;
+        order.participant__c = participant.id;
+        order.program__c = program.id;
+        order.effectivedate = Date.today();
+        order.status = 'Draft';
+    insert order;
+    Payment__c payment = new Payment__c();
+        payment.order__c = order.id;
+        payment.Application__c = 'Privacy Shield';
+        payment.Transaction_Status__c = 'Success';
+        payment.Payment_Date__c = date.today();
+        payment.Transaction_Date__c = datetime.now();
+        payment.Transaction_Amount__c = 500.00;
+        insert payment;
+        
+        ApexPages.StandardController sc = new ApexPages.StandardController(Payment);
+        RefundController controller = new RefundController(sc);
+        
+        PageReference pageRef = Page.PaymentRefund;
+        pageRef.getParameters().put('id', String.valueOf(payment.id));
+        Test.setCurrentPage(pageRef);
+        controller.issueRefund();
+}
+
+public static testmethod void TEST_7(){
+    //test the payment refund controller without tcsappid
+    PaymentSettings__c[] settings = new PaymentSettings__c[]{
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP_ID', value__c = 'TCSITAUSMASSHQA'),
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP', value__c = 'ps'),
+        new PaymentSettings__c(name='EVENTS_SERVICES_APP_ID', value__c = 'dummy'),
+        new PaymentSettings__c(name='EVENTS_SERVICES_APP', value__c = 'es'),
+        new PaymentSettings__c(name='AGENCY_ID', value__c = 'es'),
+        new PaymentSettings__c(name='PRIVACY_SHIELD_APP_NAME', value__c = 'Privacy Shield')
+    };
+    insert settings;
+    
+    Account acc = new Account(name='Acme', billingstreet = '101 binary way', billingcity = 'New York', billingstatecode='NY', billingpostalcode='10101');
+        insert acc;
+    Product2 product = new product2(name='Framework Participation', isActive = true);
+        insert product;
+    Asset asset = new Asset(name=product.name, AccountId = acc.id, product2id = product.id, status='Installed');
+        insert asset;
+    Program__c program = new Program__c(name='Initiative Name', isActive__c = true);
+        insert program;
+    Framework__c framework = new Framework__c(name = 'Framework', product__c = product.id, program__c = program.id, isActive__c = true);
+        insert framework;
+    Third_Party_Master_List__c[] TPML = new Third_Party_Master_List__c[]{
+        new Third_Party_Master_List__c(name = 'DRP 1', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site'),
+        new Third_Party_Master_List__c(name = 'DRP 2', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site')
+    };
+        insert TPML;
+
+    Participation__c participant = new Participation__c(organization__c = acc.id, name=acc.name, postal_code__c = acc.billingpostalcode);
+        insert participant;
+    Participant__c participation = new Participant__c(framework__c = framework.id, participant__c = participant.id, status__c = 'Active');    
+        insert participation;
+    Order order = new Order();
+        order.accountid = acc.id;
+        order.Participation__c = participation.id;
+        order.participant__c = participant.id;
+        order.program__c = program.id;
+        order.effectivedate = Date.today();
+        order.status = 'Draft';
+    insert order;
+    Payment__c payment = new Payment__c();
+        payment.order__c = order.id;
+        payment.Application__c = 'Privacy Shield';
+        payment.Transaction_Status__c = 'Success';
+        payment.Payment_Date__c = date.today();
+        payment.Transaction_Date__c = datetime.now();
+        payment.Transaction_Amount__c = 500.00;
+        insert payment;
+        
+        ApexPages.StandardController sc = new ApexPages.StandardController(Payment);
+        RefundController controller = new RefundController(sc);
+        
+        PageReference pageRef = Page.PaymentRefund;
+        pageRef.getParameters().put('id', String.valueOf(payment.id));
+        Test.setCurrentPage(pageRef);
+        Test.setMock(WebServiceMock.class, new TEST_PayGovTCSSingleServiceMockImpl());
+        controller.issueRefund();
 }
 
 }

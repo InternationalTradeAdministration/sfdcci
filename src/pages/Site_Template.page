@@ -86,6 +86,7 @@ setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])",10000);
 </apex:outputText>
 
 <script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOC&subagency=ITA"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
     <body class="front no-trans">
         <!-- scrollToTop -->
@@ -163,9 +164,9 @@ setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])",10000);
                                     <div class="btn-group dropdown"> 
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>{!$User.FirstName} {!left($User.LastName,1)}.</button>
                                         <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
-                                            <li><apex:outputLink value="{!$Site.Prefix}/about?sfdc.tabName=01rt0000000CjIj" id="myprofile"><i class="fa fa-user"></i> My Settings</apex:outputLink></li>
+                                            <li><apex:outputLink value="{!$Site.Prefix}/about?sfdc.tabName=01rt0000000CjIj&mysetup=true" id="myprofile"><i class="fa fa-cog"></i> My Settings</apex:outputLink></li>
                                             <!--li><apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!$User.Id}&tab=sfdc.ProfilePlatformOverview" id="myprofile"><i class="fa fa-user"></i> My Profile</apex:outputLink></li-->
-                                            <!-- li><apex:outputLink value="{!$Site.Prefix}/ui/setup/Setup?setupid=PersonalSetup" id="mysettings"><i class="fa fa-cog"></i> My Settings</apex:outputLink></li -->
+                                            <!--li><apex:outputLink value="{!$Site.Prefix}/ui/setup/Setup?setupid=PersonalSetup" id="mysettings"><i class="fa fa-cog"></i> My Settings</apex:outputLink></li-->
                                             <apex:repeat value="{!main.my_profile_options__r}" var="mpo">
                                                 <li><a href="{!mpo.url__c}"><i class="{!mpo.icon__r.class_name__c}"></i> {!mpo.name}</a></li>
                                             </apex:repeat>

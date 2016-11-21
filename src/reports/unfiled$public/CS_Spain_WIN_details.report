@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Final_Line_Approval_Date__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Owner_Office__c</column>
+            <operator>equals</operator>
+            <value>GM-CS EMEA-Field-SPG-Madrid</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>CS Spain WIN details</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WIN__c.Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -25,7 +25,7 @@ public class TEST_URLRewriter{
         insert url;
         urlRewriter page = new urlRewriter();        
         PageReference pr = page.mapRequestUrl(new PageReference('/cslsearch'));
-        system.assertEquals(pr, null);
+        system.assertEquals(pr.getURL(), '/apex/pagenotfound');
         
     }
     
@@ -165,6 +165,66 @@ public class TEST_URLRewriter{
             message = e.getMessage();
         }
         system.assertEquals([select id from page__c].size(), 1);
+    }
 
+    public static TestMethod void testCase11(){
+        Site__c site = new Site__c();
+            site.name = 'Test Site';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.Site_CSS__c = '/css/site.cs';
+            insert site;
+        URL__c u = new URL__c(friendly__c = '/New-Page-2');
+            insert u;
+        Page__c page = new Page__c();
+            page.name = 'New Page';
+            page.clean_url__c = 'New Page';
+            page.site__c = site.id;
+            insert page;
+        site.Default_Page__c = page.id;
+        update site;
+        Page__c p = [select id, clean_url__c from Page__c where id = :page.id limit 1];
+        Clean_URL__c clean = new Clean_URL__c();
+            clean.url__c = u.id;
+            clean.site__c = site.id;
+            clean.Non_Page_URL__c = '/servlet.FileDownload';
+            insert clean;
+            
+        string message = '';
+        urlRewriter pg = new urlRewriter();
+        PageReference pr = new PageReference('/'+clean.url__c);
+        pg.mapRequestUrl(pr).getUrl();
+    }
+
+    public static TestMethod void testCase12(){
+        Site__c site = new Site__c();
+            site.name = 'Test Site';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.Site_CSS__c = '/css/site.cs';
+            insert site;
+        Url__c u = new Url__c();
+            u.friendly__c = '/csl-search';
+            insert u;
+        Clean_URL__c clean = new Clean_URL__c();
+            clean.url__c = u.id;
+            clean.site__c = site.id;
+            clean.Non_Page_URL__c = '/servlet.FileDownload?test=false';
+            insert clean;
+        urlRewriter page = new urlRewriter();        
+        String actualResult = page.mapRequestUrl(new PageReference(u.friendly__c)).getUrl();
+    }
+    
+    public static TestMethod void testCase13(){
+        Site__c site = new Site__c();
+            site.name = 'Test Site';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.Site_CSS__c = '/css/site.cs';
+            insert site;
+        Url__c u = new Url__c();
+            u.friendly__c = '/csl-search';
+            u.real__c = '/servlet.FileDownload?test=false';
+            insert u;
+
+        urlRewriter page = new urlRewriter();        
+        String actualResult = page.mapRequestUrl(new PageReference(u.friendly__c)).getUrl();
     }
 }

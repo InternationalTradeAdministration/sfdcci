@@ -17,6 +17,12 @@ public without sharing class PaymentDetailsController {
         }
     }
     
+    //Used for testing
+    /*public PaymentDetailsController() {
+        //getPaymentDetails('SP000000132', PRIVACY_SHIELD_APP_ID, '3FP3542I', true);  //Credit Card
+        getPaymentDetails('SP000000124', PRIVACY_SHIELD_APP_ID, '3FP35JN8', true);  //ACH
+    }*/
+    
     //private static final String PRIVACY_SHIELD_APP_ID = 'TCSITAUSMASSHQA';  //QA
     //private static final String PRIVACY_SHIELD_APP_ID = 'TCSITAUSMASSH';  //Production
     //private static final String EVENTS_SERVICES_APP_ID = 'TCSITAUSFCSEMENUQA';  //QA
@@ -79,21 +85,59 @@ public without sharing class PaymentDetailsController {
     //public String total_installments{get;set;}
     //public String payment_frequency{get;set;}
     
-    public PaymentDetailsController() {
-        //getPaymentDetails('SP000000132', PRIVACY_SHIELD_APP_ID, '3FP3542I', true);  //Credit Card
-        getPaymentDetails('SP000000124', PRIVACY_SHIELD_APP_ID, '3FP35JN8', true);  //ACH
-    }
-    
     @TestVisible private void getPaymentDetails(String agencyTrackingId, String tcsAppId, String payGovTrackingId, boolean isPayment) {
         this.agencyTrackingId= agencyTrackingId;
         this.tcsAppId= tcsAppId;
         this.payGovTrackingId= payGovTrackingId;
     
         PayGovTCSSingleQueryService.TCSSingleQuery_Port singleQueryPort = new PayGovTCSSingleQueryService.TCSSingleQuery_Port();
-        PayGovTCSSingleQueryService.tcs_query_result queryResult = singleQueryPort.processTCSSingleQuery(AGENCY_ID, tcsAppId, agencyTrackingId, payGovTrackingId, '');
+        
+        System.debug('origPayGovTrackingId = ' + payGovTrackingId);
+        System.debug('origAgencyTrackingId= ' + agencyTrackingId);
+        System.debug('AGENCY_ID= ' + AGENCY_ID);
+        System.debug('tcsAppId= ' + tcsAppId);  
+        
+        System.debug('Determining Payment Type');   
+        
+        //For whatever reason, the processTCSSingleQuery method sometimes fails.  The workaround is to attempt it up to 5 times.
+        
+        Integer maximumAttempts = 5;
+        Integer currentAttempt = 1;
+        PayGovTCSSingleQueryService.tcs_query_result queryResult;
+        
+        while (maximumAttempts >= currentAttempt) {
+            try {   
+                if(Test.isRunningTest()) {
+                    System.debug('Current Page = ' + ApexPages.currentPage());
+                    PageReference pageRef = ApexPages.currentPage();
+                    if (pageRef.getUrl().equals('creditCard')) {
+                        System.debug('Current Page is Credit Card Test');
+                        Test.setMock(WebServiceMock.class, new TEST_PayGovSingleQueryCCMockImpl());
+                    } else if (pageRef.getUrl().equals('ach')) {
+                        System.debug('Current Page is ACH Test');
+                        Test.setMock(WebServiceMock.class, new TEST_PayGovSingleQueryAchMockImpl());
+                    } else {
+                        //This shouldn't happen in current testing as only credit card and ach payments are allowed.
+                        return;
+                    }
+            	}
+                queryResult = singleQueryPort.processTCSSingleQuery(AGENCY_ID, tcsAppId, agencyTrackingId, payGovTrackingId, '');
+                break;
+            } catch (Exception e) {
+                System.debug('Current Attempt ' + currentAttempt + ' failed');
+                currentAttempt += 1;
+            }
+        }
+        
+        System.debug('Gettting payment type results');
         
         PayGovTCSSingleQueryService.tcs_plastic_card_results plasticCardResults = queryResult.tcs_pc_results;
+        
+        System.debug('Got plastic card results');
+        
         PayGovTCSSingleQueryService.tcs_ach_results achResults = queryResult.tcs_ach_results; 
+        
+        System.debug('Got ACH results');
         
         if (isPayment) {
             if (plasticCardResults != null) {
@@ -117,6 +161,7 @@ public without sharing class PaymentDetailsController {
                 this.billingState = pcSaleQueryResponse[0].billing_info.billing_state;
                 this.billingZip = pcSaleQueryResponse[0].billing_info.billing_zip;
                 this.billingCountry = pcSaleQueryResponse[0].billing_info.billing_country;
+                System.debug('Done with credit card details');
             } else {
                 //ACH Payment Details
                 isAch = true;
@@ -133,9 +178,11 @@ public without sharing class PaymentDetailsController {
                 this.secCode = achDebitQueryResponse[0].sec_code;
                 this.returnReasonCode = achDebitQueryResponse[0].return_reason_code;
                 this.depositTicketNumber = achDebitQueryResponse[0].deposit_ticket_number;
+                System.debug('Done with ACH details');
             }
         } else {
-             PayGovTCSSingleQueryService.PCRefundQueryResponse[] pcRefundQueryResponse = plasticCardResults.pc_refund_with_paygov_tracking_id_query_response;
+            //Checking the details for a refund
+            PayGovTCSSingleQueryService.PCRefundQueryResponse[] pcRefundQueryResponse = plasticCardResults.pc_refund_with_paygov_tracking_id_query_response;
         }
     }
     

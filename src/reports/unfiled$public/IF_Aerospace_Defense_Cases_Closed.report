@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$Owner</field>
+    </columns>
+    <columns>
+        <field>Case$Owners_Office__c</field>
+    </columns>
+    <columns>
+        <field>Case$Account</field>
+    </columns>
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Record_Type__c</field>
+    </columns>
+    <columns>
+        <field>Case$ClosedDate</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Industry__c</column>
+            <operator>equals</operator>
+            <value>Aerospace and Defense,Safety &amp; Security</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>Case$Id</primaryTableColumn>
+        <relatedTable>Industry__c</relatedTable>
+        <relatedTableJoinColumn>Case_Industrial_Hierarchy__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>FY 2016</description>
+    <filter>
+        <criteriaItems>
+            <column>Case$IsClosed</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Account.RecordType</column>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Countries__r$Country__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>IF Aerospace &amp; Defense Cases Closed</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case$ClosedDate</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

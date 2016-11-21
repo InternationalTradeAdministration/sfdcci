@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Industry__c.Industry__c</field>
+    </columns>
+    <columns>
+        <field>Industry__c.Sector__c</field>
+    </columns>
+    <columns>
+        <field>Industry__c.Sub_Sector__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_OWNER_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_ADDR1_CITY</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_ADDR1_STATE_CODE</field>
+    </columns>
+    <filter>
+        <booleanFilter>((((((((1 AND (2 OR 3 OR 4 OR 5)))) OR (6 AND 7))) OR (8 AND 9))) OR (10 AND 11))</booleanFilter>
+        <criteriaItems>
+            <column>Industry__c.Industry__c</column>
+            <operator>equals</operator>
+            <value>Energy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Sector__c</column>
+            <operator>equals</operator>
+            <value>Renewable Energy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Sector__c</column>
+            <operator>equals</operator>
+            <value>Electricity Infrastructure</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Sector__c</column>
+            <operator>equals</operator>
+            <value>Renewable Fuels</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Sector__c</column>
+            <operator>equals</operator>
+            <value>Grid Transmission Distribution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Industry__c</column>
+            <operator>equals</operator>
+            <value>Automotive</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Sector__c</column>
+            <operator>equals</operator>
+            <value>Electric Vehicles</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Industry__c</column>
+            <operator>equals</operator>
+            <value>Environmental Technology</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Sector__c</column>
+            <operator>equals</operator>
+            <value>Air Pollution Control</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Industry__c</column>
+            <operator>equals</operator>
+            <value>Information and Communications Technology</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Industry__c.Sector__c</column>
+            <operator>equals</operator>
+            <value>Telecommunications</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Hannover Energy &amp; Mobilitec Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Industry__c@Industry__c.Organization__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Industry__c.Industry__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

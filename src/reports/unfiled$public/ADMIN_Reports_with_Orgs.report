@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Report$Id</field>
+    </columns>
+    <columns>
+        <field>Report$Name</field>
+    </columns>
+    <columns>
+        <field>Report$ReportTypeEnumOrId</field>
+    </columns>
+    <columns>
+        <field>Report$Owner</field>
+    </columns>
+    <columns>
+        <field>Report$LastModifiedBy</field>
+    </columns>
+    <columns>
+        <field>Report$LastModifiedDate</field>
+    </columns>
+    <columns>
+        <field>Report$LastRunDate</field>
+    </columns>
+    <description>All Reports with Report Type including Orgs/Accounts.</description>
+    <filter>
+        <criteriaItems>
+            <column>Report$ReportTypeEnumOrId</column>
+            <operator>contains</operator>
+            <value>Accounts with Clean Info,Accounts with Clean Info Custom,Accounts with WINs with Activties,Activities with Organizations,D&amp;B Company with and without Organizations,Organization History,Organization Owners,Organizations,Organizations w/ industries,Organizations with Assets,Organizations with Custom Object,&quot;Organizations with Industry, Sector and Sub-Sector&quot;,Organizations with or without Industries,Organizations with Partners,Organizations with Users,Organization with Organization Teams,Orgs for client assists org activities,Orgs for client assists org activities 18 ID,&quot;Win, Org, Win Contributors&quot;</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>ADMIN-Reports with Orgs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Report_Types_Usage__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Report$Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Report$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

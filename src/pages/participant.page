@@ -165,15 +165,19 @@
 </apex:outputtext>
 
 
+<apex:outputtext >
+    <div class="panel panel-default" id="dispute-resolution">
+        <div class="panel-heading"> <h2>Dispute Resolution</h2></div>
+            <div class="panel-body">  
+                <!-- c:MyOrdersComponent orderList="{!orders}" rendered="{!orders.size != 0}" / -->
+            </div>
+    </div>
+</apex:outputtext>
+
 
  <div class="panel panel-default" id="dispute-resolution" >
     <div class="panel-heading"> <h2>Dispute Resolution</h2></div>
-    <div class="panel-body">
-    
-
-
-
-                
+    <div class="panel-body">                
                   <div class="col-md-12">
                   <p class="text-muted uppercase">Questions or Complaints?</p>
                   <p style="color:#586874;font-size: 15px;font-weight:400;">If you have a question or complaint regarding the covered data, please contact {!participant.name} at:</p>

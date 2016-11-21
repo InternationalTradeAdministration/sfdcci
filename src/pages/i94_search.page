@@ -1,0 +1,66 @@
+<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+     
+    <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Export.gov/NTTO I94 Search</title>
+
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{!URLFor($Resource.i94, 'i94/MonthPicker.min.js')}"></script>
+    <script>
+      $(document).ready(function() {
+        Explorer.render('explorer-app');
+        $('input[type=month]').MonthPicker({ StartYear: 2016, ShowIcon: false });
+      });
+    </script>
+  <link href="{!URLFor($Resource.i94, 'i94/explorer.css')}" rel="stylesheet" />
+  <link href="{!URLFor($Resource.i94, 'i94/custom.css')}" rel="stylesheet" /></head>
+  <body>
+  <div class="subheader secondary-bg-ita">
+        <div class="container">
+            <div>
+                <nav id="subnav">
+                    <h4 id="sectionName">I-94 Arrivals Advanced Search</h4>
+                    <span class="boardbut">
+                        
+                        
+                    </span>
+                </nav>
+            </div>
+        </div>
+    </div>
+  <!--<div class="main" id="content">
+            
+                        <div style="background-image: url('https://images.unsplash.com/photo-1416862291207-4ca732144d83?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=0c5bbabf2655f9da5d8ce1cd51469fc6'); background-repeat:no-repeat; background-size: cover;background-position:center center;">
+                <div class="section clearfix secondary-bg-ita-img">
+                <div>
+                    <div class="row content">
+                         <div class="containerInternal enforceHeight" id="a17t00000004CszAAE">
+                                    <div class="col-md-12" id="a17t00000004CszAAE_a0zt00000004CSqAAM">  
+                                        <div class="">
+                                                 <h1 class="text-center">National Travel and Tourism Office (NTTO) <br/> I-94 Arrivals Data</h1>
+                                        <p class="text-center lead">Search for I-94 arrivals data and generate reports for each country or region in the results.</p>
+                                        </div>
+                                    </div> 
+                        
+                        </div>   
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div> --> 
+            <div class="row" style="padding-top:0;padding-bottom:0;">  
+            <br/>  
+            <a style="font-size:14px;" href="https://sod-trade.cs32.force.com/travel"><i class="fa fa-chevron-left" aria-hidden="true"></i> Travel home</a>
+            </div>
+    <div id="explorer-app"></div>
+  <script type="text/javascript" src="{!URLFor($Resource.i94, 'i94/bundle.js')}"></script></body>
+
+
+     </apex:define>
+ </apex:composition>
+</apex:page>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_CITY</field>
+    </columns>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>Account.ITA_Organization_and_Product_Description__c</field>
+    </columns>
+    <description>Report displaying all organizations in Texas that have an energy related industry participation code migrated from CTS into the Organization and Product Description field</description>
+    <filter>
+        <booleanFilter>(1 AND (2 OR 3 OR 4 OR 5 OR 6)) AND 7</booleanFilter>
+        <criteriaItems>
+            <column>ADDRESS1_STATE_CODE</column>
+            <operator>equals</operator>
+            <value>TX</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.ITA_Organization_and_Product_Description__c</column>
+            <operator>contains</operator>
+            <value>renewable</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.ITA_Organization_and_Product_Description__c</column>
+            <operator>contains</operator>
+            <value>oil/gas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.ITA_Organization_and_Product_Description__c</column>
+            <operator>contains</operator>
+            <value>coal</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.ITA_Organization_and_Product_Description__c</column>
+            <operator>contains</operator>
+            <value>nuclear</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.ITA_Organization_and_Product_Description__c</column>
+            <operator>contains</operator>
+            <value>electrical power</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>TX Energy orgs from CTS part codes</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>DUE_DATE</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

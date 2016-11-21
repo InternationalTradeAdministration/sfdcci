@@ -158,7 +158,7 @@ $.ajax({
     
     var cost = $('<span style="color: #7f919e;font-size: 15px;font-weight:400;"><strong>Cost: </strong>$</span>');
     cost.append(data.cost);
-    var zero = $('<span style="color: #7f919e;font-size: 15px;font-weight:400;">0</span>' + '<br/>');
+    var zero = $('<br/>');
     var industries = $('<p></p>');
     industries.append(data.industries);
     var trade_regions = $('<p>Trade Regions: </p>');

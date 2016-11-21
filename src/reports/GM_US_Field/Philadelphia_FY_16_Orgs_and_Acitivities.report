@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Activities$Subject</field>
+    </columns>
+    <columns>
+        <field>Account.Activities$Owner</field>
+    </columns>
+    <columns>
+        <field>Account$BillingCity</field>
+    </columns>
+    <columns>
+        <field>Account$BillingStateCode</field>
+    </columns>
+    <columns>
+        <field>Account$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Account$Actual_Create_Date__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Account$BillingStateCode</column>
+            <operator>contains</operator>
+            <value>PA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Activities$RH_Lev_6_Office__c</column>
+            <operator>equals</operator>
+            <value>GM-CS USA-Field-MidAtlantic-Philadelphia</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Activities$Related_to_Case__c</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Activities$Investment_Promotion__c</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$CreatedBy</column>
+            <operator>contains</operator>
+            <value>Kennia Somerville,Joseph Hanley,Antonio Ceballos,Tony Pu,Eric Newman,Erik Kokona,Iris Kapo,Theo Hunte,Alexandra Natale,Brooke	Gambone,Mary Korchak</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$CreatedBy</column>
+            <operator>equals</operator>
+            <value>Kennia Somerville,Joseph Hanley,Antonio Ceballos,Tony Pu,Eric Newman,Erik Kokona,Iris Kapo,Theo Hunte,Alexandra Natale,Brooke	 Gambone,Mary Korchak</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Activities$CreatedBy</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Philadelphia- FY 16 Orgs and Acitivities</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Orgs_for_client_assists_org_activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

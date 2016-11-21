@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Impact_of_Exporting__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>((((((1 AND 2 AND ((3 AND 4) OR (5 AND 6))))))) AND 7) AND 8</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$RH_Lev_1_GM_All__c</column>
+            <operator>equals</operator>
+            <value>GM All</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Line_Approval__c</column>
+            <operator>equals</operator>
+            <value>Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Actual_Create_Date__c</column>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2014 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Actual_Create_Date__c</column>
+            <operator>lessOrEqual</operator>
+            <value>9/30/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Line_Approval_Date__c</column>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2014 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Line_Approval_Date__c</column>
+            <operator>lessOrEqual</operator>
+            <value>9/30/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Request_WIN_Removal__c</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$WIN_Type__c</column>
+            <operator>equals</operator>
+            <value>Advocacy,Commercial Diplomacy</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>FY15 CD WINs Impact</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Contributors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

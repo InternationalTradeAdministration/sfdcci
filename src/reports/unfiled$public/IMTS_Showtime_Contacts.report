@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Email</field>
+    </columns>
+    <columns>
+        <field>Account$Owner</field>
+    </columns>
+    <columns>
+        <field>Account$Owner_Office__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Industry__c</column>
+            <operator>equals</operator>
+            <value>Chemicals,Equipment and Machinery,Industrial Materials,Information and Communications Technology</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Sector__c</column>
+            <operator>contains</operator>
+            <value>Ceramics,Chemical Production Machinery,Coatings and Adhesives,Composites,Fluiding Handling Equipment,Industrial Chemicals,Inorganic Chemicals,Machinery and Tools,Metals,Organic Chemicals,Packaging Equipment,Plastics,Polymers,Process Controls,Pulp and Paper,Robotics,Scientific Laboratory Equipment,Used and Reconditioned Equipment,3D Printing,Petrochemicals</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Sub_Sector__c</column>
+            <operator>contains</operator>
+            <value>Cutting Tools,Electric Motors,Fillers and Additives,Fluid Power Components,Hand Tools,Iron and Steel,Machine Tools,Nonferrous Metals,Nonroad Diesel Engines,Paint,Paper and Paperboard,Paper Product Machinery,Plastic,Plastics Materials and Resins,Plastics Production Machinery,Precious Metals,&quot;Pumps, Valves and Compressors&quot;,Rare Earth Metals,Rolling Mills,Rubber,Tooling Equipment and Supplies,Welding Equipment,Woodworking Machinery</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>Account$Id</primaryTableColumn>
+        <relatedTable>Industry__c</relatedTable>
+        <relatedTableJoinColumn>Organization__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>Contact list developed to support outreach to clients applicable to the IMTS event in Chicago.</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts$HasOptedOutOfEmail</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Email</column>
+            <operator>contains</operator>
+            <value>@</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Active__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$BillingStateCode</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>IMTS/Showtime Contacts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Contacts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <endDate>2016-07-11</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-06-01</startDate>
+    </timeFrameFilter>
+</Report>

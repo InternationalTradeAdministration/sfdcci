@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.WINs__r$WIN_Date__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.WINs__r$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.WINs__r.Related_Countries__r$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.WINs__r.Related_Countries__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Email</field>
+    </columns>
+    <columns>
+        <field>Contact$Account</field>
+    </columns>
+    <description>WINS to Trade Winds countries in past 2 years</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact.WINs__r.Related_Countries__r$Country__c</column>
+            <operator>contains</operator>
+            <value>Argentina,&quot;Bolivia, Plurinational State of&quot;,Chile,Mexico,Paraguay,Peru,Uruguay</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Trade Winds WINS</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_with_WINs_with_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact.WINs__r$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

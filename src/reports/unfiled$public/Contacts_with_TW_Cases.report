@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.Cases$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact$Email</field>
+    </columns>
+    <columns>
+        <field>Contact$Account.BillingStateCode</field>
+    </columns>
+    <columns>
+        <field>Contact$Account</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact.Cases$Subject</column>
+            <operator>equals</operator>
+            <value>Trade Winds Latin America 2016</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Contacts with TW Cases</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_with_Cases__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Contact$Account</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Contact$LastActivityDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

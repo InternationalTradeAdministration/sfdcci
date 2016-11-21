@@ -38,6 +38,26 @@ global class urlRewriter implements Site.UrlRewriter{
                 return pg;            
             }
             return new PageReference(urls[0].real__c);            
+        }else if(givenURL.countMatches('/') == 1){
+            system.debug('@@ GIVEN:  '+givenURL);
+            givenURL = givenURL.replaceAll('/', '');
+            if(givenURL.contains('?')){
+                system.debug('@@ CONTAINS QUERY');
+                String[] URLParts = givenURL.split('\\?');
+                system.debug('@@ PARTS:  '+URLParts);
+                givenURL = URLParts[0];
+
+            }
+            system.debug('@@ STRIPPED SLASH:  '+givenURL);
+
+            if(givenURL == ''){
+                givenURL = 'landing';
+            }
+
+            if(givenURL != 'login' && [select id, name from apexpage where name = :givenURL].size() == 0){
+                PageReference pg = Page.PageNotFound;
+                return pg;
+            }
         }
         system.debug('@@No friendly url found');
         return null;

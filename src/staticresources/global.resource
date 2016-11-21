@@ -3802,21 +3802,34 @@ margin: 0;}
 .itaLoginBtn, input[type="submit"] {
 font-size: 14px;
 color: #ffffff;
-background-color: #103f6f;
+background-color: #004e94;
+background: rgba(0, 78, 148, .8);
 background-image: none;
-border: 1px solid #103f6f;
-border-radius: 0px;
+border: 1px solid #004e94;
 display: inline-block;
 margin: 20px 0px 16px 0px;
-/*padding: 9px 45px 12px 45px; */
 height: 40px;
-width: 100%;
+width: 160px;
+  font-family: 'Lato', sans-serif;
+    padding: 10px 5px;
+    cursor: default;
+    text-transform: none;
+    height: 40px;
+    border-radius: 4px;
+    float:right;
 } 
 .itaLoginBtn:hover {
-background-color: #103f6f;
-border: 1px solid #103f6f;
+background-color: #004480;
+border: 1px solid #004480;
 color: #ffffff;
-text-decoration: underline;
+border-radius: 4px;
+font-family: 'Lato', sans-serif;
+text-decoration: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 /* ITA Registration Form */
@@ -3843,35 +3856,235 @@ list-style: none;
 .reglist li{margin-bottom: 10px} 
   }
 
+.alert {
+  padding: 15px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+  border-radius: 0px; 
+}
+
+#reglayout {
+padding:0;margin:0;margin-bottom: -70px;background:#004e94;
+}
+#leftside {
+  background:#004e94;
+}
+#rightside {
+  background:#fafafa;
+}
+.reglayout_zeropad {
+padding:0;
+}
+
+#main_wrapper {
+background:#fafafa;padding:0;
+}
+
+#sitename {
+text-transform:lowercase;
+}
+
+#captchadiv {
+margin-bottom: 35px;
+}
+
+#already_member {
+margin-top: 45px;
+}
+
+
+.stepbox {
+    border: 1px solid #e1e8ed;
+    margin-top: 35px;
+    margin-bottom: 75px;
+    border-radius: 4px;
+    background: #fff;
+    padding: 30px;
+}
+
+@media (max-width:767px) {
+.stepbox {
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 4px;
+    background: #fafafa;
+}
+}
+
+label {
+    color: #999999;
+    font-size: 13px;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+hr {
+    border-top: 1px solid #eee;
+}
+h2.itaFormHeaderblu {
+    color:#fff;text-transform:uppercase;font-weight:900;font-size: 2rem;
+}
+p.itaFormHeaderblu {
+font-size:15px;color: #fff;
+}
+ul.itaFormHeaderblu {
+font-size:15px;color: #fff;list-style: disc;line-height: 2.2;
+}
+
+.intro {
+  color:#fff;
+}
+/* UI Password Validation */
+#pswd_info {
+  width:225px;
+  padding:15px;
+  background:#fefefe;
+  font-size:.875em;
+  border-radius:5px;
+  box-shadow:0 1px 3px #ccc;
+  border:1px solid #ddd;
+}
+
+#pswd_info h5 {
+  margin:0 0 10px 0;
+  padding:0;
+  font-weight:normal;
+}
+
+#pswd_info ul {
+  padding-left:0px
+}
+
+/*#pswd_info::before {
+  content: "\25B2";
+  position:absolute;
+  top:-12px;
+  left:45%;
+  font-size:14px;
+  line-height:14px;
+  color:#ddd;
+  text-shadow:none;
+  display:block;
+}*/
+
+.invalid {
+  line-height:24px;
+  color:#6A6A6A; /* ec3f41 */
+}
+
+.valid {
+  /*background:url(images/valid.png) no-repeat 0 50%;*/
+  line-height:24px;
+  color:#3a7d34;  /* 1132EF*/
+}
+
+.valid:before {
+  content: "\f00c";
+  margin-right: 2px;
+  font-family: "FontAwesome";
+}
+
+#pswd_info {
+  display:none;
+}
+
+.pad-left-zero {
+padding-left:0px;
+}
+.pad-right-zero {
+padding-right:0px;
+}
+
+@media (max-width:767px) {
+.pad-left-zero {
+padding-right:0px;
+padding-left:0px;
+}
+.pad-right-zero {
+padding-right:0px;
+padding-left:0px;
+}
+.pad-both-zero {
+padding-right:0px;
+padding-left:0px;
+}
+}
+.formboxreg {
+    background:#fafafa;padding-left:50px;padding-right:50px;
+}
+
+@media (max-width:767px) {
+.formboxreg {
+    background:#fafafa;padding-left:0px;padding-right:0px;
+}
+}
+
+.blupromoside {
+    background: linear-gradient(to bottom,  #6694b2 1%,#004e94 100%);min-height:970px;padding-left:50px;padding-right:50px;
+}
+
+@media (max-width:992px) {
+.blupromoside {
+    min-height:1300px;padding-left:50px;padding-right:50px;
+}
+}
+@media (max-width:460px) {
+.blupromoside {
+    min-height:900px;padding-left:50px;padding-right:50px;
+}
+h2.itaFormHeader {
+    font-size: 28px;
+}
+h2.itaFormHeaderblu {
+    font-size: 22px;
+}
+}
+
+@media (max-width: 351px) {
+.blupromoside {
+    min-height:1000px;padding-left:50px;padding-right:50px;
+}
+}
+
+@media (max-width: 320px) {
+.blupromoside {
+    min-height:1075px;padding-left:50px;padding-right:50px;
+}
+}
+
 /* End of Registration */
 
 /* ITA forms General */
 h2.itaFormHeader{
-font-weight: bold;
-font-size: 28px;
-margin: 6px 0px 20px 0px;
-color: rgb(131, 131, 131);
+color: #3c4542;font-weight: 900;font-size: 3.4rem;text-transform:none;
 }
 .itaFormField{
 padding-left: 8px;
 width: 100%;
-height: 40px;
-margin: 5px 0px;
-border: 1px solid #ccc;
+height: 50px;
+font-size:16px;
+padding: 12px 15px;
+margin: 15px 0;
+margin-top:0px;
+box-sizing: border-box;
+border:1px solid #c3daef!important;
 border-radius: 4px;
 }
 .itaFormChkBox, input[type="checkbox"] {
 margin: 10px 0px 10px 20px;
 }
 .itaFormLabel{
-font-family: SFS, Arial, sans-serif;
 float: left;
-font-weight: none;
 font-size: 12px;
 margin: 6px 0px 0px 0px;
-/* color: rgb(131, 131, 131); */
-color: #54698d;
 line-height: inherit;
+  font-family: 'Lato', sans-serif;
+    color: #999;
+    font-weight: bold;
+    font-weight: 700;
 }
 .itaFormLabel2{
   /* this style is for cases */ 
@@ -3887,9 +4100,11 @@ padding: 15px 20px;
 border-radius: 3px;
 }
 .itaCaseBox{
-border-radius: 6px;
-border: 1px solid lightgray;
-}
+    border-color:#fafafa;
+    background:#fafafa;
+    border-width: 3px;
+    border-radius: 3px;
+  }
 .itaCaseRight{
   float: right;
   margin: 6px 0px 0px 0px;
@@ -3913,10 +4128,7 @@ margin: 0px 0px 0px 0px;}
 /* iphone fixes */
 @media (max-width: 1100px) {
   h2.itaFormHeader{
-font-weight: bold;
-font-size: 22px;
-margin: 6px 0px 20px 0px;
-color: rgb(131, 131, 131);
+color: #3c4542;font-weight: 900;font-size: 22px;text-transform:none;
 }
   .regListIconSearch{
     margin: 15px -10px 5px -40px;
@@ -3938,8 +4150,8 @@ color: rgb(131, 131, 131);
 }
 @media (max-width:960px) {
   .itaFormBox{
-  padding: 30px 0px 60px 0px;
-  margin-bottom: 40px;}
+    margin-bottom:0px;
+    width:100%;}
 .regListBoarder{border:none;}
 .regtext{padding-right: 0px;}
 }

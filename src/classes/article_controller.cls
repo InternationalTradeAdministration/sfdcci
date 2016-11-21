@@ -110,15 +110,23 @@ public class article_controller {
         return null;
     }
 
-    public boolean getHideLastPulbished(){
-        system.debug('Host:  '+System.URL.getSalesforceBaseUrl().getHost());
-        return [select Hide_Last_Published_Date__c from site__c where 
-                                domain__c = :System.URL.getSalesforceBaseUrl().getHost()
-                                or UseAsDefault__c = true 
-                            order by UseAsDefault__c asc limit 1].Hide_Last_Published_Date__c;
+    public boolean HideLastPulbished {get; set;}
+
+    public class ArticleTag{
+        public string Text {get; set;}
+        public string Endpoint {get; set;}
+        public string App {get; set;}
     }
+    
+    public List<ArticleTag> ArticleTags {get; set;}
 
     public article_controller(){
+        Site__c site = [select Hide_Last_Published_Date__c, name, domain__c from site__c where 
+                                domain__c = :System.URL.getSalesforceBaseUrl().getHost()
+                                or UseAsDefault__c = true 
+                            order by UseAsDefault__c asc limit 1];
+        this.HideLastPulbished = site.Hide_Last_Published_Date__c;
+        this.ArticleTags = new List<ArticleTag>();
         system.debug(ApexPages.currentPage().getParameters().get('series'));
         if(ApexPages.currentPage().getParameters().get('series') != null && ApexPages.currentPage().getParameters().get('type') != null){
             //if the 'series' is set, get the ID of any article in the series to build the navigation.  
@@ -256,7 +264,7 @@ public class article_controller {
                 }            
                 
                 string query = 'select id, knowledgearticleid, articlenumber, title,createddate, Mobile_Title__c, atom__c, IsVisibleInPkb, IsVisibleInCsp, references__c, series__r.name, level_3__c, level_2__c, level_1__c, level_0__c, summary, lastpublisheddate, (SELECT Id, DataCategoryName, DataCategoryGroupName FROM DataCategorySelections) from '+this.articleType+' where urlname = \''+art+'\' and publishStatus = \'Online\' and language=\'en_US\' order by level_0__c asc nulls last limit 1';
-                
+                string KAV = this.articleType;
                 sObject[] articles = database.query(query);
                 if(articles.size() == 1){
                     this.tags = new String[]{};
@@ -272,19 +280,35 @@ public class article_controller {
                         this.endpoint = '/search#/search/articles?q=';
                         this.type = 'ccgs';
                     }
-
+                KnowledgeSearch__c[] KM = [select id, endpoint__c, type__c, app__c, KAV_or_Category__c from KnowledgeSearch__c where site__c = :site.domain__c];
                 for(sObject selection : selections){
                     string tag = (string) selection.get('DataCategoryName');
                     string type = this.type;
                     tag = tag.replaceAll('_', ' ');
                     system.debug(tag);
                     this.tags.add(tag);
+                    ArticleTag at = new ArticleTag();
+                        at.Text = tag;
+                        at.Endpoint = (string) selection.get('DataCategoryGroupName');
+                        at.app = KAV;
+                    for(KnowledgeSearch__c ks : KM){
+                        if(ks.KAV_or_Category__c == KAV){
+                            at.Endpoint = ks.endpoint__c;
+                            at.app = ks.App__c;
+                        }
+                        if(ks.KAV_or_Category__c == (string) selection.get('DataCategoryGroupName')){
+                            at.Endpoint = ks.type__c+ks.endpoint__c;
+                            at.app = ks.app__c;
+                        }
+                    }
                     if(KnowledgeSearch__c.getAll().get((string) selection.get('DataCategoryGroupName')) != null){
                         this.tagCategory.put(tag, KnowledgeSearch__c.getAll().get((string) selection.get('DataCategoryGroupName')).endpoint__c);
                         this.tagCategory.put(type, KnowledgeSearch__c.getAll().get((string) selection.get('DataCategoryGroupName')).type__c);                        
                     }else{
                         this.tagCategory.put(tag, this.endpoint);
                     }
+
+                    this.ArticleTags.add(at);
                 }
     
                     string kmId = (string) articles[0].get('knowledgearticleid');                

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Calendar_Year_of_Results__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Related_Countries__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Organization__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Industry_Rollup__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$WIN_Type__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Owner</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Owner_Office__c</field>
+    </columns>
+    <description>WINs for Costa Rica, Honduras, El Salvador, Belize, Nicaragua, and Panama</description>
+    <filter>
+        <booleanFilter>(((1 OR 2) OR 3) OR 4) OR 5</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c.Related_Countries__r$Country__c</column>
+            <operator>equals</operator>
+            <value>Costa Rica</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Related_Countries__r$Country__c</column>
+            <operator>equals</operator>
+            <value>Honduras</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Related_Countries__r$Country__c</column>
+            <operator>equals</operator>
+            <value>Belize</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Related_Countries__r$Country__c</column>
+            <operator>equals</operator>
+            <value>Nicaragua</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Related_Countries__r$Country__c</column>
+            <operator>equals</operator>
+            <value>Panama</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Central America WINs FY15/16</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$First_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

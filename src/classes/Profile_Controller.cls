@@ -37,7 +37,10 @@ public without sharing class Profile_Controller {
 
     public string SelfVerified{get; set;}
 
+    public boolean HasEditAccess {get; set;}
+
     public Profile_Controller() {
+        this.HasEditAccess = false;
         hasNonHr = false;
         hasHr = false;
         this.frameworks = new framework[]{};
@@ -54,15 +57,19 @@ public without sharing class Profile_Controller {
         Id verifierId = null;
             this.participant = [SELECT
                                 Id, Name, street__c, city__c, state__c, postal_code__c, phone__c, fax__c, website__c, organization__c,
-                                (SELECT id, status__c, inactive_status_reason__r.description__c, framework__r.name FROM Participations__r order by lastmodifieddate ASC),
+                                (SELECT id, status__c, framework__r.name FROM Participations__r order by lastmodifieddate ASC),
                                 (SELECT id, first_name__c, last_name__c, email__c, fax__c, phone__c, contact_office__c, title__c FROM participant_contacts__r WHERE role__c = 'Organization Contact' order by lastmodifieddate DESC LIMIT 1) primary_contact,
                                 (SELECT id, name FROM covered_entities__r order by name ASC),
                                 (SELECT id, industry__c, sector__c, sub_sector__c FROM industries__r order by industry__c ASC, sector__c ASC, sub_sector__c ASC)
                                 FROM Participation__c WHERE id = :participantId LIMIT 1
                               ];
+            UserRecordAccess[] access = [SELECT RecordId, HasEditAccess FROM UserRecordAccess WHERE UserId = :UserInfo.getUserId() AND RecordId = :this.participant.id];
+            if(access.size() != 0){
+                this.HasEditAccess = true;
+            }
             for(Participant__c p : [SELECT
-                                    id, status__c, Claiming_Self_Verified__c, program__c, inactive_status_reason__c, framework__r.name, framework__r.product__c, application_stage__c, affirmation__r.product2id, purpose__c, hr_data__c, non_hr_data__c,
-                                        (SELECT Start_Date__c, End_Date__c, Inactive_Status_Reason__r.Description__c FROM Inactive_Periods__r order by end_date__c DESC nulls first),
+                                    id, status__c, Claiming_Self_Verified__c, program__c, framework__r.name, framework__r.product__c, application_stage__c, affirmation__r.product2id, purpose__c, hr_data__c, non_hr_data__c,
+                                        (SELECT Start_Date__c, End_Date__c FROM Inactive_Periods__r order by end_date__c DESC nulls first),
                                         (SELECT id, recordtype.name, recordtype.DeveloperName, Third_Party_Master_List__c, 
                                                 NonHR_Data__c, HR_Data__c, 
                                                 Third_Party_Master_List__r.website__c, Third_Party_Master_List__r.name 
@@ -132,6 +139,9 @@ public without sharing class Profile_Controller {
             this.verifier = [SELECT id, name, website__c FROM Third_Party_Master_List__c WHERE id = :verifierId LIMIT 1];
         }
     }
+    
+    public list<order> OrderList {get; set;}
+    
     //TODO Remove the references to standard controller and update TEST_ECOMM
     public Profile_Controller(ApexPages.StandardController controller) {
         hasNonHr = false;
@@ -156,6 +166,14 @@ public without sharing class Profile_Controller {
                                 (SELECT id, industry__c, sector__c, sub_sector__c FROM industries__r order by industry__c ASC, sector__c ASC, sub_sector__c ASC)
                                 FROM Participation__c WHERE id = :this.participant.Id LIMIT 1
                               ];
+                              
+            this.OrderList = [select 
+                            id, ordernumber, TotalAmount, order.status, effectivedate, participation__c, accountid,
+                            (select id, Pricebookentry.Product2.Name from orderitems),
+                            (select Transaction_Date__c, Pay_Gov_Tracking_Id__c, Transaction_Amount__c, Transaction_Status__c, Total_Refunds__c 
+                             FROM Payments__r)
+                             from order where participant__c = :this.participant.id];
+                             
             for(Participant__c p : [SELECT
                                     id, status__c, program__c, inactive_status_reason__c, framework__r.name, framework__r.product__c, application_stage__c, affirmation__r.product2id, purpose__c, hr_data__c, non_hr_data__c,
                                         (SELECT Start_Date__c, End_Date__c, Inactive_Status_Reason__r.Description__c FROM Inactive_Periods__r order by end_date__c DESC nulls first),

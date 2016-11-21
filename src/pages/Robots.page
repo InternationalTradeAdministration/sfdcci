@@ -2,8 +2,7 @@
 Sitemap: https://{!domain}/sitemap
 
 User-agent: * 
-Disallow: /
-Allow: /sitemap
+Allow: /
 
 User-agent: PowerMapper Allow: /
 </apex:page>

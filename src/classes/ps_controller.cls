@@ -113,9 +113,35 @@ public without sharing class ps_controller {
     public Boolean getDoesPrivacyPolicyExist(){    //Check if the user has uploaded a privacy document. DK 8/22/16.
         artifactList = getArtifacts();  //requery
         Boolean boolResult = false;
-        if (artifactList != null && !artifactList.isEmpty()){
+        boolean hasHRArtifact = false;
+        boolean hasNonHRArtifact = false;
+        //if (artifactList != null && !artifactList.isEmpty()){
+        for(artifact__c art : artifactList){
+            if(this.participation.hr_data__c){
+                if(art.type__c == 'HR' || art.type__c == 'HR and Non-HR'){
+                    hasHRArtifact = true;
+                }
+            }
+            if(this.participation.non_hr_data__c){
+                if(art.type__c == 'Non-HR' || art.type__c == 'HR and Non-HR'){
+                    hasNonHRArtifact = true;
+                }            
+            }
+//  removed check to ensure at least 1 was uploaded.            boolResult = true;
+        }
+        //HR, but Not NonHR
+        if(this.participation.HR_Data__c && !this.participation.Non_HR_Data__c && hasHRArtifact){ 
             boolResult = true;
         }
+        //Not HR, but NonHR
+        if(!this.participation.HR_Data__c && this.participation.Non_HR_Data__c && hasNonHRArtifact){ 
+            boolResult = true;
+        }
+        //HR AND NonHR
+        if(this.participation.HR_Data__c && this.participation.Non_HR_Data__c && hasHRArtifact && hasNonHRArtifact){ 
+            boolResult = true;
+        }
+        //FINAL SCENARIO OF NOT NONHR AND NOT HR SHOULD NEVER HAPPEN PRIOR TO THIS STEP
         return boolResult;
     }
 
@@ -140,6 +166,7 @@ public without sharing class ps_controller {
     }
 
     public pageReference saveContact(){
+        system.debug('SaveContact');
         system.debug(this.contact);
         if(this.contact.role__c == 'Organization Corporate Officer'){
             system.debug('Corporate Officer Logic');
@@ -353,6 +380,10 @@ public without sharing class ps_controller {
     public PageReference start() {
         showErrors = !SafeDMLHandler.safeUpsert(this.participant, true);
 
+        if(this.contacts == null){
+            this.contacts = new List<Participant_Contact__c>();
+        }
+
         if(this.contacts.size() != 0){
             for(Participant_Contact__c c : this.contacts){
                 if(c.Contact__c == this.u.contactid){
@@ -382,9 +413,7 @@ public without sharing class ps_controller {
             this.contact.Participant__c = this.participant.id;
             this.contact.Role__c = 'Organization Contact';
             this.contact.Contact__c = this.u.ContactId;
-            //showErrors = !SafeDMLHandler.safeInsert(this.contact, true);
-            //this.contacts.add(contact);
-
+            showErrors = !SafeDMLHandler.safeInsert(this.contact, true);
         }
         
         this.participation = new Participant__c();
@@ -415,6 +444,7 @@ public without sharing class ps_controller {
             ExceptionHandler.addErrorMessageToPage('Unable to find the requested framework.');
             showErrors = true;
         }
+        system.debug('CONTACT:  '+this.contact);
         return null;
     }
 
@@ -539,7 +569,10 @@ public PageReference RedirectToErrorPage(){
     return null;
 }
 
+public order[] orders {get; set;}
+
 public ps_controller(){
+    this.orders = new order[]{};
     this.showErrors = false;  
     if(ApexPages.CurrentPage().getParameters().get('framework') == null){
         ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, 'Please contact the Site Administrator'));
@@ -556,7 +589,13 @@ public ps_controller(){
         this.RedirectToErrorPage();
         if(this.account.Participations__r.size() != 0){
             this.participant = this.account.participations__r[0];
-        }else{
+            this.orders = [select 
+                            id, ordernumber, TotalAmount, order.status, effectivedate, participation__c, accountid, createddate,
+                            (select id, Pricebookentry.Product2.Name from orderitems),
+                            (select Transaction_Date__c, Pay_Gov_Tracking_Id__c, Transaction_Amount__c, Transaction_Status__c, Total_Refunds__c 
+                             FROM Payments__r)
+                             from order where order_paid__c = true and participant__c = :this.participant.id];
+        }else{ 
             this.participant = new Participation__c();
             this.participant.organization__c = this.account.id;
             this.participant.name = this.account.name;

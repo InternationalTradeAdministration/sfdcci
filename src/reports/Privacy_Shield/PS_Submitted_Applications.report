@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Participation__c.Organization__c</field>
+    </columns>
+    <columns>
+        <field>Participation__c.Level_of_Sales__c</field>
+    </columns>
+    <columns>
+        <field>FK_ORDER_ACTIVATED_DATE</field>
+    </columns>
+    <columns>
+        <field>Participant__c.Non_HR_Data__c</field>
+    </columns>
+    <columns>
+        <field>Participant__c.HR_Data__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>FK_$Account.Organization_One__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>1 AND (2 OR (3 AND 4))</booleanFilter>
+        <criteriaItems>
+            <column>Participant__c.Framework__c</column>
+            <operator>equals</operator>
+            <value>EU-U.S. Privacy Shield Framework</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participant__c.Status__c</column>
+            <operator>equals</operator>
+            <value>Active</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participant__c.Status__c</column>
+            <operator>equals</operator>
+            <value>Pending</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participant__c.Application_Stage__c</column>
+            <operator>equals</operator>
+            <value>Pending Review</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Participant__c.Status__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Participant__c.Application_Stage__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>PS Submitted Applications</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Participation__c$Participant__c@Participant__c.Order__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <sortColumn>CUST_NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

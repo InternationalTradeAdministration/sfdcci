@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Page_Content__c$Name</field>
+    </columns>
+    <columns>
+        <field>Page_Content__c$Id</field>
+    </columns>
+    <columns>
+        <field>Page_Content__c$Button_Text__c</field>
+    </columns>
+    <columns>
+        <field>Page_Content__c$Display_Title__c</field>
+    </columns>
+    <columns>
+        <field>Page_Content__c$Button_URL__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Page_Content__c$Button_URL__c</column>
+            <operator>contains</operator>
+            <value>article2</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Elements with article2 in Custom URL</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Elements__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Page_Content__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

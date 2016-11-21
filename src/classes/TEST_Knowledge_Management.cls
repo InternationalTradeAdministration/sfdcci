@@ -27,6 +27,15 @@ public class TEST_Knowledge_Management{
             page.getParameters().put('id', 'this-is-my-kav');
         Test.setCurrentPage(page);
         KnowledgeSearch__c ks = new KnowledgeSearch__c(name='abc', type__c = 'Country Commercial', endpoint__c = 'http://google.com');
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
+        
         article_controller controller = new article_controller();
         system.assertNotEquals(controller.atom, null); //make sure that the atom is not empty
         system.assertEquals(controller.atom, 'This is my KAV Atom'); //make sure that the atom matches what was specified in this test
@@ -34,6 +43,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase2(){
+            Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         //A link is somehow clicked to an article that is not published or is no longer available.
         //the data returned should be a generic error message.
         Series__c pub = new Series__c();
@@ -61,6 +78,14 @@ public class TEST_Knowledge_Management{
     }
     
     public static TestMethod void testCase3(){
+            Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Publication_Template__c pt = new Publication_Template__c();
             pt.name = 'Country_Commercial__kav';
             pt.Series_Template_Name__c = 'Country Commercial';
@@ -123,6 +148,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase4(){
+            Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Publication_Template__c pt = new Publication_Template__c();
             pt.name = 'Country_Commercial__kav';
             pt.Series_Template_Name__c = 'Country Commercial';
@@ -173,6 +206,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase5(){
+            Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -206,6 +247,14 @@ public class TEST_Knowledge_Management{
     }
     
     public static TestMethod void testCase6(){
+            Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -241,6 +290,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase7(){
+            Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -278,6 +335,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase8(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -316,6 +381,14 @@ public class TEST_Knowledge_Management{
         //A link is clicked that navigates the user's browser to /km_atom.
         //This test passes when the following 4 variables are returned to the page from the Knowledge Article Type for the 'id' provided:
         //    Title, Last Published Date, Atom, and Summary
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -344,6 +417,14 @@ public class TEST_Knowledge_Management{
     public static TestMethod void testCase10(){
         //A link is somehow clicked to an article that is not published or is no longer available.
         //the data returned should be a generic error message.
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -367,6 +448,14 @@ public class TEST_Knowledge_Management{
     }
     
     public static TestMethod void testCase11(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Publication_Template__c pt = new Publication_Template__c();
             pt.name = 'Country_Commercial__kav';
             pt.Series_Template_Name__c = 'Country Commercial Guide';
@@ -428,6 +517,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase12(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Publication_Template__c pt = new Publication_Template__c();
             pt.name = 'Country_Commercial__kav';
             pt.Series_Template_Name__c = 'Country Commercial Guide';
@@ -477,6 +574,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase13(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -509,6 +614,14 @@ public class TEST_Knowledge_Management{
     }
     
     public static TestMethod void testCase14(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -543,6 +656,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase15(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -579,6 +700,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase16(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
         pub.type__c = 'Country Commercial';
@@ -613,6 +742,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase17(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         //testing series list controller
         Series__c pub = new Series__c();
         pub.name = 'Blammo Country Commercial Guide';
@@ -659,6 +796,14 @@ public class TEST_Knowledge_Management{
         system.assertEquals(controller.getTypes().size(), 2);
     }
     public static TestMethod void testCase18(){
+            Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Publication_Template__c pt = new Publication_Template__c();
             pt.name = 'Country_Commercial__kav';
             pt.Series_Template_Name__c = 'Country Commercial';
@@ -749,6 +894,14 @@ public class TEST_Knowledge_Management{
     }
 
     public static TestMethod void testCase19(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Publication_Template__c pt = new Publication_Template__c();
             pt.name = 'Country_Commercial__kav';
             pt.Series_Template_Name__c = 'Country Commercial';
@@ -829,6 +982,14 @@ public class TEST_Knowledge_Management{
     }
     
     public static TestMethod void testCase20(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Publication_Template__c pt = new Publication_Template__c();
             pt.name = 'Country_Commercial__kav';
             pt.Series_Template_Name__c = 'Country Commercial';
@@ -916,6 +1077,14 @@ public class TEST_Knowledge_Management{
     }
     
     public static TestMethod void testCase21(){
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
         Publication_Template__c pt = new Publication_Template__c();
             pt.name = 'Country_Commercial__kav';
             pt.Series_Template_Name__c = 'Country Commercial';

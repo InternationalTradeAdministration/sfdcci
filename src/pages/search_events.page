@@ -1,0 +1,31 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+
+    <head>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #explorer-app {
+        height: 100%;
+      }
+      .itaLoginBtn, input[type="submit"] {
+          width: 20%;
+      }
+    </style>
+  <link href="{!URLFor($Resource.eventssearch, 'eventssearch/explorer.css')}" rel="stylesheet" /></head>
+  <body>
+    <div id="explorer-app"></div>
+   <script type="text/javascript" src="{!URLFor($Resource.eventssearch, 'eventssearch/bundle.js')}"></script></body>
+  <script charset="utf-8">
+    Explorer.render('explorer-app');
+  </script>
+
+  
+  
+    </apex:define>
+</apex:composition>
+</apex:page>

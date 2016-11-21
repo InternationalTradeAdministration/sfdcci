@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <aggregates>
+        <calculatedFormula>FK_Account.Organization_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Organization Count</masterLabel>
+        <reportType>CustomEntity$Participation__c@Participation__c.Organization__c</reportType>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>FK_Account.Organization_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Org Count</masterLabel>
+        <reportType>CustomEntityCustomEntity$Participation__c$Participant__c@Participant__c.Order__c</reportType>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>(B1#FK_Account.Organization_One__c:SUM) - (B0#FK_Account.Organization_One__c:SUM)</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>true</isCrossBlock>
+        <masterLabel>In Process Only</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <block>
+        <blockInfo>
+            <aggregateReferences>
+                <aggregate>FORMULA1</aggregate>
+            </aggregateReferences>
+            <blockId>B1</blockId>
+            <joinTable>x</joinTable>
+        </blockInfo>
+        <columns>
+            <field>FK_NAME</field>
+        </columns>
+        <columns>
+            <field>FK_$Account.Organization_One__c</field>
+        </columns>
+        <format>Summary</format>
+        <name>Participants with Organization block 1</name>
+        <params>
+            <name>co</name>
+            <value>0</value>
+        </params>
+        <reportType>CustomEntity$Participation__c@Participation__c.Organization__c</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>CUST_CREATED_DATE</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <block>
+        <blockInfo>
+            <aggregateReferences>
+                <aggregate>FORMULA2</aggregate>
+            </aggregateReferences>
+            <aggregateReferences>
+                <aggregate>FORMULA3</aggregate>
+            </aggregateReferences>
+            <blockId>B0</blockId>
+            <joinTable>x</joinTable>
+        </blockInfo>
+        <columns>
+            <field>CHILD_NAME</field>
+        </columns>
+        <filter>
+            <booleanFilter>1 AND (2 OR (3 AND 4))</booleanFilter>
+            <criteriaItems>
+                <column>Participant__c.Framework__c</column>
+                <operator>equals</operator>
+                <value>EU-U.S. Privacy Shield Framework</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Participant__c.Status__c</column>
+                <operator>equals</operator>
+                <value>Active</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Participant__c.Status__c</column>
+                <operator>equals</operator>
+                <value>Pending</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Participant__c.Application_Stage__c</column>
+                <operator>equals</operator>
+                <value>Pending Review</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Participants with Participation block 2</name>
+        <params>
+            <name>co</name>
+            <value>0</value>
+        </params>
+        <reportType>CustomEntityCustomEntity$Participation__c$Participant__c@Participant__c.Order__c</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>CUST_CREATED_DATE</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>x</joinTable>
+    </blockInfo>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>B0#FORMULA3</column>
+        </chartSummaries>
+        <chartType>Donut</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>false</expandOthers>
+        <groupingColumn>Participation__c.Level_of_Sales__c</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>true</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CUST_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Participation__c.Level_of_Sales__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Joined Report test 1</name>
+    <reportType>CustomEntity$Participation__c@Participation__c.Organization__c</reportType>
+    <showDetails>false</showDetails>
+</Report>

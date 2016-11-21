@@ -18,6 +18,7 @@ public class Test_PaymentController {
         PaymentSettings__c ps6 = new PaymentSettings__c(Value__c='ES', name ='EVENTS_SERVICES_APP');
         PaymentSettings__c ps7 = new PaymentSettings__c(Value__c='967', name ='AGENCY_ID');
         PaymentSettings__c ps8 = new PaymentSettings__c(value__c='https://qa.tcs.pay.gov:443/tcssinglequery/services/TCSSingleQueryService',name='PAY_GOV_TCS_QUERY_ENDPOINT');
+        PaymentSettings__c ps9 = new PaymentSettings__c(value__c='PS APP NAME', name ='PRIVACY_SHIELD_APP_NAME');
         psTypes.add(ps);
         psTypes.add(ps2);
         psTypes.add(ps3);
@@ -26,6 +27,7 @@ public class Test_PaymentController {
         psTypes.add(ps6);
         psTypes.add(ps7);
         psTypes.add(ps8);
+        psTypes.add(ps9);
         insert psTypes;
         
         PRIVACY_SHIELD_APP_ID = PaymentSettings__c.getAll().get('PRIVACY_SHIELD_APP_ID').value__c; 
@@ -204,6 +206,35 @@ public class Test_PaymentController {
             PaymentConfirmationController myComfirmation = new PaymentConfirmationController();
             system.assertEquals(ApexPages.currentPage().getParameters().get('opp'), null);
             myComfirmation.doRedirect();
+         Test.stopTest();
+    }
+    
+    static testMethod void testClass10(){
+        Payment__c paymentObject = new Payment__c();
+        insert paymentObject ;
+        Payment payment = new Payment();
+        Account myAccountTest = new Account(name = 'Testing');
+        insert myAccountTest;
+        Order myOpportunityTest = new Order(accountid = myAccountTest.id, effectivedate = Date.today(), status = 'Draft');
+        insert myOpportunityTest;
+        
+        String AgencyID = [SELECT Name FROM Payment__c WHERE id = :paymentObject.Id limit 1].name;
+        Test.startTest();        
+            PageReference confirm = Page.PaymentConfirmation;
+            Test.setCurrentPage(confirm);
+            ApexPages.currentPage().getParameters().put('id', AgencyID);
+            ApexPages.currentPage().getParameters().put('token', 'token');
+            ApexPages.currentPage().getParameters().put('app', 'ES');
+            
+            PaymentConfirmationController controller = new PaymentConfirmationController();
+            controller.token = 'token';
+            controller.agencyTrackingId = 'agencyTrackingId';
+            controller.application = 'application';
+            controller.paymentError = false;
+            controller.paymentObject = paymentObject;
+            controller.payment = payment;
+            system.assertEquals(ApexPages.currentPage().getParameters().get('opp'), null);
+            controller.doRedirect();
          Test.stopTest();
     }
     

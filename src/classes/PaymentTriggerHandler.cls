@@ -32,6 +32,9 @@ Public without sharing Class PaymentTriggerHandler {
                 c.accountid = payment.order__r.participant__r.organization__c;
                 c.participation__c = payment.order__r.participation__c;
                 c.description = 'Thank you for contacting the Privacy Shield team at the U.S. Department of Commerce’s International Trade Administration (ITA).  We will work diligently to review and respond to your submission in a timely manner.  Please note that the processing time will depend on the nature and completeness of the submission, as well as the volume of submissions received.';
+            Database.DMLOptions dmo = new Database.DMLOptions();        
+                    dmo.assignmentRuleHeader.useDefaultRule = true;     
+                c.setOptions(dmo);
                 system.debug(c);
                 caseList.add(c);
             }

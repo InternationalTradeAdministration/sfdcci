@@ -14,6 +14,23 @@ public class participant_search_controller {
         }
         return output;
     }
+    
+    private string ActiveParticipantsQuery {get; set;}
+    private string ActiveParticipantAccountsQuery {get; set;}
+    
+    public Integer getTotalOrgCount() {
+        system.debug(this.ActiveParticipantsQuery );
+        participant__c[] ActiveParticipants =  database.Query(this.ActiveParticipantsQuery );
+        
+        //Get the list of accounts that contain an asset matching the program provided
+        if (this.ActiveParticipantAccountsQuery != null) {  //This query will be null if no framework or program is selected
+            system.debug(this.ActiveParticipantAccountsQuery);
+            Account[] ActiveParticipantAccounts = database.Query(this.ActiveParticipantAccountsQuery );
+            return ActiveParticipantAccounts.size();
+        } else {
+            return ActiveParticipants.size();
+        }
+    }
 
     public String serviceProvider {get; set;}    
     public map<string, string> serviceProviderMap {get;set;}
@@ -73,6 +90,9 @@ public class participant_search_controller {
     }
 
     public void search() {
+        this.ActiveParticipantsQuery = 'SELECT id, participant__r.organization__c FROM Participant__c WHERE Status__c =\'Active\'';
+        this.ActiveParticipantAccountsQuery = null;
+    
         if(ApexPages.currentPage().getParameters().get('offsetChange') != null){
             this.offset += Integer.valueOf(ApexPages.currentPage().getParameters().get('offsetChange'));
         }
@@ -83,6 +103,8 @@ public class participant_search_controller {
         string query = 'select id, name, participant__c, framework__r.name, HR_Data__c, Non_HR_Data__c, participant__r.Public_Display_Name__c, participant__r.Organization__c, participant__r.city__c, participant__r.state__c, participant__r.name, (select id, type__c from artifacts__r), (select id, third_party_master_list__c from third_parties__r where third_party_master_list__r.type__c = \'Dispute Resolution Provider\') from participant__c where framework__r.isActive__c = true and status__c=\''+this.status+'\'';
         if(this.selectedProgram != null && this.selectedProgram != ''){
             query += 'and framework__c = \''+this.selectedProgram+'\'';
+            this.ActiveParticipantsQuery += ' and framework__c = \''+this.selectedProgram+'\'';
+            //this.ActiveParticipantAccountsQuery = 'select accountid from asset where name = \''+this.selectedProgram+'\'';
         }        
         if(this.startsWith != null){
             query += ' and participant__r.name like \''+this.startsWith+'\'';
@@ -93,6 +115,8 @@ public class participant_search_controller {
         
         if(ApexPages.currentPage().getParameters().get('program') != null){
             query += ' and framework__r.program__r.name = \''+ApexPages.currentPage().getParameters().get('program')+'\'';
+            this.ActiveParticipantsQuery += ' and framework__r.program__r.name = \''+ApexPages.currentPage().getParameters().get('program');
+            this.ActiveParticipantAccountsQuery = 'select account from asset where program__r.name == \''+ApexPages.currentPage().getParameters().get('program')+'\'';
         }
         query += ' order by participant__r.name asc limit '+this.getLimit()+' offset '+this.offset;
         this.searchResults = new map<id, participating>();
@@ -125,8 +149,8 @@ public class participant_search_controller {
                         part.coveredDataTypes.add('HR');
                     }
                     if(p.Non_HR_Data__c) {
-                        part.coveredData.add('Non HR');
-                        part.coveredDataTypes.add('Non HR');
+                        part.coveredData.add('Non-HR');
+                        part.coveredDataTypes.add('Non-HR');
                     }
                     part.coveredEntities = new string[]{};
                     part.resolutionProviders = new set<string>();

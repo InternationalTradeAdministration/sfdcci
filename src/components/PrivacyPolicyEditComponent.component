@@ -197,6 +197,7 @@
                                     
                                     console.debug(recordID);
                                     if(attachFile) { 
+                                        console.log('AttachFile acceptable.');
                                         var reader = new FileReader();
 
                                         if(attachFile.size > 26214400){  //Where 26214400 is byte equivalent of 25MB
@@ -204,6 +205,7 @@
                                         }
 
                                         reader.onload = function(e) {
+                                        console.log('Uploading...');
                                             var attachment = new sforce.SObject('Attachment');  
                                             attachment.Name = attachFile.name ? attachFile.name : '';
                                             attachment.ContentType = attachFile.type ? attachFile.type : '';
@@ -211,6 +213,7 @@
                                             attachment.Description = attachFile.name ? attachFile.name : '';
                                             attachment.ParentId = recordID ? recordID : '';
                                             var result = sforce.connection.create([attachment]);
+
                                             if(result[0].getBoolean("success")){
                                                 clearProcessing();
                                                 cancel();//close and rerender
@@ -219,8 +222,12 @@
                                                 //TODO handle messaging
                                             }
                                         };
-                                        reader.readAsBinaryString(attachFile);
+                                        reader.readAsDataURL(attachFile);
+                                        
+                                        console.log(reader);
+                                        //reader.readAsBinaryString(attachFile);
                                     } else {
+                                        console.log('AttachFile not acceptable.');
                                         clearProcessing(); //remove processing div
                                         cancel();//close and rerender
                                     }

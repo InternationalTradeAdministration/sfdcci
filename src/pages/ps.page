@@ -25,13 +25,12 @@
 <apex:form enctype="multipart/form-data" >
 
 <div class="ApplicationStep" id="0">
-<p style="font-size:13px;line-height:1.5;">This application has been optimized for Google chrome. Optimization for other browsers is coming soon.</p>
+<p style="font-size:16px;line-height:1.5;color:#ff0000;">This application form has been optimized for Google Chrome, Firefox, and Safari. Optimization for other browsers is coming soon.</p>
 <br/>
 <h1 class="steps">Getting Started</h1>
 <hr/>
 
-<div >
-
+<div>
 <div class="col-md-6 pad-left-zero">
 <p><strong> OMB control number:</strong> &nbsp;  <span style="color:#2167a6;">0625-0276</span></p>
 </div>
@@ -444,7 +443,7 @@ telInput.on("keyup change", reset);
         <br/><br/><br/>
     </apex:outputPanel>
     <a onclick="displayProcessing(); prev();" class="ApplicationButton btn btn-prev pull-left">Previous</a>&nbsp;&nbsp; 
-    <!--<apex:commandButton value="Next" oncomplete="if(validate('50')){if($('.nonHRData').is(':checked') || $('.HRData').is(':checked')){if(($('.HRData').is(':checked') && !$('.HRCompliance').is(':checked'))){alert('As you have indicated that your organization\âs Privacy Shield commitments cover human resources data, you must expressly affirm your organization\âs agreement to cooperate with the EU DPA(s) concerned and comply with their advice with respect to this data.');}else{saveParticipation(); next();}}else if(($('.HRData').is(':checked') && !$('.HRCompliance').is(':checked'))){alert('You must affirm your Organization\'s compliance related to HR data collection.');}else{alert('Please select at least one type of data that will be covered.');}}" styleClass="btn btn-dark pull-right" style="width:160px;border:0;" />-->
+    <!--<apex:commandButton value="Next" oncomplete="if(validate('50')){if($('.nonHRData').is(':checked') || $('.HRData').is(':checked')){if(($('.HRData').is(':checked') && !$('.HRCompliance').is(':checked'))){alert('As you have indicated that your organization\âs Privacy Shield commitments cover human resources data, you must expressly affirm your organization\âs agreement to cooperate with the EU DPA(s) concerned and comply with their advice with respect to this data.');}else{saveParticipation(); next();}}else if(($('.HRData').is(':checked') && !$('.HRCompliance').is(':checked'))){alert('You must affirm your Organization\'s compliance related to HR data collection.');}else{alert('Please select at least one type of data that will be covered.');}}" styleClass="btn btn-dark pull-right" style="width:160px;border:0;" />-->
 
     <apex:commandLink rerender="none" id="step_50_next_btn" onclick="{!if(participation.Non_HR_Data__c = true && (ResolutionProviders = null || ResolutionProviders.size = 0), 'alert(recourseError); return false;', 'validateHRProviders()')}" styleClass="ApplicationStepButton btn btn-dark pull-right" > Next</apex:commandLink>
 
@@ -529,6 +528,15 @@ telInput.on("keyup change", reset);
     </div><br/>
 </div>
 <div class="ApplicationStep" id="80">
+<apex:outputtext rendered="{!orders.size != 0}">
+    <div class="panel-heading"> <h1 class="steps">My Orders</h1><hr/></div>
+    <c:MyOrdersComponent orderList="{!orders}" rendered="{!orders.size != 0}" />
+    <br/><br/><br/>    
+    <a onclick="displayProcessing(); prev();" class="ApplicationButton btn btn-prev pull-left" >Previous</a>&nbsp;&nbsp;
+</apex:outputtext>
+
+
+<apex:outputpanel rendered="{!and(orders != null, orders.size = 0)}">
     <h1 class="steps" >Submit Payment and Application</h1><hr/>
     <apex:outputpanel id="OrderAmount">
         <p><strong>Application Processing Fee:</strong> <em>${!amount}</em></p>
@@ -541,8 +549,9 @@ telInput.on("keyup change", reset);
     <br/><br/><br/>
     
     <a onclick="displayProcessing(); prev();" class="ApplicationButton btn btn-prev pull-left" >Previous</a>&nbsp;&nbsp;
-    <apex:commandButton value="Pay" styleClass="btn btn-dark pull-right"  oncomplete="privacyShieldPayment()" />
+    <apex:commandButton value="Pay" styleClass="btn btn-dark pull-right"  oncomplete="privacyShieldPayment()" onclick="this.setAttribute('disabled', 'true');" />
     <br/>
+</apex:outputpanel>
 </div>
 
 <apex:actionFunction action="{!start}" name="startApplication" reRender="ContactInfo, contactEdit" />
@@ -597,7 +606,7 @@ telInput.on("keyup change", reset);
         if(validate('50')){
             if($('.nonHRData').is(':checked') || $('.HRData').is(':checked')){
                 if(($('.HRData').is(':checked') && !$('.HRCompliance').is(':checked'))){
-                    alert('As you have indicated that your organization\âs Privacy Shield commitments cover human resources data, you must expressly affirm your organization\âs agreement to cooperate with the EU DPA(s) concerned and comply with their advice with respect to this data.'); return false;
+                    alert('As you have indicated that your organization\âs Privacy Shield commitments cover human resources data, you must expressly affirm your organization\âs agreement to cooperate with the EU DPA(s) concerned and comply with their advice with respect to this data.'); return false;
                 }else{
                     saveParticipation(); next(); return false;
                 }
@@ -710,7 +719,6 @@ $(function(){
   });
 });
 </script>
-
 
 
 </apex:define>

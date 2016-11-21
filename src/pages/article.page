@@ -1,4 +1,4 @@
-<apex:page sidebar="false" showHeader="false" controller="article_controller" action="{!error}" applyBodyTag="false" applyHtmlTag="false" standardStylesheets="false" cache="true">
+<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false" standardStylesheets="false" cache="true">
  <apex:composition template="Site_Template">
      <apex:define name="title">{!title}{!if(and(title != '', title !=  null), ' | ', '')}</apex:define>
     <apex:define name="description">  
@@ -228,8 +228,8 @@ function expandl3(ref){
                 <em><apex:outputText value="{!references}" escape="false" /></em><div class="itaBr"></div>
                 <apex:outputText rendered="{!tags.size != 0}">
                 <br /><br />
-                <apex:repeat value="{!tags}" var="tag">
-                <a class="btn btn-primary btn-sm" href="/search#/search/{!type}{!tagCategory[tag]}{!URLENCODE(tag)}" role="button">{!tag}</a>    
+                <apex:repeat value="{!ArticleTags}" var="tag">
+                    <a class="btn btn-primary btn-sm" role="button" href="{!tag.App}{!tag.Endpoint}{!URLENCODE(tag.text)}">{!tag.text}</a>
                 </apex:repeat>
                 </apex:outputText>
             </div>

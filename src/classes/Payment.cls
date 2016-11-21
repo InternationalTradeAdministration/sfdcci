@@ -30,17 +30,17 @@ public without sharing class Payment {
         return paymentObject.Name;        
     }
     public String getAgencyTrackingId(String PaymentName, Id OrderId){
-        List<Payment__c> pmtList = [SELECT Name FROM payment__c WHERE Name = :PaymentName AND Transaction_Status__c = '' AND Order__c =: OrderId LIMIT 1];
-        if(pmtList.size() > 0) {
-            return pmtList[0].Name;
-        } else {
+        //List<Payment__c> pmtList = [SELECT Name FROM payment__c WHERE Name = :PaymentName AND Transaction_Status__c = '' AND Order__c =: OrderId LIMIT 1];
+        //if(pmtList.size() > 0) {
+        //    return pmtList[0].Name;
+        //} else {
             Payment__c paymentObject = new Payment__c();
             paymentObject.Order__c = OrderId;
             insert paymentObject;
             //Since Name is an Auto-Number field, must query the paymentObject to get the value
             paymentObject = [SELECT Name FROM payment__c WHERE Id = :paymentObject.Id LIMIT 1];
             return paymentObject.Name;     
-        }
+        //}
            
     }
     

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Activity$RH_Lev_6_Office__c</field>
+    </columns>
+    <columns>
+        <field>Activity$Subject</field>
+    </columns>
+    <description>Finds all activities that discuss standards or labeling</description>
+    <filter>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <criteriaItems>
+            <column>Activity$Description</column>
+            <operator>contains</operator>
+            <value>labeling</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Activity$Description</column>
+            <operator>contains</operator>
+            <value>standards</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Activity$Subject</column>
+            <operator>contains</operator>
+            <value>standard</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Activity$Fiscal_Year__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Activities - Standards or Labeling</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activities__c</reportType>
+    <roleHierarchyFilter>I_A</roleHierarchyFilter>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Activity$LastModifiedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
