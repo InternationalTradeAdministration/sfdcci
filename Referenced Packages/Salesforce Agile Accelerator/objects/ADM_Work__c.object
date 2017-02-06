@@ -25,6 +25,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -2636,6 +2640,18 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <fullName>Closed - No Fix - Will Not Fix</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Ready for Analysis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Analysis in Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready for Review</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2816,7 +2832,7 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
-        <label>Theme</label>
+        <label>Theme-Deprecated</label>
         <referenceTo>ADM_Theme__c</referenceTo>
         <relationshipLabel>Work</relationshipLabel>
         <relationshipName>Work</relationshipName>
@@ -3445,6 +3461,10 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
+                <fullName>Analysis in Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Blocked</fullName>
                 <default>false</default>
             </values>
@@ -3454,6 +3474,10 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
             </values>
             <values>
                 <fullName>COPS In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3501,7 +3525,15 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Ready for Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ready for Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Review</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3993,6 +4025,10 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Analysis in Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Closed - Duplicate</fullName>
                 <default>false</default>
             </values>
@@ -4061,11 +4097,19 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Ready for Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ready for Development</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Ready for Prod</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Review</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4541,6 +4585,10 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Analysis in Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Blocked</fullName>
                 <default>false</default>
             </values>
@@ -4597,11 +4645,19 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Ready for Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ready for Development</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Ready for Prod</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Review</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5077,6 +5133,10 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Analysis in Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Deferred</fullName>
                 <default>false</default>
             </values>
@@ -5113,11 +5173,19 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Ready for Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ready for Development</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Ready for Prod</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Review</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5585,6 +5653,14 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
+                <fullName>Analysis in Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Backlog</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Blocked</fullName>
                 <default>false</default>
             </values>
@@ -5621,6 +5697,10 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Not a bug</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Pending COPS Deployment</fullName>
                 <default>false</default>
             </values>
@@ -5641,7 +5721,15 @@ Not Reproducible: Unknown: no longer failing, reason not known</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Ready for Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ready for Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Review</fullName>
                 <default>false</default>
             </values>
             <values>

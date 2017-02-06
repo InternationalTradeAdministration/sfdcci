@@ -2250,11 +2250,16 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>ADM_Acceptance_Criterion__c</members>
         <members>ADM_Assignment_Rule__c</members>
         <members>ADM_Build__c</members>
+        <members>ADM_Burndown_Item__c</members>
+        <members>ADM_Change_List__c</members>
         <members>ADM_Epic__c</members>
+        <members>ADM_Frequency__c</members>
         <members>ADM_Impact_Type__c</members>
         <members>ADM_Impact__c</members>
+        <members>ADM_Investigation_Exception__c</members>
         <members>ADM_Kanban_Board</members>
         <members>ADM_Priority_Mapping__c</members>
         <members>ADM_Priority__c</members>
@@ -2263,6 +2268,7 @@
         <members>ADM_Scrum_Team_Member__c</members>
         <members>ADM_Scrum_Team__c</members>
         <members>ADM_Sprint__c</members>
+        <members>ADM_Team_Dependency__c</members>
         <members>ADM_Team_Release__c</members>
         <members>ADM_Theme__c</members>
         <members>ADM_Time_Off_Log__c</members>

@@ -82,7 +82,7 @@
                           <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Original Certification Date:  {!month(assets[framework.product].installDate)}/{!day(assets[framework.product].installDate)}/{!year(assets[framework.product].installDate)}</div>
                           <apex:outputtext rendered="{!or(framework.status = 'Active', framework.affirmation = null)}">
                               <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Next Certification Due Date: {!month(assets[framework.product].UsageEndDate)}/{!day(assets[framework.product].UsageEndDate)}/{!year(assets[framework.product].UsageEndDate)}</div>
-                              <div class="{!if(framework.applicationStage = 'Finalized', 'hidden', '')} about"><strong>Renewal Application Status:</strong> {!framework.applicationStage}</div>
+                              <!-- div class="{!if(framework.applicationStage = 'Finalized', 'hidden', '')} about"><strong>Renewal Application Status:</strong> {!framework.applicationStage}</div -->
                           </apex:outputtext>
                           <apex:outputtext rendered="{!and(framework.status != 'Active', framework.affirmation != null)}">
                               <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Next Affirmation Date: {!month(assets[framework.affirmation].UsageEndDate)}/{!day(assets[framework.affirmation].UsageEndDate)}/{!year(assets[framework.affirmation].UsageEndDate)}</div>
@@ -165,17 +165,7 @@
 </apex:outputtext>
 
 
-<apex:outputtext >
-    <div class="panel panel-default" id="dispute-resolution">
-        <div class="panel-heading"> <h2>Dispute Resolution</h2></div>
-            <div class="panel-body">  
-                <!-- c:MyOrdersComponent orderList="{!orders}" rendered="{!orders.size != 0}" / -->
-            </div>
-    </div>
-</apex:outputtext>
-
-
- <div class="panel panel-default" id="dispute-resolution" >
+<div class="panel panel-default" id="dispute-resolution" >
     <div class="panel-heading"> <h2>Dispute Resolution</h2></div>
     <div class="panel-body">                
                   <div class="col-md-12">

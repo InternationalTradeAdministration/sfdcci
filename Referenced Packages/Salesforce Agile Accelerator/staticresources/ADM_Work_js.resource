@@ -1051,10 +1051,10 @@ function ThemeContainerView(options) {
 };
 
 if (this.$) {
-	$(function() {
-		// change the title of the rich-text editor for accessibility
-	    setTimeout(function() {
-			$('.cke_wysiwyg_frame').contents().find('title').attr('data-cke-title','Details and Steps to Reproduce').text('Details and Steps to Reproduce');
-	    }, 5000);
-	});
+    $(function() {
+        // change the title of the rich-text editor for accessibility
+        setTimeout(function() {
+            $('.cke_wysiwyg_frame').contents().find('title').attr('data-cke-title','Details and Steps to Reproduce').text('Details and Steps to Reproduce');
+        }, 5000);
+    });
 };

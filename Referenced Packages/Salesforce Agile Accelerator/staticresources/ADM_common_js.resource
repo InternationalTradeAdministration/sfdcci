@@ -890,7 +890,6 @@ RichAutoCompleteComponent.prototype = {
     		}
         })
 
-
     },
 
     setLoading: function(value) {

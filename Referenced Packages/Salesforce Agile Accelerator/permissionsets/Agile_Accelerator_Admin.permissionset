@@ -9604,6 +9604,10 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <tabSettings>
+        <tab>ADM_Acceptance_Criterion__c</tab>
+        <visibility>Available</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>ADM_Assignment_Rule__c</tab>
         <visibility>Available</visibility>
     </tabSettings>
@@ -9612,8 +9616,20 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
+        <tab>ADM_Burndown_Item__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>ADM_Change_List__c</tab>
+        <visibility>Available</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>ADM_Epic__c</tab>
         <visibility>Available</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>ADM_Frequency__c</tab>
+        <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
         <tab>ADM_Impact_Type__c</tab>
@@ -9622,6 +9638,10 @@
     <tabSettings>
         <tab>ADM_Impact__c</tab>
         <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>ADM_Investigation_Exception__c</tab>
+        <visibility>Available</visibility>
     </tabSettings>
     <tabSettings>
         <tab>ADM_Kanban_Board</tab>
@@ -9654,6 +9674,10 @@
     <tabSettings>
         <tab>ADM_Sprint__c</tab>
         <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>ADM_Team_Dependency__c</tab>
+        <visibility>Available</visibility>
     </tabSettings>
     <tabSettings>
         <tab>ADM_Team_Release__c</tab>
@@ -9722,6 +9746,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>AllowUniversalSearch</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>AllowViewEditConvertedLeads</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -10089,6 +10117,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>ManageHealthCheck</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ManageInteraction</name>
     </userPermissions>
     <userPermissions>
@@ -10317,6 +10349,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>ViewAllActivities</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ViewAllData</name>
     </userPermissions>
     <userPermissions>
@@ -10326,6 +10362,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ViewContent</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ViewDataAssessment</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -10342,6 +10382,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ViewGlobalHeader</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ViewHealthCheck</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>

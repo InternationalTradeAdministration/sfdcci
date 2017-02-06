@@ -1,6 +1,0 @@
-<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
-<tr valign="top" height="400" >
-<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
-<![CDATA[<div><font face="arial">Dear&nbsp;{!Target_User.FirstName},</font></div><div><font face="arial"><br></font></div><div><font face="arial">Thank you for submitting your information to register for the International Trade Administration's customer community. In order to allow you access to save market research and create your customized reports, we invite you to verify your email address and log in to change your password.</font></div><div><font face="arial">&nbsp;</font></div><div><font face="arial">Failure to validate your account information will de-activate in 15 days. Unfortunately, once this happens, you will need to start the process again.</font></div><div><font face="arial">&nbsp;</font></div><div><font face="arial">A wealth of research and opportunities await you! Confirm your information, log in, and start exploring.</font></div>]]></td>
-</tr>
-</table>

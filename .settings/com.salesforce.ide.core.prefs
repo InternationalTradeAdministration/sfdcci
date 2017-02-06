@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
 endpointApiVersion=36.0
 endpointEnvironment=Other (Specify)
-endpointServer=trade--developer.cs33.my.salesforce.com
+endpointServer=trade--mario.cs32.my.salesforce.com
 httpsProtocol=true
 ideVersion=36.0
 keependpoint=false
@@ -9,6 +9,6 @@ metadataFormatVersion=36.0
 namespacePrefix=
 packageName=unpackaged
 preferToolingDeployment=true
-projectIdentifier=IDE3886622553117839192
+projectIdentifier=IDE-7233058178751576513
 readTimeout=400
-username=sandip.menon@trade.gov.developer
+username=sandip.menon@trade.gov.mario

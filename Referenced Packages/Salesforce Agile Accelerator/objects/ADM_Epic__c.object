@@ -21,6 +21,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -325,8 +329,8 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Category__c</columns>
         <columns>Phase__c</columns>
+        <columns>Category__c</columns>
         <columns>Health__c</columns>
         <columns>T_Shirt_Size__c</columns>
         <columns>Team__c</columns>

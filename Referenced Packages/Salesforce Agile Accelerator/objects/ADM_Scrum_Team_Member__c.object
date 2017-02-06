@@ -23,6 +23,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -262,6 +266,18 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Human Factors</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Int. Developer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jr. Developer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Network Engineer</fullName>
                 <default>false</default>
             </picklistValues>
@@ -298,11 +314,19 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Release Engineer / System Administrator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Release Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Scrum Master</fullName>
+                <fullName>Salesforce Evangelist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ScrumMaster</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -311,6 +335,10 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
             </picklistValues>
             <picklistValues>
                 <fullName>Site Reliability Engineer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sr. Developer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -338,11 +366,11 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Trust Engineer</fullName>
+                <fullName>Trainer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>UE</fullName>
+                <fullName>Trust Engineer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -350,15 +378,7 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Salesforce Evangelist</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Trainer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Release Engineer / System Administrator</fullName>
+                <fullName>UX Designer</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -416,6 +436,7 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
         <columns>Scrum_Team__c</columns>
         <columns>RECORDTYPE</columns>
         <columns>Record_Type_Copy__c</columns>
+        <columns>Role__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -479,6 +500,18 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </values>
             <values>
+                <fullName>Human Factors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Int%2E Developer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jr%2E Developer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Network Engineer</fullName>
                 <default>false</default>
             </values>
@@ -527,7 +560,7 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </values>
             <values>
-                <fullName>Scrum Master</fullName>
+                <fullName>ScrumMaster</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -536,6 +569,10 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
             </values>
             <values>
                 <fullName>Site Reliability Engineer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sr%2E Developer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -559,11 +596,11 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </values>
             <values>
-                <fullName>UE</fullName>
+                <fullName>UE Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>UE Manager</fullName>
+                <fullName>UX Designer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -620,6 +657,18 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </values>
             <values>
+                <fullName>Human Factors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Int%2E Developer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jr%2E Developer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Network Engineer</fullName>
                 <default>false</default>
             </values>
@@ -668,7 +717,7 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </values>
             <values>
-                <fullName>Scrum Master</fullName>
+                <fullName>ScrumMaster</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -677,6 +726,10 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
             </values>
             <values>
                 <fullName>Site Reliability Engineer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sr%2E Developer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -712,11 +765,11 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </values>
             <values>
-                <fullName>UE</fullName>
+                <fullName>UE Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>UE Manager</fullName>
+                <fullName>UX Designer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -773,6 +826,18 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </values>
             <values>
+                <fullName>Human Factors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Int%2E Developer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jr%2E Developer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Network Engineer</fullName>
                 <default>false</default>
             </values>
@@ -821,7 +886,7 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </values>
             <values>
-                <fullName>Scrum Master</fullName>
+                <fullName>ScrumMaster</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -830,6 +895,10 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
             </values>
             <values>
                 <fullName>Site Reliability Engineer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sr%2E Developer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -853,11 +922,11 @@ IF ( $RecordType.Name = &apos;External&apos;, &apos;(External) &apos; , &apos;(P
                 <default>false</default>
             </values>
             <values>
-                <fullName>UE</fullName>
+                <fullName>UE Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>UE Manager</fullName>
+                <fullName>UX Designer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

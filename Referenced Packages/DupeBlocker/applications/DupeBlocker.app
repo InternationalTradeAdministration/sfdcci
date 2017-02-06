@@ -9,4 +9,7 @@
     <tab>DupeBlocker_Settings_VF</tab>
     <tab>standard-Dashboard</tab>
     <tab>standard-report</tab>
+    <tab>Segment__c</tab>
+    <tab>Suspension_Agreement__c</tab>
+    <tab>Litigation__c</tab>
 </CustomApplication>

@@ -160,7 +160,7 @@ html > body.slds .bPageTitle .ptBody .links .configLinks,
 html > body.slds .bPageTitle .ptBody .links .helpLink{color:#777;text-decoration:none;font-size:0.75rem;}
 html > body.slds .bPageTitle .ptBody .links a:hover,
 html > body.slds .bPageTitle .ptBody .links .configLinks:hover,
-html > body.slds .bPageTitle .ptBody .links .helpLink:hover{color:#777;text-decoration:underline;font-size:0.75rem;}	
+html > body.slds .bPageTitle .ptBody .links .helpLink:hover{color:#777;text-decoration:underline;font-size:0.75rem;}
 html > body.slds .sidebarCell.sidebarCollapsed{padding:0px;}
 html > body.slds .bPageTitle .ptBody{background:#F4F6F9;border-bottom:1px solid #D8DDE6;}
 html > body.slds .bPageTitle .ptBody .content{padding:24px;width:auto;}

@@ -4,4 +4,7 @@
     <label>Declarative Lookup Rollup Summaries</label>
     <tab>LookupRollupSummary__c</tab>
     <tab>LookupRollupSummaryLog__c</tab>
+    <tab>Segment__c</tab>
+    <tab>Suspension_Agreement__c</tab>
+    <tab>Litigation__c</tab>
 </CustomApplication>

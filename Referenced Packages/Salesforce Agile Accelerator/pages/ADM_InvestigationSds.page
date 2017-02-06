@@ -233,8 +233,8 @@ $(function() {
                 <div class="slds-col--padded slds-size--1-of-4">
                     <dl class="slds-anchor--rec-home__detail-item">
                         <dt><p class="slds-text-heading--label slds-truncate">Product Tag</p></dt>
-                    	<dd><a href="/{!agf__ADM_Work__c.Product_Tag__r.agf__Team__c}"><apex:outputField value="{!agf__ADM_Work__c.Product_Tag__r.Team__r.Name}" /></a> &gt; <a href="/{!ADM_Work__c.Product_Tag__c}"><apex:outputField value="{!agf__ADM_Work__c.Product_Tag__r.Name}" /></a></dd>
-					</dl>
+                        <dd><a href="/{!agf__ADM_Work__c.Product_Tag__r.agf__Team__c}"><apex:outputField value="{!agf__ADM_Work__c.Product_Tag__r.Team__r.Name}" /></a> &gt; <a href="/{!ADM_Work__c.Product_Tag__c}"><apex:outputField value="{!agf__ADM_Work__c.Product_Tag__r.Name}" /></a></dd>
+                    </dl>
                 </div>
                 <div class="slds-col--padded slds-size--1-of-4">
                     <dl class="anchor--rec-home__detail-item">

@@ -9,4 +9,7 @@
     <tab>standard-Dashboard</tab>
     <tab>iContact_Help</tab>
     <tab>iContact_MessageBuilder</tab>
+    <tab>Segment__c</tab>
+    <tab>Suspension_Agreement__c</tab>
+    <tab>Litigation__c</tab>
 </CustomApplication>

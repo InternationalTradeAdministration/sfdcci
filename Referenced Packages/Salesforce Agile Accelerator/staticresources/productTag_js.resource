@@ -243,8 +243,6 @@ ProductTag.prototype = {
                 },
 
                 focus: function(event, ui) {
-                    console.log('ui:');
-                    console.log(ui);
                     $(this).attr('aria-activedescendant','selection-' + ui.item.Id);
                     //$(this).val(ui.item.agf__Team__r.Name + ' > ' + ui.item.Name);
                     return false;
@@ -309,8 +307,6 @@ ProductTag.prototype = {
      * Updates the UI for the selected interface
      */
     _updateProductTagItem: function(/*Object*/ tag) {
-        console.log('tag:');
-        console.log(tag);
         this.$('.productTagItem')
             .show()
             .find('.productTagItemTeam').html(tag.agf__Team__r.Name).end()

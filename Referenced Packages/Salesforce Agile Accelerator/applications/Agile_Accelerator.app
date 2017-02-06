@@ -14,4 +14,8 @@
     <tab>ADM_Scrum_Team__c</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
+    <tab>Decision_Log__c</tab>
+    <tab>Segment__c</tab>
+    <tab>Suspension_Agreement__c</tab>
+    <tab>Litigation__c</tab>
 </CustomApplication>

@@ -1,7 +1,85 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>AnswersHome</members>
+        <members>BandwidthExceeded</members>
+        <members>ChangePassword</members>
+        <members>CommunitiesLanding</members>
+        <members>CommunitiesLogin</members>
+        <members>CommunitiesSelfReg</members>
+        <members>CommunitiesSelfRegConfirm</members>
+        <members>CommunitiesTemplate</members>
+        <members>Exception</members>
+        <members>FAQ</members>
+        <members>FileNotFound</members>
+        <members>ForgotPassword</members>
+        <members>ForgotPasswordConfirm</members>
+        <members>IPR_Assistance</members>
+        <members>IPR_Assitance</members>
+        <members>IdeasHome</members>
+        <members>InMaintenance</members>
+        <members>Insights</members>
+        <members>MyOrders</members>
+        <members>MyProfilePage</members>
+        <members>MyTrackedOrgs</members>
+        <members>OrderAttachmentWriter</members>
+        <members>PageBuilder</members>
+        <members>Payment</members>
+        <members>PaymentConfirmation</members>
+        <members>PaymentDetails</members>
+        <members>PaymentRefund</members>
+        <members>Registration</members>
+        <members>RegistrationConfirmation</members>
+        <members>Robots</members>
+        <members>SiteLogin</members>
+        <members>SiteRegister</members>
+        <members>SiteRegisterConfirm</members>
+        <members>SiteTemplate</members>
+        <members>Site_Template</members>
+        <members>StdExceptionTemplate</members>
+        <members>TradeEvent</members>
+        <members>TradeLead</members>
+        <members>Unauthorized</members>
         <members>about</members>
+        <members>article</members>
+        <members>article2</members>
+        <members>assistance</members>
+        <members>carouselManager</members>
+        <members>community</members>
+        <members>consolidated_screening_list</members>
+        <members>csl_search</members>
+        <members>dashboard</members>
+        <members>data</members>
+        <members>federal_incentives</members>
+        <members>file_upload</members>
+        <members>fta_tariff_search</members>
+        <members>group</members>
+        <members>imageManager</members>
+        <members>ipr_training</members>
+        <members>landing</members>
+        <members>mrlsearch</members>
+        <members>my_boards</members>
+        <members>page</members>
+        <members>pageforbidden</members>
+        <members>pagenotfound</members>
+        <members>participant</members>
+        <members>participant_search</members>
+        <members>printarticle</members>
+        <members>privacyshield_search</members>
+        <members>ps</members>
+        <members>redirect</members>
+        <members>search</members>
+        <members>search_export</members>
+        <members>sitemap</members>
+        <members>stateincentives</members>
+        <members>status</members>
+        <members>stopfakes_search</members>
+        <members>susa_events</members>
+        <members>susa_past_events</members>
+        <members>susa_reading_room</members>
+        <members>susa_social_media</members>
+        <members>team</members>
+        <members>tpp_rates</members>
         <name>ApexPage</name>
     </types>
     <version>36.0</version>

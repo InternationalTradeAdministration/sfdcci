@@ -5,4 +5,7 @@
     <label>Traction Hierarchies</label>
     <tab>standard-Account</tab>
     <tab>Traction_Hierarchies_Setup</tab>
+    <tab>Segment__c</tab>
+    <tab>Suspension_Agreement__c</tab>
+    <tab>Litigation__c</tab>
 </CustomApplication>

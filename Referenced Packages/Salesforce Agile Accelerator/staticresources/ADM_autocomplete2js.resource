@@ -44,6 +44,7 @@ autocomplete2.Promise.prototype = {
 
 autocomplete2.Promise.CallbackList = function() {
     this.items = [];
+    
     this.invoke = function(context, arguments) {
         for(var index = 0; index < this.items.length; index++) {
             this.items[index].apply(context, arguments);
@@ -110,17 +111,19 @@ autocomplete2.AutoComplete.prototype = {
                 view.$input.closest('.has-avatar').find('span.slds-avatar img').attr('src','/profilephoto/005/F');
             }
         });
-       
+        
         if(this.renderItem) {
             if (this.$input.data('autocomplete')) {
                 this.$input.data("autocomplete")._renderItem = this.renderItem;
             } else {
-                $.ui.autocomplete.prototype._renderItem = this.renderItem;                
+                $.ui.autocomplete.prototype._renderItem = this.renderItem;
             }
         }
+        
         return this;
     },
     renderItem: function(ul, item) {
+        
         if(typeof item.value === 'undefined') {
             item.value = item.Name;
         }
@@ -355,6 +358,7 @@ autocomplete2.initialize = function(options){
         source = autocomplete2.createGenericQuerySource(queryName, scrumteamId);
     }
     options.source = source;
+    
     return new autocomplete2.AutoComplete(options);
 }
 

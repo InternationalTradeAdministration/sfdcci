@@ -21,6 +21,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -148,12 +152,11 @@
     <listViews>
         <fullName>All_Out_of_Office</fullName>
         <columns>NAME</columns>
-        <columns>OBJECT_ID</columns>
-        <columns>Allocation__c</columns>
-        <columns>Days__c</columns>
+        <columns>User__c</columns>
         <columns>Start_Date__c</columns>
         <columns>End_Date__c</columns>
-        <columns>User__c</columns>
+        <columns>Description__c</columns>
+        <columns>Allocation__c</columns>
         <columns>RECORDTYPE</columns>
         <columns>CREATED_DATE</columns>
         <columns>LAST_UPDATE</columns>
