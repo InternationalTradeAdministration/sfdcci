@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$TracHier__Owner__c</field>
+    </columns>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Industry__c</field>
+    </columns>
+    <columns>
+        <field>Account$AnnualRevenue</field>
+    </columns>
+    <columns>
+        <field>Account$Congressional_District_formula__c</field>
+    </columns>
+    <columns>
+        <field>Account$BillingAddress</field>
+    </columns>
+    <description>Medium to Large in Congressional Districts PA-01 and 02</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Industry__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Design and Construction,Healthcare,Information and Communications Technology</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Congressional_District_formula__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>PA-01,PA-02</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$AnnualRevenue</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>20000000</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Philly Healthcare, ICT, Design Companies</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

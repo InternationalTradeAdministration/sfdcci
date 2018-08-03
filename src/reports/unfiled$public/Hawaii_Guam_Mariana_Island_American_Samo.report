@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>Pie</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>false</expandOthers>
+        <groupingColumn>Account.OrgIndustryHierarchy__r$Industry__c</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sector__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sub_Sector__c</field>
+    </columns>
+    <description>Industry Report</description>
+    <filter>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <criteriaItems>
+            <column>Account$BillingStateCode</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>HI,AS,GU,MP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>,Kailua-Kona,Kalapana,Waiohinu,Waipahu,Wahiawa,Waialua,Kaaawa,Nanakuli,Mililani Mauka,Ewa Villages,Whimore Village,Makaha Valley,Kaneohe,Pearl City,Waianae,Kahuku,Kalaeloa,Pupukea,Maunawili,Ewa Gentry,Kawela Bay,Kapolei,Haleiwa,Hauula,Mokuleia,Heeia,East Honolulu,Royal Kunia,Waipio Acres,Ahuimanu,North Koolaupoko,Waimalu,Waipio,Hickam Housing,Waimanalo,Ewa Beach,Aiea,Waimea,Lihue,Launiupoko,Puuwai,Port Allen,Halehomaha,Wainiha,Kealia,Kupolo,china town,Sunset Beach,Kaimuki,Crestview,Akupu,Pauoa,Kalawao,Hailku,Kipahulu,Keanae,Pu’unene,Kaupo,Keokea,Nahiku,Kahakuloa,Hoolehua,Waihee,Wailua</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Hilo,Hakalau,Kapoho,Kawaihae,Milolii,Mahukona,Kaimu,Keauhou,Waiohinu,Kainaliu,Waiakea,Honaunau,Ninole,Ahualoa,Paauhau,Papaaloa,Keokea,Hagatna,Dededo,Tamuning,Agana Heights,Yigo,Mangilao,Agnat,Santa Rita,Asan,Sonsong,Agafo Gumas,Anigua,Adelup,Asatdas,Asbeco,Adacao,Asagas,Apurguan,Afami,Pago Pago,Fagatogo,Leone,Afono,Amaluia,Tafuna,Nu’uuli,Faga’alu,Utulei,Aasu,Amanave,Mapusaga,Alega,Fatumafuti,Amouli,Futiga,Atu’u,Afao,Faga’itua,Pagai,Anua,Falesao,Poloa,Alao,Asili,Alofau,Aoa,Faleniu,Amaua,Aumi,Failolo,Agugulu,Apia,Salelologa,Upolu,Savai’I,Hawaii,Kailua,Haleiwa,Honolulu,Pearl City,Kula,Waipahu,Maui,Kihei,WaialuaHaiku,Wailuku</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.OrgIndustryHierarchy__r$Industry__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Hawaii,Guam,Mariana Island,American Samo</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$LastModifiedDate</dateColumn>
+        <interval>INTERVAL_PREVCURFY</interval>
+    </timeFrameFilter>
+</Report>

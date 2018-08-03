@@ -144,6 +144,13 @@ public class Test_CaseList {
                                           subject = 'Case'+n); 
                 casesToCreate.add(caseToAdd);
             } insert casesToCreate;
+        List<Case> closedCasesToCreate = new List<Case>(); //create 15 cases
+            for(Integer n=1; n<= 15; n++){
+                Case caseToAdd = new Case(Status = 'Successfully Closed', recordtypeid = crt.id, ownerid= u1.id,
+                                          contactid=comContact.id, accountid=comAccount.id,
+                                          subject = 'Case'+n); 
+                closedCasesToCreate.add(caseToAdd);
+            } insert closedCasesToCreate;
         Site__c sites = new Site__c(name = 'Export.gov', 
                                     title__c = 'export.gov', 
                                     domain__c = URL.getSalesforceBaseUrl().getHost(), 
@@ -170,7 +177,7 @@ public class Test_CaseList {
                 controller.filterid = 'My Company Cases';
                 controller.processRequests();
                 System.assertEquals(controller.filterid, 'My Company Cases');
-                System.assertEquals(controller.getTotal_size(), 15);
+                System.assertEquals(controller.getTotal_size(), 30);
                 System.assertEquals(controller.results.size(), 10);
                                 
                 controller.filterid = 'Action Required';
@@ -191,7 +198,7 @@ public class Test_CaseList {
                 controller.filterid = 'My Closed Cases';
                 controller.processRequests();
                 System.assertEquals(controller.getTotal_size(), 15);
-                System.assertEquals(controller.results.size(), 0);
+                System.assertEquals(controller.results.size(), 10);
 
                 controller.SortField = 'CaseNumber';
                 System.assertEquals(controller.SortField, 'CaseNumber');
@@ -276,7 +283,7 @@ public class Test_CaseList {
                  
                 CaseList controller = new CaseList();
                 Blob bodyBlob=Blob.valueOf('Unit Test Attachment Body');
-               	controller.caseRT = caseRT;
+                controller.caseRT = caseRT;
                 system.assertEquals(controller.caseRT, 'Superman');
                 //No comment or attachment body
                 //controller.comment.IsPublished = true;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowledgeArticle$FirstPublishedDate</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$Title</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$Summary</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$UrlName</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>KnowledgeArticle$CreatedBy</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>James Bledsoe</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Bledsoe Articles FY17</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Articles__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeArticle$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <description>Erica Ramirez, Current and Previous FY</description>
+    <filter>
+        <criteriaItems>
+            <column>Case$Owners_Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>GM-CS USA-Field-PacificSouth-NewportBeach,GM-CS USA-Field-PacificSouth-WestLosAngeles,GM-CS USA-Field-PacificSouth-Ontario,GM-CS USA-Field-PacificSouth-SanDiego,GM-CS USA-Field-PacificSouth-LosAngeles,GM-CS USA-Field-PacificSouth-LasVegas,GM-CS USA-Field-PacificSouth-Fresno,GM-CS USA-Field-PacificSouth-Ventura,GM-CS USA-Field-PacificSouth-Honolulu,GM-CS USA-Field-PacificSouth-Reno</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case$Owners_Office__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Cases With Countries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_PREVCURFY</interval>
+    </timeFrameFilter>
+</Report>

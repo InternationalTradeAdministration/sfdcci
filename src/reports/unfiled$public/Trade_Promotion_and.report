@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowledgeArticle$Title</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$IsVisibleInPkb</field>
+    </columns>
+    <dataCategoryFilters>
+        <dataCategory>Trade_Development_and_Promotion</dataCategory>
+        <dataCategoryGroup>Trade_Topics</dataCategoryGroup>
+        <operator>at</operator>
+    </dataCategoryFilters>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>KnowledgeArticle$ArticleType</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>KM - Trade Dev. and Prom. Data Cat</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Articles__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeArticle$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,17 @@
+Below is a message for your company from a {!Case.RecordType} Toolkit Search Page User:
+
+
+
+Toolkit Search Page User Name: {!Contact.FirstName} {!Contact.LastName}
+
+Title: {!Contact.Title}
+
+Company Name: {!Case.SuppliedCompany} 
+
+Email: {!Case.SuppliedEmail} 
+
+Phone Number: {!Case.SuppliedPhone} 
+
+Message Text (as Typed by Toolkit User): 
+
+{!Case.Description}

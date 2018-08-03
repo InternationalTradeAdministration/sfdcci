@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>CRMfusionDBR101__Potential_Duplicate__c.CRMfusionDBR101__Duplicate_Record__c</field>
+    </columns>
+    <columns>
+        <field>CRMfusionDBR101__Potential_Duplicate__c.CRMfusionDBR101__Phone__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>CRMfusionDBR101__Scenario__c.CRMfusionDBR101__Scenario_Type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_NAME</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>DUNS match</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CRMfusionDBR101__Potential_Duplicate__c.CRMfusionDBR101__Duplicate_Warning__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Org dupes by DUNS</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$CRMfusionDBR101__Scenario__c$CRMfusionDBR101__Potential_Duplicate__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CRMfusionDBR101__Scenario__c.CRMfusionDBR101__Last_Key_Rebuild__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

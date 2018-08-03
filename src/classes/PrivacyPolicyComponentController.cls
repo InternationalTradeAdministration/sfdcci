@@ -1,6 +1,5 @@
 public without sharing class PrivacyPolicyComponentController {
     public PrivacyPolicyComponentController() {
-        
     }
 
     public Boolean showArtEditScreen { get { //boolean that toggles the edit screen on and off
@@ -27,6 +26,8 @@ public without sharing class PrivacyPolicyComponentController {
     }
 
     public PageReference editArtifact() { //edit mode method
+        //if(String.IsBlank(cary)) {
+        //}
         showArtEditScreen = false;
         boolean found = false;
         for(Artifact__c a: artifactList) {
@@ -45,11 +46,13 @@ public without sharing class PrivacyPolicyComponentController {
     public List<Artifact__c> artifactList { get; set; } //list of artifacts passed in ... we could query this instead of passing it in
 
     public PageReference addArtifact(){ //creates a new artifact
-        selectedArtifact = new Artifact__c(Participation_Number__c = participantId, isCurrent__c = true);
+        selectedArtifact = new Artifact__c(isCurrent__c = true);
         artifactList.add(selectedArtifact);
         showArtEditScreen = true;
         return null;
     }
+    
+    public void doNothing(){}
 
     public PageReference cancelArtifact(){ //closes edit screen, clears state and if it is a new artifact, removes from list
         if(selectedArtifact.Id == null) {
@@ -83,6 +86,10 @@ public without sharing class PrivacyPolicyComponentController {
         if(attach == null && String.isBlank(selectedArtifact.External_Artifact_URL__c)) {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, 'You must add a link to a public URL or upload a copy of your privacy policy'));
         } else {
+            selectedArtifact.Participation_Profile__c = this.participantId;
+            system.debug(this.participantId);
+            system.debug('@@' + selectedArtifact);
+
             if(selectedArtifact != null) {
                 try{ 
                     upsert selectedArtifact;
@@ -90,13 +97,16 @@ public without sharing class PrivacyPolicyComponentController {
                         attach.ParentId = selectedArtifact.Id;
                         insert attach;
                     }
-                    showArtEditScreen = false;
+                    //showArtEditScreen = false;
+                    //selectedArtifact = null;
+                    cancelArtifact();
                 } catch (exception e) {
                     system.debug(e);
                     //TODO handle messaging
                 }
             }
         }
+        
         return null;
     }
 }

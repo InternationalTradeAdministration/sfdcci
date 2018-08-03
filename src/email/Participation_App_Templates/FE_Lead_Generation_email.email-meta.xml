@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>FE: Lead Generation email</name>
+    <style>freeForm</style>
+    <subject>Message from a {!Case.RecordType} Toolkit Search Page User</subject>
+    <textOnly>Below is a message for your company from a {!Case.RecordType} Toolkit Search Page User:
+
+
+
+Toolkit Search Page User Name: {!Contact.FirstName} {!Contact.LastName}
+
+Title: {!Contact.Title}
+
+Company Name: {!Case.SuppliedCompany} 
+
+Email: {!Case.SuppliedEmail} 
+
+Phone Number: {!Case.SuppliedPhone} 
+
+Message Text (as Typed by Toolkit User): 
+
+{!Case.Description}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

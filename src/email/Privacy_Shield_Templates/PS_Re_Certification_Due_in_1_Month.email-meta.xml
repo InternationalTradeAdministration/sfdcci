@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template for notifying organization that their Privacy Shield record is due for re-certification in 1 month.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Privacy_Shield_Letterhead</letterhead>
+    <name>PS: Re-Certification Due in 1 Month</name>
+    <style>freeForm</style>
+    <subject>Privacy Shield Re-Certification Follow-Up Reminder</subject>
+    <textOnly>PRIVACY SHIELD RE-CERTIFICATION FOLLOW-UP REMINDER
+
+Our records indicate that the original Privacy Shield self-certification for {!Asset.Account} was finalized on {!Asset.InstallDate}. Your organization must recertify or withdraw from the Privacy Shield by {!Asset.UsageEndDate}.
+
+
+ANNUAL PRIVACY SHIELD RE-CERTIFICATION
+
+
+Re-certification submissions must be provided not less than annually; otherwise the organization will be removed from the Privacy Shield List and Privacy Shield benefits will no longer be assured.
+
+
+ANNUAL PRIVACY SHIELD PROCESSING FEE
+
+
+Please note that there is a nonrefundable, annual processing fee in order to self-certify to the Privacy Shield Principles. Additional information can be found here: https://www.privacyshield.gov/Program-Overview .
+
+
+PRIVACY SHIELD ENFORCEMENT
+
+
+Removal from the Privacy Shield List means that organizations cannot claim to be Privacy Shield compliant and must remove statements implying that they participate in the Framework. An organization that continues to claim participation in the Privacy Shield or makes other related misrepresentations after it has been removed from the Privacy Shield List may be subject to enforcement action by the Federal Trade Commission, the Department of Transportation, or other enforcement authorities.
+
+
+An organization&apos;s failure to comply with the Privacy Shield Principles is enforceable under Section 5 of the Federal Trade Commission Act prohibiting unfair and deceptive acts in or affecting commerce (15 U.S.C. § 45(a)) or other laws or regulations prohibiting such acts. Any misrepresentation to the general public concerning an organization&apos;s adherence to the Privacy Shield Principles may be actionable by the FTC or other relevant government body. The FTC has the power to rectify such misrepresentations by seeking administrative orders and civil penalties of up to $16,000 per day for violations of those orders. Misrepresentations to the Department may be actionable under the False Statements Act (18 U.S.C. § 1001).
+
+
+If your organization has any questions concerning the re-certification process, please contact the Privacy Shield Team here: https://www.privacyshield.gov/assistance.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

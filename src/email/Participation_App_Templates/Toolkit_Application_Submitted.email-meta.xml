@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent to submitter on receipt of initial Toolkit Provider Application.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Toolkit Application Submitted</name>
+    <style>freeForm</style>
+    <subject>{!Case.RecordType} Toolkit: Thank you for your application</subject>
+    <textOnly>{!Contact.Name}:
+
+Thank you for your interest in the {!Case.RecordType} Toolkit. We have received your application and it will be processed in the order in which it was received.
+
+If you have questions or concerns, you can contact us by submitting an inquiry.
+
+To submit an inquiry, you will need to:
+
+1. Log in to your Assistance Dashboard (https://www.export.gov/dashboard).
+2. Select the link to your Toolkit application.
+3. Enter a comment in the “Attachments &amp; Comments” box.
+4. Click “Add” to send the communication to a member of the {!Case.RecordType} Team.
+
+To learn more about trade promotion opportunities and other services available to you as a U.S. exporter, please visit the {!Case.RecordType} Web Portal.
+
+Thank you,
+The {!Case.RecordType} Toolkit Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

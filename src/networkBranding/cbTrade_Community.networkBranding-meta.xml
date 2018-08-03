@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NetworkBranding xmlns="http://soap.sforce.com/2006/04/metadata">
+    <loginFooterText>International Trade Administration</loginFooterText>
+    <loginLogo>Communities_Shared_Document_Folder/logo_jpg2.jpg</loginLogo>
+    <loginLogoName>2logo.jpg</loginLogoName>
+    <network>Trade Community</network>
+    <pageHeader>Communities_Shared_Document_Folder/Trade_logo.jpg</pageHeader>
+    <primaryColor>#0C3E71</primaryColor>
+    <primaryComplementColor>#FFFFFF</primaryComplementColor>
+    <quaternaryColor>#FFFFFF</quaternaryColor>
+    <quaternaryComplementColor>#222222</quaternaryComplementColor>
+    <secondaryColor>#51606E</secondaryColor>
+    <tertiaryColor>#DDE4E9</tertiaryColor>
+    <tertiaryComplementColor>#222222</tertiaryComplementColor>
+    <zeronaryColor>#FFFFFF</zeronaryColor>
+    <zeronaryComplementColor>#222222</zeronaryComplementColor>
+</NetworkBranding>

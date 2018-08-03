@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>/conference-calls/2018-kbyg-1</description>
+    <internalUseOnly>false</internalUseOnly>
+    <name>SUSA - 2018 Know Before You Go 1</name>
+    <public>true</public>
+</Document>

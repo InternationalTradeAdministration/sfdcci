@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Toolkit Marketing Launch Confirmation OLD</name>
+    <style>none</style>
+    <subject>Toolkit Marketing Subscription Confirmation</subject>
+    <textOnly>{!CampaignMember.Lead},
+
+Thank you for your interest in the {!CampaignMember.Campaign} toolkit. We will contact you when the application system is live – we anticipate early July.
+
+We look forward to working with your business!
+The {!CampaignMember.Campaign} team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

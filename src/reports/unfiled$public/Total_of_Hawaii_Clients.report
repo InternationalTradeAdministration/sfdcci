@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE_CODE</field>
+    </columns>
+    <filter>
+        <booleanFilter>(1 AND 2) OR 3</booleanFilter>
+        <criteriaItems>
+            <column>ADDRESS1_CITY</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>,Kailua-Kona,Kalapana,Waiohinu,Waipahu,Wahiawa,Waialua,Kaaawa,Nanakuli,Mililani Mauka,Ewa Villages,Whimore Village,Makaha Valley,Kaneohe,Pearl City,Waianae,Kahuku,Kalaeloa,Pupukea,Maunawili,Ewa Gentry,Kawela Bay,Kapolei,Haleiwa,Hauula,Mokuleia,Heeia,East Honolulu,Royal Kunia,Waipio Acres,Ahuimanu,North Koolaupoko,Waimalu,Waipio,Hickam Housing,Waimanalo,Ewa Beach,Aiea,Waimea,Lihue,Launiupoko,Puuwai,Port Allen,Halehomaha,Wainiha,Kealia,Kupolo,china town,Sunset Beach,Kaimuki,Crestview,Akupu,Pauoa,Kalawao,Hailku,Kipahulu,Keanae,Pu’unene,Kaupo,Keokea,Nahiku,Kahakuloa,Hoolehua,Waihee,Wailua</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS1_CITY</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Hilo,Hakalau,Kapoho,Kawaihae,Milolii,Mahukona,Kaimu,Keauhou,Waiohinu,Kainaliu,Waiakea,Honaunau,Ninole,Ahualoa,Paauhau,Papaaloa,Keokea,Hagatna,Dededo,Tamuning,Agana Heights,Yigo,Mangilao,Agnat,Santa Rita,Asan,Sonsong,Agafo Gumas,Anigua,Adelup,Asatdas,Asbeco,Adacao,Asagas,Apurguan,Afami,Pago Pago,Fagatogo,Leone,Afono,Amaluia,Tafuna,Nu’uuli,Faga’alu,Utulei,Aasu,Amanave,Mapusaga,Alega,Fatumafuti,Amouli,Futiga,Atu’u,Afao,Faga’itua,Pagai,Anua,Falesao,Poloa,Alao,Asili,Alofau,Aoa,Faleniu,Amaua,Aumi,Failolo,Agugulu,Apia,Salelologa,Upolu,Savai’I,Hawaii,Kailua,Haleiwa,Honolulu,Pearl City,Kula,Waipahu,Maui,Kihei,WaialuaHaiku,Wailuku</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS1_STATE_CODE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>AS,GU,HI</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Total # of Hawaii Clients</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

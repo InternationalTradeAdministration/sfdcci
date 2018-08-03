@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Toolkit Marketing Launch Confirmation</name>
+    <style>none</style>
+    <subject>{!CampaignMember.Campaign_Program_Name__c} Toolkit Interest Confirmation</subject>
+    <textOnly>{!CampaignMember.Lead},
+
+Thank you for your interest in the {!CampaignMember.Campaign_Program_Name__c} Toolkit. We will contact you when the application system is live – we anticipate early July.
+
+We look forward to working with your business!
+
+The {!CampaignMember.Campaign_Program_Name__c} Toolkit Team
+International Trade Administration
+U.S. Department of Commerce</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

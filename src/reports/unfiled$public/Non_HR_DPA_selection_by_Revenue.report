@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>FK_Account.Organization_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Org Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_24578885</developerName>
+        <masterLabel>revenue buckets</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>FK_ACC_SALES</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>5,000,000</to>
+            </sourceValues>
+            <value>under 5 million</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>5,000,000</from>
+                <to>25,000,000</to>
+            </sourceValues>
+            <value>5 million to 25 million</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>25,000,000</from>
+                <to>500,000,000</to>
+            </sourceValues>
+            <value>25 million to 500 million</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>500,000,000</from>
+                <to>5,000,000,000</to>
+            </sourceValues>
+            <value>500 million to five billion</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>5,000,000,000</from>
+            </sourceValues>
+            <value>over five billion</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>Third_Party__c.Participation__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_INSTALL_DATE</field>
+    </columns>
+    <columns>
+        <field>FK_USAGE_END_DATE</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>CUST_NAME</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>DPAs</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_STATUS</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Active</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Third_Party__c.Third_Party_Master_List__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_24578885</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>DPA selection by Revenue</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Third_Party__c@Third_Party__c.Asset__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <sortColumn>Third_Party__c.Participation__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_LAST_UPDATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

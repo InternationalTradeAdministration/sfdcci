@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Narrative__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>RH_Lev_2_DAS__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>GM CS-WH-HQ DAS Office</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>CUST_ID</primaryTableColumn>
+        <relatedTable>WIN_Contributor__c</relatedTable>
+        <relatedTableJoinColumn>WIN__c</relatedTableJoinColumn>
+    </crossFilters>
+    <format>Tabular</format>
+    <name>WH WINs recently approved</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WIN__c.Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_LAST30</interval>
+    </timeFrameFilter>
+</Report>

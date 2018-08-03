@@ -1,0 +1,6 @@
+<p>{!CampaignMember.Lead},</p>
+
+<p>Thank you for your interest in the {!CampaignMember.Campaign_Program_Name__c} toolkit. We will contact you when the application system is live – we anticipate early July.</p>
+ 
+<p>We look forward to working with your business!<br />
+The {!CampaignMember.Campaign_Program_Name__c} team</p>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Account</field>
+    </columns>
+    <columns>
+        <field>Case$Org_City__c</field>
+    </columns>
+    <columns>
+        <field>Case.Countries__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>Case$Fee__c</field>
+    </columns>
+    <columns>
+        <field>Case$Description</field>
+    </columns>
+    <description>Cases with country and specific fee-based services; sortable by U.S. City not industry</description>
+    <filter>
+        <criteriaItems>
+            <column>Case$Record_Type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Advocacy,Commercial Diplomacy,Export Promotion</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Fee__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Gold Key Matching Service,International Partner Search,International Partner Search + Virtual Introductions,Platinum Key Service,Single Company Promotion,Trade Mission,Other Event,Other Service</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Countries__r$Country__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Australia,Bangladesh,Cambodia,Hong Kong,India,Indonesia,Malaysia,Myanmar,Nepal,Papua New Guinea,Philippines,Singapore,Sri Lanka,Taiwan,Thailand,Vietnam</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Request_Case_Removal__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>GS Asia Prospects</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Accessibility</fullName>
+        <default>false</default>
+        <label>Accessibility</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Application Issue</fullName>
+        <default>false</default>
+        <label>Application Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Solutions</fullName>
+        <default>false</default>
+        <label>Business Solutions</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Comment</fullName>
+        <default>false</default>
+        <label>Comment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Department of Commerce Liaison</fullName>
+        <default>false</default>
+        <label>Department of Commerce Liaison</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Export from the United States</fullName>
+        <default>false</default>
+        <label>Export from the United States</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Feature Request</fullName>
+        <default>false</default>
+        <label>Feature Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Federal Trade Commission Liaison</fullName>
+        <default>false</default>
+        <label>Federal Trade Commission Liaison</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Idea</fullName>
+        <default>false</default>
+        <label>Idea</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Import into the United States</fullName>
+        <default>false</default>
+        <label>Import into the United States</label>
+    </standardValue>
+    <standardValue>
+        <fullName>NA</fullName>
+        <default>false</default>
+        <label>NA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Payment/Refund</fullName>
+        <default>false</default>
+        <label>Payment/Refund</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Problem</fullName>
+        <default>false</default>
+        <label>Problem</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Problem/Bug</fullName>
+        <default>false</default>
+        <label>Problem/Bug</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Program Implementation</fullName>
+        <default>false</default>
+        <label>Program Implementation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Question</fullName>
+        <default>false</default>
+        <label>Question</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Regulatory requirements</fullName>
+        <default>false</default>
+        <label>Regulatory requirements</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Request for Comment</fullName>
+        <default>false</default>
+        <label>Request for Comment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Search</fullName>
+        <default>false</default>
+        <label>Search</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Speaking Invitation</fullName>
+        <default>false</default>
+        <label>Speaking Invitation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Update Company Name</fullName>
+        <default>false</default>
+        <label>Update Company Name</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Update Dispute Resolution Provider</fullName>
+        <default>false</default>
+        <label>Update Dispute Resolution Provider</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Non-Compliance/False Claim Referral</fullName>
+        <default>false</default>
+        <label>Non-Compliance/False Claim Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Eligibility Issue</fullName>
+        <default>false</default>
+        <label>Eligibility Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Payment Issue</fullName>
+        <default>false</default>
+        <label>Payment Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Update to Privacy Shield Record</fullName>
+        <default>false</default>
+        <label>Update to Privacy Shield Record</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Withdrawal from Program</fullName>
+        <default>false</default>
+        <label>Withdrawal from Program</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Annual Re-Certification Issue</fullName>
+        <default>false</default>
+        <label>Annual Re-Certification Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Complaint Submission Issue</fullName>
+        <default>false</default>
+        <label>Complaint Submission Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>General Inquiry</fullName>
+        <default>false</default>
+        <label>General Inquiry</label>
+    </standardValue>
+</StandardValueSet>

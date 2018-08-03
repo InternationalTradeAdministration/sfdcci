@@ -1,50 +1,61 @@
 <apex:page id="RegistrationConfirmation" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="tradeRegistration_Controller" title="{!$Label.site.user_registration}">
 
-<!-- -----------------------------------------
+<!--
 - The MIL Corporation
 - ITA Trade Community Registration
 - Product Tag: Registration / Work#:
 - Created: 2016.02.17: MIL Corp
-------------------------------------------- -->
+-->
     
 <apex:composition template="Site_Template">
 <apex:define name="page"> 
-    <div class="container itaBr">
+<apex:outputpanel layout="block" styleClass="container itaBr" >
         <apex:form id="theForm">
-            <!-- --Logo Branding Start-- -->
-            <div id="logo_wrapper" class="col-md-12">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                        <center><img id="logo" class="standard_logo" src="/servlet/servlet.FileDownload?file={!logo}" alt="Trade Community" border="0" name="logo"/></center>
-                </div>
-                <div class="col-md-4"></div>
-            </div>
-<!-- --Log0 Branding End-- -->
+            
 
-            &nbsp;
-    <div class="col-md-12">
-        <div class="col-md-4"></div>
-        <!-- Center Reg Box Start -->
-        <div id="main_wrapper" class="col-md-4 itaCaseBox itaFormBox">
-            <div id="confirmation">
-                <div class="col-md-12">
+
+            
+   <apex:outputpanel layout="block" styleClass="col-md-6 col-md-offset-3" >
+   <apex:outputpanel layout="block" id="confirmation" styleClass="stepbox" >
+                
+                <apex:outputpanel layout="block" styleClass="text-center" >
+                    
+                    <img id="logo" class="standard_logo" src="/resource/1481023890000/logos/logos/ITA-Emblem.png" alt="Trade Community" border="0" name="logo" width="275"/>
+                    
+                    <br/><br/><br/>
                     <p>
                         Thank you for taking the time to complete your registration. 
-                    </p> 
-                    <p>
-                        <b>Your registration needs a final step. Check your email for a confirmation link, sent to </b><em>{!c.email}</em>.
-                    </p>
-                    <p>
-                        Once your registration is validated, you will be prompted to set your password.
                     </p>
                     
-                </div>
-            </div>
-         </div>
-            </div>
-         <!-- --Registration Confirmation End-- -->
+                    <small><p rendered="{!$CurrentPage.parameters.startURL != null}">
+                        <span id="delayMsg"></span>                    
+                        <apex:outputLink value="{!$CurrentPage.parameters.startURL}" rendered="{!$CurrentPage.parameters.startURL != null}"> Redirect Immediately</apex:outputLink>
+                    </p></small>
+                    
+         </apex:outputpanel>
+         </apex:outputpanel>
+         </apex:outputpanel>
+         <!-- Registration Confirmation End -->
         </apex:form>
-    </div>
+
+    </apex:outputpanel>
+
+    
+    <script language="javascript">
+        if ({!$CurrentPage.parameters.startURL != null}) {
+            document.getElementById('delayMsg').innerHTML = 'You will be redirected in <span id="countDown">5</span> seconds.';
+            var count = 5;
+            setInterval(function(){
+                count--;
+                document.getElementById('countDown').innerHTML = count;
+                if (count == 0) {
+                    window.location = "{!$CurrentPage.parameters.startURL}";
+                }
+            },1000);
+        }
+       
+    </script>      
+    
 </apex:define>
 </apex:composition>
 </apex:page>

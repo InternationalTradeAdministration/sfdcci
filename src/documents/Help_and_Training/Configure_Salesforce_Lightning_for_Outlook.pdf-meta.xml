@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>A simple step by step guidance on how to configure Salesforce Lightning for outlook (plugin)</description>
+    <internalUseOnly>false</internalUseOnly>
+    <keywords>plugin, email, configure</keywords>
+    <name>Configure Salesforce Lightning for Outlook</name>
+    <public>true</public>
+</Document>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Owners_Office__c</field>
+    </columns>
+    <columns>
+        <field>Case$Status</field>
+    </columns>
+    <columns>
+        <field>Case$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Case$Record_Type__c</field>
+    </columns>
+    <columns>
+        <field>Case$Fee__c</field>
+    </columns>
+    <columns>
+        <field>Case$Case_Contributor_Rollup__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case$Case_One__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case.Countries__r$Country__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Albania,Azerbaijan,Bahamas,Bahrain,Bangladesh,Barbados,Belize,Benin,&quot;Bolivia, Plurinational State of&quot;,Bosnia and Herzegovina,Botswana,Brunei Darussalam,Burkina Faso,Cambodia,Cameroon,Congo,&quot;Congo, the Democratic Republic of the&quot;,Cote d’Ivoire,Cyprus,Ecuador,Estonia,Fiji,Gabon,Gambia,Georgia,Guinea,Haiti,Iceland,Jamaica,Kosovo,Lao People’s Democratic Republic,Latvia,Lesotho,Liberia,Lithuania,&quot;Macedonia, the former Yugoslav Republic of&quot;,Madagascar,Mali,Malta,Mauritius,Mongolia,Montenegro,Namibia,Nicaragua,Oman,Paraguay,Rwanda,Senegal,Slovenia,Sri Lanka,Swaziland,Trinidad and Tobago,Tunesia,Turkmenistan,Uganda,Uzbekistan</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Countries__r$Country__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Partner Post Cases</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

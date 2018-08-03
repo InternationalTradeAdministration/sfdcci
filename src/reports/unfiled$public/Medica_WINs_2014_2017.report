@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$First_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Final_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$RecordType</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Related_Cases_and_Orgs__r$Case_Subject__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Related_Cases_and_Orgs__r$Name</field>
+    </columns>
+    <filter>
+        <booleanFilter>(1 OR 2 OR 3 OR 4)</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c.Related_Cases_and_Orgs__r$Case_Subject__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>MEDICA 2014</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Related_Cases_and_Orgs__r$Case_Subject__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>MEDICA 2015</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Related_Cases_and_Orgs__r$Case_Subject__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>MEDICA 2016</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Related_Cases_and_Orgs__r$Case_Subject__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>MEDICA 2017</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Medica WINs 2014- 2017</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_cases1__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_PREVCUR2FY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Title</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Days_Since_Last_Published_Date__c</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$LastModifiedDate</field>
+    </columns>
+    <description>Country Commercial Guide Articles that have not been updated in the last 90 days and is the latest version.</description>
+    <filter>
+        <criteriaItems>
+            <column>Country_Commercial__ka.Country_Commercial__kav$Days_Since_Last_Published_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>90</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Country_Commercial__ka.Country_Commercial__kav$IsLatestVersion</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Country_Commercial__ka.Country_Commercial__kav$PublishStatus</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>2</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Country_Commercial__ka$LastPublishedDate</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>Country_Commercial__ka$LastPublishedDate</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>CCG Articles Update&gt;90 Days - DEMO</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Country_Commercial_Articles__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Country_Commercial__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

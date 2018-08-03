@@ -150,26 +150,39 @@ public without sharing class Payment {
     public Payment__c saveTransactionDetails(Payment__c paymentObject, PayGovTCSOnline.CompleteOnlineCollectionWithDetailsResponse completeOnlineCollectionWithDetailsResponse) {
         paymentObject.Pay_Gov_Tracking_Id__c = String.valueOf(completeOnlineCollectionWithDetailsResponse.paygov_tracking_id);
         paymentObject.Transaction_Amount__c = Decimal.valueof(completeOnlineCollectionWithDetailsResponse.transaction_amount);
-        String transactionDate = String.valueOf(completeOnlineCollectionWithDetailsResponse.transaction_date);
-        //System.debug('Transaction Date = ' + transactionDate);
-        Datetime transactionDateGMT = DateTime.valueOf(transactionDate);
-        transactionDateGMT = getEST(transactionDateGMT);
-        paymentObject.Transaction_Date__c = transactionDateGMT;
+        
+        //The transaction datetime returned from pay.gov is correct for EST, but the timezone thinks it's GMT
+        //So convert the datetime to GMT for it to be properly stored
+        DateTime transDate = completeOnlineCollectionWithDetailsResponse.transaction_date;
+        DateTime transDateGMT = transDate.addSeconds(getTimeZoneOffset());
+        paymentObject.Transaction_Date__c = transDateGMT;  //Datetimes need to be either GMT or have a timezone specified
+       
         String paymentDate = String.valueOf(completeOnlineCollectionWithDetailsResponse.payment_date);
-        //System.debug('Payment Date = ' + paymentDate);
         paymentObject.Payment_Date__c = Date.valueOf(paymentDate);
         paymentObject.Transaction_Status__c = completeOnlineCollectionWithDetailsResponse.transaction_status;
+        paymentObject.Payment_Type__c = completeOnlineCollectionWithDetailsResponse.payment_type;
          
         update paymentObject;
         
         return paymentObject;
     }
     
-    @TestVisible private static Datetime getEST(Datetime dtTime)
+    /*@TestVisible private static Datetime getEST(Datetime dtTime)
     {    
         Date d = dtTime.dateGmt();
         Time t = dtTime.timeGmt();
         return Datetime.newInstance(d,t);
+    }*/
+    
+    @TestVisible private static Integer getTimeZoneOffset() {
+        Timezone tz = Timezone.getTimeZone('America/New_York');
+
+        // Create a date after the 2007 shift of DST into November
+        DateTime dtpost = system.now();
+        system.debug(tz.getOffset(dtpost));  //-18000000 (= -5 hours = EST)
+        
+        Integer offsetSeconds = tz.getOffset(dtpost)/1000*-1;  //1000 is to convert milliseconds to seconds and -1 is to add seconds instead of subtract
+        return offsetSeconds;
     }
     
     @TestVisible private static String getCurrentFiscalYear() {

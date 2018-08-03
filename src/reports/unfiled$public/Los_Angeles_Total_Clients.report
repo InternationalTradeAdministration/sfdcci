@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE_CODE</field>
+    </columns>
+    <description>Zip Codes</description>
+    <filter>
+        <booleanFilter>(1 OR 2) AND 3 AND 4</booleanFilter>
+        <criteriaItems>
+            <column>ADDRESS1_ZIP</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>startsWith</operator>
+            <value>90,910,911,912,913,914,915,916</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS1_ZIP</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>93510,93532,93534,93535,93536,93539,93543,93544,93550,93551,93552,93553,93563,93584,93586,93590,93591,93599</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS1_ZIP</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>90620,90621,90622,90623,90624,90630,90631,90632,90633,90680,90720,90721,90740,90742,90743,91319,91320,91358,91359,91360,91361,91362,91377</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS1_COUNTRY_CODE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>US</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Los Angeles Total Clients - 1 of 2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

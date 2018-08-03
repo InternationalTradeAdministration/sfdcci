@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>http://ADFS.TRADE.GOV/adfs/services/trust</issuer>
+    <loginUrl>https://adfs.trade.gov/adfs/ls/</loginUrl>
+    <logoutUrl>https://adfs.trade.gov/adfs/ls/?wa=wsignout1.0</logoutUrl>
+    <name>ITA ADFS 3.0</name>
+    <oauthTokenEndpoint>https://trade.my.salesforce.com/services/oauth2/token?so=00Dt0000000Gydl</oauthTokenEndpoint>
+    <redirectBinding>true</redirectBinding>
+    <requestSignatureMethod>0</requestSignatureMethod>
+    <requestSigningCertId>0P1t0000000003P</requestSigningCertId>
+    <salesforceLoginUrl>https://trade.my.salesforce.com?so=00Dt0000000Gydl</salesforceLoginUrl>
+    <samlEntityId>https://trade.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIC2DCCAcCgAwIBAgIQFbTA5SuSu5NOv+OXn5CkpjANBgkqhkiG9w0BAQsFADAoMSYwJAYDVQQDEx1BREZTIFNpZ25pbmcgLSBBREZTLlRSQURFLkdPVjAeFw0xNzAzMjcxNDM0NTdaFw0yNzAzMjUxNDM0NTdaMCgxJjAkBgNVBAMTHUFERlMgU2lnbmluZyAtIEFERlMuVFJBREUuR09WMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvROg4au0fbkWLqkMyy3yneElb4TZ0qfrfz3wbESScg/rOJ6NByE/UZLdG7woVCqP4TvmVejRX4J/SPPQIgyfSFID+Rl/8E9yjF404EpKxJRuEo+DA881XNfeUPaTD0E3fyo6fxkbUb7ktd8AngwvE5TTvupzgCra9Rarmr6+FethUNz//lMLbkhhmmBM1DKpwpIVPwV4XZqciKxHCvsJWLEwwyGIJGA18o9hzdrsM0hUY7jZnRy5ko0HLnvqadfRVp6krG9vOS5dP5vgNmhAWH4/NzhS+/egEZ1DVlYav/IR0wo2BX1KLUA0BjYm8za3s+8nRPXbvqQwavIL/79J8QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAsvcO8osgQx0jzhtEkYdDAb33msAtS3u5tZhq8VNpZOB1B0cO1hZUrDxoAvzNG3fRiHxrIb7GfXwb4Dbw6e9DNdU5DSxQ5LEhnahC4UuQHimn/v0Pyl9PuqBNYOslfjj+4SngarzEBKm8N/pwPEPMOES1rWW2+tlpwkH7CsaY+wWmKbB+uSi4AC8Rfak1dzxJ1Lzubyp7Olxn0lm+wki7dW8+hd4lEs5DC1hRw7xepE/AtpE2aJMB7gHn58raoWXRL7Vu+Dbg7DyZyXrsQY8+Wsl/WIQqA1pWBMLBT2HPLcSGGTtdcCmWXDasPluAMz27rxrHQV+gNLkEYebqWcx8W</validationCert>
+</SamlSsoConfig>

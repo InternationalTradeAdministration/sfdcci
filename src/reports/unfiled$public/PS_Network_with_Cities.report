@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>Pie</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>false</expandOthers>
+        <groupingColumn>Account.OrgIndustryHierarchy__r$Industry__c</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sector__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sub_Sector__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>((1 AND 2) OR 3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR 11 OR 12) AND 13</booleanFilter>
+        <criteriaItems>
+            <column>Account$BillingStateCode</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>CA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Aguanga,Anza,Banning,Beaumont,Bermuda Dunes,Blythe,Cabazon,Calimesa,Canyon Lake,Cathedral City,Coachella,Corona,Hot Springs,Desert Hot Springs,Hemet,Homeland,Idyllwild,Indian Wells,Indio,La Quinta,Lake Elsinore,March Arb,Mecca,Menifee,Mira Loma,Moreno Valley,Mountain Center,Murieta,Norco,Nuevo,Palm Desert,Palm Springs,Perris,Rancho Mirage,Riverside,San Jacinto,Sun City,Temecula,Thermal,Thousand Palms,San Bernardino,Redlands,Upland,Hesperia,Apple Valley,Adelanto,Needles,Forest Falls,Rancho Cucamonga,Rialto,Chino,Loma Linda,Barstow,Twentynine Palms,Lucerne Valley,Helendale,Fontana,Victorville,Highland,Yucaipa,Montclair,Phelan,Bryn Mawr,Pinon Hills,Ontario,Colton,Big Bear Lake,Chino Hills,Grand Terrace,Yucca Valley,Cedar Glen,Baker,Angelus Oaks,Rimforest,Hinkley,Ludlow,Red Mountain,Oak Hills,Amboy,Pioneertown,Johnson Valley,Kramer Junction,Sugarloaf,Daggett,Trona,Essex,Mountain Home Village,Newberry Springs,Landers,Arrowbear Lake,Cima</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Irvine,Anaheim,Santa Ana,Newport Beach,Orange,Huntington Beach,Costa Mesa,Laguna Beach,Fullerton,Tustin,Mission Viejo,San Clemente,Garden Grove,Laguna Niguel,Lake Forest,Dana Point,Fountain Valley,Brea,San Juan Capistrano,Yorba Linda,Westminster,Aliso Viejo,Buena Park,Laguna Hills,Rancho Santa Margarita,Cypress,Seal Beach,Placentia,La Habra,Los Alamitos,Stanton,La Palma,Villa Park,Laguna Woods,Anaheim Island</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Los Angeles,Beverly Hills,Torrance,Culver City,Santa Clarita,Hermosa Beach,Inglewood,Santa Monica,Glendale,West Hollywood,Manhattan Beach,Downey,El Segundo,Arcadia,Gardena,Long Beach,Malibu,Compton,Whittier,Calabasas,La Mirada,Huntington Park,Cerritos,Pasadena,Burbank,Redondo Beach,Alhambra,Pomona,West Covina,El Monte,Monterey Park,Carson,Palmdale,Covina,Azusa,Glendora,La Puente,Norwalk,Lancaster,Baldwin Park,Rosemead,San Gabriel,Hawthorne,Lakewood,Pico Rivera,Rancho Palos Verdes,Montebello,La Canada Flintridge,Monrovia,Vernon,Diamond Bar,Rowland Heights,Agoura Hills,Artesia,Avalon,bell,bellflower,Bradbury,Commerce,Cudahy,Duarte,Hawaiian Gardens,Hidden Hils,Industry,Irwindale,La Verne,Lynwood,Maywood,Paramount,Rolling Hills,San Fernando,San Dimas,San Marino,Santa Fe Springs,Sierra Madre,Signal Hill,South Gate,Temple City,West Lake,Walnut,San Pedro,Barnes,Belmont heights,Eagle Rock,Hyde Park,Sawtelle,Tropico,Tujunga,Watts,Wilmington</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Carlsba,Chula Vista,Coronado,Del Mar,El Cajon,Encinitas,Imperial Beach,La Mesa,Lemon Grove,National City,Oceanside,Poway,San Diego,San Marcos,Santee,Solana Beach,Vista</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Woodfords,Fredericksburg,Fresno,Clovis,Sanger,Selma,Reedley,Kingsburg,Fowler,Parlier,Kerman,Coalinga,Mendota,Firebaugh,San Joaquin,Orange Cove,Huron,Big Creek,Malaga,Old Fig Garden,Centerville,Tarpey Village,Minkler,Three Rocks,Bishop,Valley Wells,Bakersfield,Arvin,McFarland,Fuller Acres,Mexican Colony,Tehachapi,Taft,California City,Edmundson Acres,Greenfield,Shafter,Ridgecrest,Maricopa,Smith Corner,Eric,Delano,Wasco,Woody,Cherokee,Strip,Hanford,Lemoore,Corcoran,Avenal,Grangeville,Hardwick,Madera,Chowchilla,Coarsegold,Bass Lake,Ahwahnee,Nipinnawasee,Rolling Hills,La Vina,Wawona,ElPortal,Coulterville,Midpines,Catheys Valley,Fish Camp,Hornitos,Bear Valley,Buck Meadows,Merced,Gustine,Ballico,Santa Nella,Calpack,Atwater,Livingston,Cressey,Dos Palos Y,Los Banos,Hilmar-Irwin,Stevinson,Volta,Dos Palos,Snelling,El Nido,Hilmar,Modesto,Riverbank,Waterford,Turlock,Patterson,Crows Landing,Ceres,Hughson,Oakdale,Newman,Mammoth Lakes,Lee Vining,Bodie,Bridgeport,June Lake,Coleville</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Benton,Chalfant Valley,Swall Meadows,Topaz,Aspen Springs,Santa Maria,Modesto,Turlock,Ceres,Oakdale,Riverbank,Patterson,Hughson,Newman,Waterford,Crows Landing,Visalia,Tulare,Porterville,Dinuba,Exeter,Farmersville,Woodlake,Lindsay,Sultana,California Hot Springs,Waukena,Camp Nelson,Posey,Allensworth,Ponderosa,Silver City,Poso Park,Cedar Slope,Idlewild,Sugarloaf Mountain,Sugarloaf Village,Sonora,Groveland,Long Barn,Strawberry,Dardanelle,Sierra Village</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Las Vegas,Henderson,North Las Vegas,Boulder City,Mesquite,Sloan,Jean,Mountain&apos;s Edge,Primm,Nelson,Arden,Amargosa Valley,Gabbs,Duckwater,Manhattan,Currant</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Reno City,Reno,Sparks,Gerlach,Mustang Ranch,Pleasant Valley,Vya,New Washoe,Patrick,Pyramid,Genoa,California Megapolitan,Topaz Lake,Mottsville,Sheridan,Winnemucca,Denio,Paradise Valley,Golconda,Orovada,Valmy,Lovelock,Rochester,Imlay,Unionville,Etna,Mill City,Scossa,Virginia,Gold Hill,Clark,Lockwood,Gilpin,Fernley,Yerington,Mound House,Silver City,Como,Wellington,Stagecoach,Smith,Wabuska,Weed Heights,Mason,Sutro,Elko,West Wendover,Carlin,Jackpot,Wells,Lamoille,Halleck,Jarbidge,Montebello,Mountain City,Tuscarora,Metropolis,Deeth,Jiggs,Oasis,Midas,Currie,Osino,Charleston,Cobre,Ryndon,Jack Creek,North Fork,Dinner Station,Hunter,Shafter,Fallon,Middlegate,Hazen,Eastgate,White Cloud,Dixie Valley,Nevada,Stillwater,Frenchman,Marietta,Austin,Kingston,Galena,Rixie,Pittsburg,North Battle Mountain,Carson,Ely,Baker,Cherry Creek,Ruth,Hamilton,Lund,Majors Place,Shoshone,Kimberly,Aurora,Walker Lake,Luning,Rawhide,Babbitt,Broken Hills,Hoboken,Stateline,Incline Village,Carson City,Washoe</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Ventura,Simi Valley,Port Hueneme,Bell Canyon,Seacliff,Oxnard,Moorpark,Newbury Park,Lake Sherwood,Camarillo,Ojai,Fillmore,Santa Susana,Thousand Oaks,Santa Paula,Somis,La Conchita,Pismo Beach,San Luis Opispo,Paso Robles,Arroyo Grande,Morro Bay,Atascadero,Grover Beach,Los Osos,Avila Beach,San Simeon,Santa Margarita,Creston,Harmony,Edna,Santa Barbara,Goleta,Solvang,Lompoc,Carpinteria,Buellton,Los Olivos,Guadalupe,Cuyama,Casmalia,New Cuyama,Sisquoc,Ballard,Garey</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>,Kailua-Kona,Kalapana,Waiohinu,Waipahu,Wahiawa,Waialua,Kaaawa,Nanakuli,Mililani Mauka,Ewa Villages,Whimore Village,Makaha Valley,Kaneohe,Pearl City,Waianae,Kahuku,Kalaeloa,Pupukea,Maunawili,Ewa Gentry,Kawela Bay,Kapolei,Haleiwa,Hauula,Mokuleia,Heeia,East Honolulu,Royal Kunia,Waipio Acres,Ahuimanu,North Koolaupoko,Waimalu,Waipio,Hickam Housing,Waimanalo,Ewa Beach,Aiea,Waimea,Lihue,Launiupoko,Puuwai,Port Allen,Halehomaha,Wainiha,Kealia,Kupolo,china town,Sunset Beach,Kaimuki,Crestview,Akupu,Pauoa,Kalawao,Hailku,Kipahulu,Keanae,Pu’unene,Kaupo,Keokea,Nahiku,Kahakuloa,Hoolehua,Waihee,Wailua</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Hilo,Hakalau,Kapoho,Kawaihae,Milolii,Mahukona,Kaimu,Keauhou,Waiohinu,Kainaliu,Waiakea,Honaunau,Ninole,Ahualoa,Paauhau,Papaaloa,Keokea,Hagatna,Dededo,Tamuning,Agana Heights,Yigo,Mangilao,Agnat,Santa Rita,Asan,Sonsong,Agafo Gumas,Anigua,Adelup,Asatdas,Asbeco,Adacao,Asagas,Apurguan,Afami,Pago Pago,Fagatogo,Leone,Afono,Amaluia,Tafuna,Nu’uuli,Faga’alu,Utulei,Aasu,Amanave,Mapusaga,Alega,Fatumafuti,Amouli,Futiga,Atu’u,Afao,Faga’itua,Pagai,Anua,Falesao,Poloa,Alao,Asili,Alofau,Aoa,Faleniu,Amaua,Aumi,Failolo,Agugulu,Apia,Salelologa,Upolu,Savai’I,Hawaii,Kailua,Haleiwa,Honolulu,Pearl City,Kula,Waipahu,Maui,Kihei,WaialuaHaiku,Wailuku</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCountryCode</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>US</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.OrgIndustryHierarchy__r$Industry__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>PS Network with Cities</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$LastModifiedDate</dateColumn>
+        <endDate>2017-09-23</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2015-10-01</startDate>
+    </timeFrameFilter>
+</Report>

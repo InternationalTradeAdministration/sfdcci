@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Welcome email for Privacy Shield new users</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Privacy_Shield_Letterhead</letterhead>
+    <name>Trade Community - Welcome - Privacy Shield</name>
+    <style>freeForm</style>
+    <subject>{!Target_User.FirstName}, Welcome to Privacy Shield</subject>
+    <textOnly>Welcome {!Target_User.FirstName},
+
+We&apos;re glad you&apos;ve joined our International Trade Administration Community!
+
+Your Username is: {!Target_User.Username}
+
+As a registered community member for Privacy Shield, you can: 
+
+- Self-certify your compliance with EU-U.S. and Swiss-U.S. Privacy Shield Frameworks data protection requirements 
+- Check the status of your self-certification application 
+- Review the list of self-certified organizations
+
+The Privacy Shield team at the U.S. Department of Commerce’s International Trade Administration (ITA) will work diligently to review and respond to your Privacy Shield submissions in a timely manner. Please note that the processing time will depend on the nature and completeness of the submission, as well as the volume of submissions received. We are currently experiencing an unusually high volume of self-certification applications and thus would appreciate your cooperation and patience.
+
+Please be sure to carefully review the resources provided on the Department’s Privacy Shield website, such as the following:
+- Program Overview
+- How to Join Privacy Shield
+- Privacy Policy FAQs
+- A Step-by-Step Guide to Self-Certification on the Privacy Shield Website
+
+Thanks for joining!
+
+Trade Community Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

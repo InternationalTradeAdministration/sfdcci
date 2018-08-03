@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template for notifying organization that their Privacy Shield record has become inactive due to persistent failure to comply.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Privacy_Shield_Letterhead</letterhead>
+    <name>PS: Inactive Status Failure to Comply</name>
+    <style>formalLetter</style>
+    <subject>Removal from Privacy Shield List: Persistent Failure to Comply</subject>
+    <textOnly>As of {!Asset.UsageEndDate} your organization, {!Asset.Account}, is listed on the Privacy Shield program’s Inactive List: https://www.privacyshield.gov/inactive.
+
+You are receiving this message because your organization has persistently failed to comply with the Privacy Shield Principles. As a result, the Department has removed your organization from the Privacy Shield List, meaning that your organization may no longer benefit from the European Commission’s adequacy decision to receive personal information from the EU and/or the Swiss Government’s adequacy decision to receive personal information from Switzerland.
+
+Your organization must remove from any relevant privacy policy any references to Privacy Shield that imply that the organization continues to actively participate in Privacy Shield and is entitled to its benefits.
+
+Your organization must return or delete the personal information it received while it participated in Privacy Shield.
+
+If you have any questions, please contact the Privacy Shield Team via our website assistance page: https://www.privacyshield.gov/assistance.
+
+Thank you for your cooperation.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

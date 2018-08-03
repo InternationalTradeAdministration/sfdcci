@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Account.Organization_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>GRAND_SUMMARY</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Org Count</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>Account.Activities$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Account.Activities$Subject</field>
+    </columns>
+    <columns>
+        <field>Account.Activities$What</field>
+    </columns>
+    <columns>
+        <field>Account.Activities$Who</field>
+    </columns>
+    <columns>
+        <field>Account.Activities$Related_to_Case__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>(1 or 2) or 3</booleanFilter>
+        <criteriaItems>
+            <column>Account.Activities$CreatedBy</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>rachel mayer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Activities$CreatedBy</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>audrey stienon</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Activities$CreatedBy</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>jeffrey eversman</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Activities$Owner</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Id</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>MTB Duplicate Interactions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Orgs_for_client_assists_org_activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

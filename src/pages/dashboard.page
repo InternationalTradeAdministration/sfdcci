@@ -55,14 +55,14 @@ function myFunction() {
                         </apex:commandLink>
                     </div>
                     <div class="col-md-4">
-                        <apex:commandLink action="{!processRequests}">
+                        <apex:commandLink action="{!processRequests}" rerender="cases_table">
                             <div class="col-md-12" style="border-radius: 6px; border: 1px solid lightgray; padding: 20px; background-color:#ffffff;" align="center">
                                 <center>
-                                    <h3 style="text-align:center; font-size:150%; color: #32404E"> My Company Cases </h3> <br/><br/>
-                                    <h3 style="text-align:center; font-size:500%; color: #94C254">{!orgOpenCases.size}</h3>
+                                    <h3 style="text-align:center; font-size:150%; color: #32404E"> My Closed Cases </h3> <br/><br/>
+                                    <h3 style="text-align:center; font-size:500%; color: #94C254">{!closedCases.size}</h3>
                                 </center>
                             </div>
-                            <apex:param name="filterID" value="My Company Cases" assignTo="{!filterId}" />
+                            <apex:param name="filterID" value="My Closed Cases" assignTo="{!filterId}" />
                         </apex:commandLink>
                 </div>     
             </div>    

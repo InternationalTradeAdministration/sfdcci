@@ -101,7 +101,7 @@ function expandl3(ref){
         <!-- Begin page content -->
    <div class="subheader secondary-bg-ita">
         <div class="container">
-            <div>
+            <apex:outputpanel layout="block" rendered="{!publication != null}">
                 <nav id="subnav">
                     <h4 id="sectionName">{!publication}</h4>
                     <span class="boardbut">
@@ -109,10 +109,10 @@ function expandl3(ref){
                         <!-- <c:boardSave /> -->
                     </span>
                 </nav>
-            </div>
+            </apex:outputpanel>
         </div>
     </div>
-    <div class="article_exception">
+    <div class="article_exception containerInternal enforceHeight" id="thearticle">
 <div class="containerITA" style="padding-top:0px;">
         <div class="row nopad">
             <div class="expanddiv sidebar {!if(!isStaticNav, 'col-md-3', 'hidden')} pad-left-zero">         
@@ -215,23 +215,42 @@ function expandl3(ref){
                     </apex:repeat>
                 </ul -->
             </div>
-            <div class="{!if(!isStaticNav, 'col-md-9', 'col-md-12')} article-body pad-right-zero">
+            <div class="{!if(!isStaticNav, 'col-md-9', 'col-md-12')} article-body">
             <div class="side{!if(!isStaticNav, ' vertical-divider-left', '')}">
                  <div class="itaBr"></div>
                 <h1 class="itaDisplay itaArticleColor article-title"><strong class="hidden-xs">{!title}</strong><strong class="hidden-sm hidden-md hidden-lg">{!mobiletitle}</strong></h1>
+                <apex:outputpanel layout="block" styleClass="col-md-8 pad-left-zero" rendered="{!VideoEndpoint != null}" >
+                    <c:Video YouTubeId="{!VideoEndpoint}" />
+                <apex:outputpanel layout="block" styleClass="well" >
+                <span><strong>{!VideoDescription}</strong></span><br/>
+                <span><a href="{!VideoDownload}">{!VideoFileSize}MB Download</a></span><br/>
+                
+                </apex:outputpanel>  
+                </apex:outputpanel>               
                 <h8 class="itaDisplay itaArticleColor lead article-indent">{!summary}</h8>
                 <hr/>
                 <apex:outputtext rendered="{!!HideLastPulbished}">
                 <h7><b>Last Published:</b> <em>{!published}</em></h7><div class="itaBr"></div>
                 </apex:outputtext>
+                <apex:outputpanel layout="block" >
                 <apex:outputText value="{!atom}" escape="false" /><div class="itaBr"></div>
-                <em><apex:outputText value="{!references}" escape="false" /></em><div class="itaBr"></div>
+                
+                <apex:outputpanel layout="block" rendered="{!VideoEndpoint != null}" >
+                <hr/>
+                </apex:outputpanel>
+                <p><apex:outputText value="{!citation}" escape="false" rendered="{!references = null}" /></p><div class="itaBr"></div>
+                <em><apex:outputText value="{!references}" escape="false" rendered="{!references != null}" /></em><div class="itaBr"></div>
+                
+                              
                 <apex:outputText rendered="{!tags.size != 0}">
+                
+                <br />
                 <br /><br />
                 <apex:repeat value="{!ArticleTags}" var="tag">
                     <a class="btn btn-primary btn-sm" role="button" href="{!tag.App}{!tag.Endpoint}{!URLENCODE(tag.text)}">{!tag.text}</a>
                 </apex:repeat>
                 </apex:outputText>
+                </apex:outputpanel>
             </div>
         </div>
       </div>
@@ -279,7 +298,7 @@ if (typeof jQuery != 'undefined') {
          });
      });
  }
-
+ 
  function checkInsightRequiredField(field){
     console.log(field+' = '+$('.'+field).val());
     if($('.'+field).val() == ''){

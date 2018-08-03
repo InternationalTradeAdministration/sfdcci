@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>Pie</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>false</expandOthers>
+        <groupingColumn>Account.OrgIndustryHierarchy__r$Industry__c</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sector__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sub_Sector__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <criteriaItems>
+            <column>Account$BillingStateCode</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>CA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>,Woodfords,Fredericksburg,Fresno,Clovis,Sanger,Selma,Reedley,Kingsburg,Fowler,Parlier,Kerman,Coalinga,Mendota,Firebaugh,San Joaquin,Orange Cove,Huron,Big Creek,Malaga,Old Fig Garden,Centerville,Tarpey Village,Minkler,Three Rocks,Bishop,Valley Wells,Bakersfield,Arvin,McFarland,Fuller Acres,Mexican Colony,Tehachapi,Taft,California City,Edmundson Acres,Greenfield,Shafter,Ridgecrest,Maricopa,Smith Corner,Eric,Delano,Wasco,Woody,Cherokee,Strip,Hanford,Lemoore,Corcoran,Avenal,Grangeville,Hardwick,Madera,Chowchilla,Coarsegold,Bass Lake,Ahwahnee,Nipinnawasee,Rolling Hills,La Vina,Wawona,ElPortal,Coulterville,Midpines,Catheys Valley,Fish Camp,Hornitos,Bear Valley,Buck Meadows,Merced,Gustine,Ballico,Santa Nella,Calpack,Atwater,Livingston,Cressey,Dos Palos Y,Los Banos,Hilmar-Irwin,Stevinson,Volta,Dos Palos,Snelling,El Nido,Hilmar,Modesto,Riverbank,Waterford,Turlock,Patterson,Crows Landing,Ceres,Hughson,Oakdale,Newman,Mammoth Lakes,Lee Vining,Bodie,Bridgeport,June Lake,Coleville</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCity</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Benton,Chalfant Valley,Swall Meadows,Topaz,Aspen Springs,Santa Maria,Modesto,Turlock,Ceres,Oakdale,Riverbank,Patterson,Hughson,Newman,Waterford,Crows Landing,Visalia,Tulare,Porterville,Dinuba,Exeter,Farmersville,Woodlake,Lindsay,Sultana,California Hot Springs,Waukena,Camp Nelson,Posey,Allensworth,Ponderosa,Silver City,Poso Park,Cedar Slope,Idlewild,Sugarloaf Mountain,Sugarloaf Village,Sonora,Groveland,Long Barn,Strawberry,Dardanelle,Sierra Village</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.OrgIndustryHierarchy__r$Industry__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Bakersfield - Fresno Industry Portfolio</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$LastModifiedDate</dateColumn>
+        <interval>INTERVAL_PREVCURFY</interval>
+    </timeFrameFilter>
+</Report>

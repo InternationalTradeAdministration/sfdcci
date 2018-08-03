@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>/cybertech-2017-flyer</description>
+    <internalUseOnly>false</internalUseOnly>
+    <name>SUSA - Cybertech 2017 flyer</name>
+    <public>true</public>
+</Document>

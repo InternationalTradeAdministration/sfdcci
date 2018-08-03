@@ -52,7 +52,8 @@ public without sharing class RefundController {
         Integer paymentType;
         
         //try {
-            paymentType = determinePaymentType();
+            //paymentType = determinePaymentType();
+            paymentType = CREDIT_CARD_PAYMENT;
         //} catch (Exception e) {
         //    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Didn\'t receive a timely response from pay.gov to determine the payment type.  Please try again to issue the refund.'));
         //    return null;
@@ -80,7 +81,7 @@ public without sharing class RefundController {
             String payGovTrackingId = String.valueOf(pcRefundResponse.pcRefund.paygov_tracking_id);
             Decimal returnedTransactionAmount = Decimal.valueOf(pcRefundResponse.pcRefund.transaction_amount);
             String transactionDate = String.valueOf(pcRefundResponse.pcRefund.transaction_date);
-           	DateTime transactionDateGMT = null;
+            DateTime transactionDateGMT = null;
             if(! String.isEmpty(transactionDate)) {
                 transactionDateGMT = DateTime.Valueof(transactionDate.replace('T', ' ')); 
                 System.debug('transactionDateGMT: ' + transactionDateGMT);

@@ -7,7 +7,7 @@
     <head prefix="og: http://ogp.me/ns#; dcterms: http://purl.org/dc/terms/#">
            <!-- Site Metadata -->
         <meta charset="utf-8" />
-        <meta name="google-site-verification" content="nyOPmxYAlEl2wcxsLPQdGyyXJrWtrT5mOy71dJBeGus" />
+<meta name="google-site-verification" content="3uMLx21dSwss18K7IYF2CSaSxWRhMA7kttTVF14_LOA" />        
 <title><apex:insert name="title" />{!main.Title__c}</title>
         <apex:insert name="description" />
         <!-- Mobile Meta -->
@@ -17,7 +17,8 @@
         <!-- Bootstrap core CSS -->
         <link href="{!URLFor($Resource.bootstrap, 'bootstrap/css/bootstrap.css')}" rel="stylesheet" />
         <!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/e6603bca54.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/javascript" src="https://use.fonticons.com/ffe176a3.js"></script>
         
         <!-- Plugins -->
         <link href="{!URLFor($Resource.ITA2, 'skins/css/animations.css')}" rel="stylesheet" />
@@ -36,12 +37,12 @@
         <link href="{!URLFor($Resource.ITA2, 'skins/jquery.dropdown.min.css')}" rel="stylesheet" />
       <script type="text/javascript" src="{!URLFor($Resource.ITA2, 'skins/jquery.dropdown.min.js')}"></script>
       <script type="text/javascript" src="{!URLFor($Resource.ITA2, 'skins/js/inputValidations.js')}" />
+      <script type="text/javascript" src="{!URLFor($Resource.ps, 'ps/form-validations.js')}"></script>
      <apex:insert name="searchcss" />
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
         <!-- Favicon -->
         <link rel="shortcut icon" href="{!URLFOR($Resource.Favicons, main.favicon__c)}" type="image/x-icon" />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet" />
@@ -86,7 +87,18 @@ setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])",10000);
 </apex:outputText>
 
 <script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOC&subagency=ITA"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src='https://www.google.com/recaptcha/api.js' defer="defer" async="async"></script>
+
+        <!-- Google Tag Manager -->
+        
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PGM46GV');</script>
+        
+        <!-- End Google Tag Manager -->
+        
 </head>
     <body class="front no-trans">
         <!-- scrollToTop -->
@@ -164,7 +176,7 @@ setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])",10000);
                                     <div class="btn-group dropdown"> 
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>{!$User.FirstName} {!left($User.LastName,1)}.</button>
                                         <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
-                                            <li><apex:outputLink value="{!$Site.Prefix}/about?sfdc.tabName=01rt0000000CjIj" id="myprofile"><i class="fa fa-user"></i> My Settings</apex:outputLink></li>
+                                            <li><apex:outputLink value="{!$Site.Prefix}/about?sfdc.tabName=01rt0000000CjIj" id="myprofile"><i class="fa fa-user"></i> Settings</apex:outputLink></li>
                                             <!--li><apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!$User.Id}&tab=sfdc.ProfilePlatformOverview" id="myprofile"><i class="fa fa-user"></i> My Profile</apex:outputLink></li-->
                                             <!-- li><apex:outputLink value="{!$Site.Prefix}/ui/setup/Setup?setupid=PersonalSetup" id="mysettings"><i class="fa fa-cog"></i> My Settings</apex:outputLink></li -->
                                             <apex:repeat value="{!main.my_profile_options__r}" var="mpo">
@@ -175,9 +187,7 @@ setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])",10000);
                                     </div>
                                     </apex:outputPanel>
                                     <apex:outputPanel rendered="{!IF(and(loggedInUser=='0', main.Disable_Login__c != true), true, false)}">
-                                    <div class="btn-group dropdown" rendered="{!IF(and(loggedInUser=='0', main.Disable_Login__c != true), true, false)}"> 
-                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" onClick="parent.location='{!$Site.Prefix}/Registration'"> Sign Up</button>
-                                    </div>
+                                 
                                     <div class="btn-group dropdown" rendered="{!IF(loggedInUser=='0', true, false)}"> 
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" onClick="parent.location='{!$Site.Prefix}/CommunitiesLogin'"> Log In</button>
                                     </div> 
@@ -351,13 +361,7 @@ setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])",10000);
             <link href="{!URLFor($Resource.ps, 'ps/loading.css')}" rel="stylesheet" />  <!-- Required for "initiallyHidden" style class -->
 
             <apex:outputPanel id="LoadingDiv" styleClass="initiallyHidden">
-                <apex:outputPanel layout="block" styleClass="loading-div" ></apex:outputPanel>
-                <apex:outputPanel layout="block" styleClass="loading-div2">
-                    <apex:outputPanel layout="block" styleClass="loading-div3">
-                        <img src="/img/loading.gif" class="loading-div-img" />
-                        <apex:outputText styleClass="loading-div-text" value="Loading..." />
-                    </apex:outputPanel>
-                </apex:outputPanel>
+                <div id="preloader"></div>
             </apex:outputPanel>
 
             <!-- Body Content end -->
@@ -383,7 +387,7 @@ setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])",10000);
                               <div class="col-sm-6 col-md-2">
                                  <div class="footer-content">
                                      
-                                        <h5><a href="{!if(!isBlank(group.url__c), group.url__c, if(!isBlank(group.page__c), group.page__r.clean_url__c, '#'))}" class="footer-links">{!group.name}</a></h5>
+                                        <h5><a href="{!if(!isBlank(group.url__c), 'https://' + group.url__c, if(!isBlank(group.page__c), group.page__r.clean_url__c, '#'))}" class="footer-links">{!group.name}</a></h5>
                                          <ul class="nav-stacked">
                                            <apex:repeat value="{!group.navigation_links__r}" var="link">
                                                 <li><a href="{!if(!isBlank(link.Redirect__c), link.Redirect__c, if(!isBlank(link.page__r.Clean_URL__c), link.page__r.Clean_URL__c, '/apex/page?id='+link.Page__c))}">{!link.name}</a></li>                                                                
@@ -504,6 +508,13 @@ setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])",10000);
     }
 </script>
 
+
+        <!-- Google Tag Manager (noscript) -->
+        
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGM46GV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        
+        <!-- End Google Tag Manager (noscript) -->
 
 </body>
 </html>

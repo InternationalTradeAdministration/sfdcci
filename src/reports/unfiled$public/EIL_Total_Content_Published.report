@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Market_Insight__ka$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Market_Insight__ka$LastModifiedBy</field>
+    </columns>
+    <columns>
+        <field>Market_Insight__ka$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Market_Insight__ka.Market_Insight__kav$Title</field>
+    </columns>
+    <description>Total number of versions of published content of EIL articles</description>
+    <filter>
+        <criteriaItems>
+            <column>Market_Insight__ka$CreatedBy</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>James Bledsoe</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>EIL Total Content Published</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Market_Insight_Articles_with_Versions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Market_Insight__ka$CreatedDate</dateColumn>
+        <endDate>2018-03-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-10-01</startDate>
+    </timeFrameFilter>
+</Report>

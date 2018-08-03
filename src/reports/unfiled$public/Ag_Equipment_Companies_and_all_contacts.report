@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Email</field>
+    </columns>
+    <columns>
+        <field>Account$Owner</field>
+    </columns>
+    <columns>
+        <field>Account$Owner_Office__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Industry__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Agribusiness</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Sector__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Agricultural Equipment and Machinery</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>Account$Id</primaryTableColumn>
+        <relatedTable>Industry__c</relatedTable>
+        <relatedTableJoinColumn>Organization__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>This search is specifically for industry &quot;agribusiness&quot; and sector &quot;agricultural equipment.  Will list all contacts.</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts$HasOptedOutOfEmail</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Email</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>@</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Ag. Equipment Companies and all contacts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Contacts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <endDate>2017-02-17</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>1901-01-01</startDate>
+    </timeFrameFilter>
+</Report>

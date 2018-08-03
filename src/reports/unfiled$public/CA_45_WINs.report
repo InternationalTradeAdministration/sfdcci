@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Congressional_District_formula__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Calendar_Year_of_Results__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Description_of_Results__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.WIN_Contributors_Rollup__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Advocacy_Total_US_Export_Content__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>FK_$Account.Congressional_District_formula__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>CA-45</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>CA-45 WINs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c@WIN__c.Organization__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WIN__c.Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

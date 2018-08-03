@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$FirstName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$LastName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Email</field>
+    </columns>
+    <description>Subject:	US Cloud Computing and Cloud Security: Positive Developments affecting Market Potential in Japan and Asia
+
+Sent:	02/20/2018 11:00 AM EST</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts$Email</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>@</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$HasOptedOutOfEmail</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Email</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>,lesley.cole@trade.gov,alihowsa@yahoo.com,mehedifaysal99@gmail.com,quincygann82@gmail.com,ajax@baoyih.com,herodebeauvais@outlook.com,ndf@embassyofargentina.us,marlanaslv88@gmail.com,xxxjoachim121@yahoo.fr,hayder.alhimairy@gmail.com,daniel@mibz.com.br,samkallabat@gmail.com,julie.bennion@commerce.wa.gov,breathdynamics.inc@gmail.com,yassine.chahm@usmba.ac.ma,emeinhart@yesvirginia.org,jweber@chatsworth.com,kerry_bonner@hketosf.gov.hk,tsey428@gmail.com,jj_cassidy@yahoo.com,wgreta191@gmail.com,yeisonandres.puerto@uptc.edu.co,annamontalvo1974sc@gmail.com,sara.caceres.23@gmail.com,jhoffman@sapdc.org,thekcxowner@gmail.com,vcgato29@gmail.com,tomquinn24@hotmail.com,frank.adebowale@live.com,ledesmajr12@gmail.com,alexramirez1@gmail.com,shaariazmi@gmail.com,mekkaoui1111@gmail.com,0940104017arm@gmail.com,dcpglobal@gmail.com,moji.jung1009@gmail.com,aim_ea@yahoo.co.in,smtushar.886@gmail.com,jwmlr2@hotmail.com,eovirella@yahoo.com</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>PSN APBO Bulletin Clicks 2/21/2018</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Contacts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

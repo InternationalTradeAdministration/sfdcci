@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Cleared_For__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Owner</field>
+    </columns>
+    <columns>
+        <field>WIN__c$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>WIN__c$First_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Final_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Additional_WIN_Features__c</field>
+    </columns>
+    <description>Full details of U.S. Field WINs by Network and Office</description>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$RH_Lev_2_DAS__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>GM CS-USA-HQ DAS Office</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c.Contributors__r$RH_Lev_3_Region_2__c</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c.Contributors__r$Contributor__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>U.S. Field WINs by Network and Office</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Contributors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

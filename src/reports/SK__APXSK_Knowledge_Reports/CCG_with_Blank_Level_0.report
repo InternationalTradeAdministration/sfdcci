@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Title</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka$Id</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Level_2__c</field>
+    </columns>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Country_Commercial__ka.Country_Commercial__kav$level_0__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Level_1__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>CCG with Levels</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Country_Commercial_Articles__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Country_Commercial__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

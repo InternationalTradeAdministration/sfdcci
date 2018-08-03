@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>/Singapore-IPR-Toolkit</description>
+    <internalUseOnly>false</internalUseOnly>
+    <keywords>Singapore-IPR-Toolkit</keywords>
+    <name>Singapore IPR Toolkit</name>
+    <public>true</public>
+</Document>

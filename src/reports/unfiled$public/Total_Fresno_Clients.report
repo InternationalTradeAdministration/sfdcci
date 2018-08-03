@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE_CODE</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>ADDRESS1_CITY</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>,Woodfords,Fredericksburg,Fresno,Clovis,Sanger,Selma,Reedley,Kingsburg,Fowler,Parlier,Kerman,Coalinga,Mendota,Firebaugh,San Joaquin,Orange Cove,Huron,Big Creek,Malaga,Old Fig Garden,Centerville,Tarpey Village,Minkler,Three Rocks,Bishop,Valley Wells,Bakersfield,Arvin,McFarland,Fuller Acres,Mexican Colony,Tehachapi,Taft,California City,Edmundson Acres,Greenfield,Shafter,Ridgecrest,Maricopa,Smith Corner,Eric,Delano,Wasco,Woody,Cherokee,Strip,Hanford,Lemoore,Corcoran,Avenal,Grangeville,Hardwick,Madera,Chowchilla,Coarsegold,Bass Lake,Ahwahnee,Nipinnawasee,Rolling Hills,La Vina,Wawona,ElPortal,Coulterville,Midpines,Catheys Valley,Fish Camp,Hornitos,Bear Valley,Buck Meadows,Merced,Gustine,Ballico,Santa Nella,Calpack,Atwater,Livingston,Cressey,Dos Palos Y,Los Banos,Hilmar-Irwin,Stevinson,Volta,Dos Palos,Snelling,El Nido,Hilmar,Modesto,Riverbank,Waterford,Turlock,Patterson,Crows Landing,Ceres,Hughson,Oakdale,Newman,Mammoth Lakes,Lee Vining,Bodie,Bridgeport,June Lake,Coleville</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS1_STATE_CODE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>CA</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Total Fresno Clients</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

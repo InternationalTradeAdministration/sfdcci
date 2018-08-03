@@ -1170,5 +1170,440 @@ public class TEST_Knowledge_Management{
         controller.navigation = new map<string, map<string, map<string, string>>>();
         system.assertNotEquals(controller.navObjects.size(), 0);
         system.assertNotEquals(controller.navObjects[0].empty, null);
-    }    
+    }
+    
+    public static TestMethod void testCase22(){
+        //No N1 links
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
+        Publication_Template__c pt = new Publication_Template__c();
+            pt.name = 'Country_Commercial__kav';
+            pt.Series_Template_Name__c = 'Country Commercial';
+        insert pt;
+        Chapter__c chap = new chapter__c();
+            chap.name = 'Blammo';
+            chap.sort_order__c = 1.0;
+            chap.publication_template__c = pt.id;
+        insert chap;
+        Chapter__c chap2 = new chapter__c();
+            chap2.name = 'Blammo';
+            chap2.sort_order__c = 1.0;
+            chap2.publication_template__c = pt.id;
+        insert chap2;
+
+        Chapter_Section__c cs = new Chapter_Section__c();
+            cs.name = 'Doing Business In';
+            cs.sort_order__c = 1.0;
+            cs.chapter__c = chap.id;
+        insert cs;
+        /*Chapter_Section__c cs2 = new Chapter_Section__c();
+            cs2.name = 'Doing Business In';
+            cs2.sort_order__c = 1.0;
+            cs2.chapter__c = chap.id;
+        insert cs2;
+        Level__c lvl0 = new Level__c();
+            lvl0.name = 'Test 1';
+            lvl0.series_template__c = pt.id;
+            lvl0.Level_Number__c = 'Level 0';
+            lvl0.sort_order__c = 1;
+            insert lvl0;
+        Level__c lvl1 = new Level__c();
+            lvl1.name = 'Test 2';
+            lvl1.series_template__c = pt.id;
+            lvl1.Level_Number__c = 'Level 1';
+            lvl1.parent_level__c = lvl0.id;
+            lvl1.sort_order__c = 1;
+            insert lvl1;
+        Level__c lvl2 = new Level__c();
+            lvl2.name = 'Test 3';
+            lvl2.series_template__c = pt.id;
+            lvl2.Level_Number__c = 'Level 2';
+            lvl2.parent_level__c = lvl1.id;
+            lvl2.sort_order__c = 1;
+            insert lvl2;
+        Level__c lvl3 = new Level__c();
+            lvl3.name = 'Test 4';
+            lvl3.series_template__c = pt.id;
+            lvl3.Level_Number__c = 'Level 3';
+            lvl3.parent_level__c = lvl2.id;
+            lvl3.sort_order__c = 1;
+            insert lvl3;*/
+
+        Series__c pub = new Series__c();
+        pub.name = 'Blammo Country Commercial Guide';
+        pub.type__c = 'Country Commercial';
+        insert pub;
+        Country_Commercial__kav kav = new Country_Commercial__kav();
+           kav.title = 'This is my KAV Title';
+           kav.atom__c = 'This is my KAV Atom';
+           kav.summary = 'This is my KAV Summary';
+           kav.references__c = 'This is my KAV Reference';
+           kav.urlName = 'this-is-my-kav';
+           kav.language = 'en_US';
+           kav.series__c = pub.id;
+           /*kav.level_0__c = 'Test 1';
+           kav.level_1__c = 'Test 2';
+           kav.level_2__c = 'Test 3';
+           kav.level_3__c = 'Test 4';*/
+           insert kav;
+
+        Country_Commercial__kav inserted = [select KnowledgeArticleId from Country_Commercial__kav where id = :kav.id];
+        KbManagement.PublishingService.publishArticle(inserted.KnowledgeArticleId, true);
+        PageReference page = new PageReference('article');
+            page.getParameters().put('series', pub.id);
+            page.getParameters().put('type', 'Country_Commercial__kav');
+        Test.setCurrentPage(page);
+        KnowledgeSearch__c ks = new KnowledgeSearch__c(name='abc', type__c = 'Country Commercial', endpoint__c = 'http://google.com');
+        article_controller controller = new article_controller();
+        controller.isSectionalNav = false;
+        controller.isStaticNav = false;
+        system.assertEquals(controller.getLoggedIn(), true);
+        controller.navigation = new map<string, map<string, map<string, string>>>();
+        system.assertNotEquals(controller.navObjects.size(), 0);
+        system.assertNotEquals(controller.navObjects[0].empty, null);
+    }
+    
+    public static TestMethod void testCase23(){
+        //No N2 links
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
+        Publication_Template__c pt = new Publication_Template__c();
+            pt.name = 'Country_Commercial__kav';
+            pt.Series_Template_Name__c = 'Country Commercial';
+        insert pt;
+        Chapter__c chap = new chapter__c();
+            chap.name = 'Blammo';
+            chap.sort_order__c = 1.0;
+            chap.publication_template__c = pt.id;
+        insert chap;
+        Chapter__c chap2 = new chapter__c();
+            chap2.name = 'Blammo';
+            chap2.sort_order__c = 1.0;
+            chap2.publication_template__c = pt.id;
+        insert chap2;
+
+        Chapter_Section__c cs = new Chapter_Section__c();
+            cs.name = 'Doing Business In';
+            cs.sort_order__c = 1.0;
+            cs.chapter__c = chap.id;
+        insert cs;
+        Chapter_Section__c cs2 = new Chapter_Section__c();
+            cs2.name = 'Doing Business In';
+            cs2.sort_order__c = 1.0;
+            cs2.chapter__c = chap.id;
+        insert cs2;
+        Level__c lvl0 = new Level__c();
+            lvl0.name = 'Test 1';
+            lvl0.series_template__c = pt.id;
+            lvl0.Level_Number__c = 'Level 0';
+            lvl0.sort_order__c = 1;
+            insert lvl0;
+        Level__c lvl1 = new Level__c();
+            lvl1.name = 'Test 2';
+            lvl1.series_template__c = pt.id;
+            lvl1.Level_Number__c = 'Level 1';
+            lvl1.parent_level__c = lvl0.id;
+            lvl1.sort_order__c = 1;
+            insert lvl1;
+        Level__c lvl2 = new Level__c();
+            lvl2.name = 'Test 3';
+            lvl2.series_template__c = pt.id;
+            lvl2.Level_Number__c = 'Level 2';
+            lvl2.parent_level__c = lvl1.id;
+            lvl2.sort_order__c = 1;
+            insert lvl2;
+        /*Level__c lvl3 = new Level__c();
+            lvl3.name = 'Test 4';
+            lvl3.series_template__c = pt.id;
+            lvl3.Level_Number__c = 'Level 3';
+            lvl3.parent_level__c = lvl2.id;
+            lvl3.sort_order__c = 1;
+            insert lvl3;*/
+
+        Series__c pub = new Series__c();
+        pub.name = 'Blammo Country Commercial Guide';
+        pub.type__c = 'Country Commercial';
+        insert pub;
+        Country_Commercial__kav kav = new Country_Commercial__kav();
+           kav.title = 'This is my KAV Title';
+           kav.atom__c = 'This is my KAV Atom';
+           kav.summary = 'This is my KAV Summary';
+           kav.references__c = 'This is my KAV Reference';
+           kav.urlName = 'this-is-my-kav';
+           kav.language = 'en_US';
+           kav.series__c = pub.id;
+           kav.level_0__c = 'Test 1';
+           kav.level_1__c = 'Test 2';
+           /*kav.level_2__c = 'Test 3';
+           kav.level_3__c = 'Test 4';*/
+           insert kav;
+
+        Country_Commercial__kav inserted = [select KnowledgeArticleId from Country_Commercial__kav where id = :kav.id];
+        KbManagement.PublishingService.publishArticle(inserted.KnowledgeArticleId, true);
+        PageReference page = new PageReference('article');
+            page.getParameters().put('series', pub.id);
+            page.getParameters().put('type', 'Country_Commercial__kav');
+        Test.setCurrentPage(page);
+        KnowledgeSearch__c ks = new KnowledgeSearch__c(name='abc', type__c = 'Country Commercial', endpoint__c = 'http://google.com');
+        article_controller controller = new article_controller();
+        controller.isSectionalNav = false;
+        controller.isStaticNav = false;
+        system.assertEquals(controller.getLoggedIn(), true);
+        controller.navigation = new map<string, map<string, map<string, string>>>();
+        system.assertNotEquals(controller.navObjects.size(), 0);
+        system.assertNotEquals(controller.navObjects[0].empty, null);
+    }
+    
+    public static TestMethod void testCase24(){
+        //No N3 links
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
+        Publication_Template__c pt = new Publication_Template__c();
+            pt.name = 'Country_Commercial__kav';
+            pt.Series_Template_Name__c = 'Country Commercial';
+        insert pt;
+        Chapter__c chap = new chapter__c();
+            chap.name = 'Blammo';
+            chap.sort_order__c = 1.0;
+            chap.publication_template__c = pt.id;
+        insert chap;
+        Chapter__c chap2 = new chapter__c();
+            chap2.name = 'Blammo';
+            chap2.sort_order__c = 1.0;
+            chap2.publication_template__c = pt.id;
+        insert chap2;
+
+        Chapter_Section__c cs = new Chapter_Section__c();
+            cs.name = 'Doing Business In';
+            cs.sort_order__c = 1.0;
+            cs.chapter__c = chap.id;
+        insert cs;
+        Chapter_Section__c cs2 = new Chapter_Section__c();
+            cs2.name = 'Doing Business In';
+            cs2.sort_order__c = 1.0;
+            cs2.chapter__c = chap.id;
+        insert cs2;
+        Level__c lvl0 = new Level__c();
+            lvl0.name = 'Test 1';
+            lvl0.series_template__c = pt.id;
+            lvl0.Level_Number__c = 'Level 0';
+            lvl0.sort_order__c = 1;
+            insert lvl0;
+        Level__c lvl1 = new Level__c();
+            lvl1.name = 'Test 2';
+            lvl1.series_template__c = pt.id;
+            lvl1.Level_Number__c = 'Level 1';
+            lvl1.parent_level__c = lvl0.id;
+            lvl1.sort_order__c = 1;
+            insert lvl1;
+        Level__c lvl2 = new Level__c();
+            lvl2.name = 'Test 3';
+            lvl2.series_template__c = pt.id;
+            lvl2.Level_Number__c = 'Level 2';
+            lvl2.parent_level__c = lvl1.id;
+            lvl2.sort_order__c = 1;
+            insert lvl2;
+        Level__c lvl3 = new Level__c();
+            lvl3.name = 'Test 4';
+            lvl3.series_template__c = pt.id;
+            lvl3.Level_Number__c = 'Level 3';
+            lvl3.parent_level__c = lvl2.id;
+            lvl3.sort_order__c = 1;
+            insert lvl3;
+
+        Series__c pub = new Series__c();
+        pub.name = 'Blammo Country Commercial Guide';
+        pub.type__c = 'Country Commercial';
+        insert pub;
+        Country_Commercial__kav kav = new Country_Commercial__kav();
+           kav.title = 'This is my KAV Title';
+           kav.atom__c = 'This is my KAV Atom';
+           kav.summary = 'This is my KAV Summary';
+           kav.references__c = 'This is my KAV Reference';
+           kav.urlName = 'this-is-my-kav';
+           kav.language = 'en_US';
+           kav.series__c = pub.id;
+           kav.level_0__c = 'Test 1';
+           kav.level_1__c = 'Test 2';
+           kav.level_2__c = 'Test 3';
+           /*kav.level_3__c = 'Test 4';*/
+           insert kav;
+
+        Country_Commercial__kav inserted = [select KnowledgeArticleId from Country_Commercial__kav where id = :kav.id];
+        KbManagement.PublishingService.publishArticle(inserted.KnowledgeArticleId, true);
+        PageReference page = new PageReference('article');
+            page.getParameters().put('series', pub.id);
+            page.getParameters().put('type', 'Country_Commercial__kav');
+        Test.setCurrentPage(page);
+        KnowledgeSearch__c ks = new KnowledgeSearch__c(name='abc', type__c = 'Country Commercial', endpoint__c = 'http://google.com');
+        article_controller controller = new article_controller();
+        controller.isSectionalNav = false;
+        controller.isStaticNav = false;
+        system.assertEquals(controller.getLoggedIn(), true);
+        controller.navigation = new map<string, map<string, map<string, string>>>();
+        system.assertNotEquals(controller.navObjects.size(), 0);
+        system.assertNotEquals(controller.navObjects[0].empty, null);
+    }
+    
+    public static TestMethod void testCase25(){
+        //Video
+        Site__c site = new Site__c();
+            site.name = 'Export';
+            site.domain__c = URL.getSalesforceBaseUrl().getHost();
+            site.title__c = 'Export.gov';
+            site.Site_CSS__c = '/css/sample.css' ;
+            site.site_logo__c = '/img/sample.png';
+            site.UseAsDefault__c = false;
+        insert site;
+        Publication_Template__c pt = new Publication_Template__c();
+            pt.name = 'Market_Intelligence__kav';
+            pt.Series_Template_Name__c = 'Market Intelligence';
+        insert pt;
+        Chapter__c chap = new chapter__c();
+            chap.name = 'Blammo';
+            chap.sort_order__c = 1.0;
+            chap.publication_template__c = pt.id;
+        insert chap;
+        Chapter__c chap2 = new chapter__c();
+            chap2.name = 'Blammo';
+            chap2.sort_order__c = 1.0;
+            chap2.publication_template__c = pt.id;
+        insert chap2;
+
+        Chapter_Section__c cs = new Chapter_Section__c();
+            cs.name = 'Doing Business In';
+            cs.sort_order__c = 1.0;
+            cs.chapter__c = chap.id;
+        insert cs;
+        Chapter_Section__c cs2 = new Chapter_Section__c();
+            cs2.name = 'Doing Business In';
+            cs2.sort_order__c = 1.0;
+            cs2.chapter__c = chap.id;
+        insert cs2;
+        Level__c lvl0 = new Level__c();
+            lvl0.name = 'Test 1';
+            lvl0.series_template__c = pt.id;
+            lvl0.Level_Number__c = 'Level 0';
+            lvl0.sort_order__c = 1;
+            insert lvl0;
+        Level__c lvl1 = new Level__c();
+            lvl1.name = 'Test 2';
+            lvl1.series_template__c = pt.id;
+            lvl1.Level_Number__c = 'Level 1';
+            lvl1.parent_level__c = lvl0.id;
+            lvl1.sort_order__c = 1;
+            insert lvl1;
+        Level__c lvl2 = new Level__c();
+            lvl2.name = 'Test 3';
+            lvl2.series_template__c = pt.id;
+            lvl2.Level_Number__c = 'Level 2';
+            lvl2.parent_level__c = lvl1.id;
+            lvl2.sort_order__c = 1;
+            insert lvl2;
+        Level__c lvl3 = new Level__c();
+            lvl3.name = 'Test 4';
+            lvl3.series_template__c = pt.id;
+            lvl3.Level_Number__c = 'Level 3';
+            lvl3.parent_level__c = lvl2.id;
+            lvl3.sort_order__c = 1;
+            insert lvl3;
+
+        Series__c pub = new Series__c();
+        pub.name = 'Blammo Market Intelligence Guide';
+        pub.type__c = 'Market Intelligence';
+        insert pub;
+        Content__c video = new Content__c();
+        video.Endpoint__c = 'Endpoint';
+        video.Video_Description__c = 'Video Description';
+        video.Video_Download__c = 'www.google.com';
+        video.Video_File_Size__c = '5';
+        insert video;
+        
+        Market_Intelligence__kav kav = new Market_Intelligence__kav();
+           kav.title = 'This is my KAV Title';
+           kav.atom__c = 'This is my KAV Atom';
+           kav.summary = 'This is my KAV Summary';
+           kav.references__c = 'This is my KAV Reference';
+           kav.urlName = 'this-is-my-kav';
+           kav.language = 'en_US';
+           kav.series__c = pub.id;
+           kav.video__c = video.id;
+           /*kav.level_0__c = 'Test 1';
+           kav.level_1__c = 'Test 2';
+           kav.level_2__c = 'Test 3';
+           kav.level_3__c = 'Test 4';*/
+           insert kav;
+
+        Market_Intelligence__kav inserted = [select KnowledgeArticleId from Market_Intelligence__kav where id = :kav.id];
+        KbManagement.PublishingService.publishArticle(inserted.KnowledgeArticleId, true);
+        PageReference page = new PageReference('article');
+            page.getParameters().put('series', pub.id);
+            page.getParameters().put('type', 'Market_Intelligence__kav');
+        Test.setCurrentPage(page);
+        KnowledgeSearch__c ks = new KnowledgeSearch__c(name='abc', 
+                                                       type__c = 'Market Intelligence',
+                                                       endpoint__c = 'http://google.com',
+                                                      site__c = URL.getSalesforceBaseUrl().getHost(),
+                                                      KAV_or_Category__c = 'Market Intelligence');
+        insert ks;
+        DescribeDataCategoryGroupResult[] results = Schema.describeDataCategoryGroups(
+            new String[] { 'KnowledgeArticleVersion'}
+        ); 
+        Market_Intelligence__DataCategorySelection ds = new Market_Intelligence__DataCategorySelection();
+            ds.parentid = inserted.id;
+            ds.DataCategoryGroupName = 'Trade_Topics';
+            ds.DataCategoryName = 'Advertising';
+        insert ds;
+        article_controller controller = new article_controller();
+        controller.isSectionalNav = false;
+        controller.isStaticNav = false;
+        system.assertEquals(controller.getLoggedIn(), true);
+        controller.navigation = new map<string, map<string, map<string, string>>>();
+        system.assertNotEquals(controller.navObjects.size(), 0);
+        system.assertNotEquals(controller.navObjects[0].empty, null);
+    }
+    
+    public static TestMethod void testCase26() {
+        //Errors
+        Site__c site = new Site__c();
+        site.name = 'Export';
+        site.domain__c = URL.getSalesforceBaseUrl().getHost();
+        site.title__c = 'Export.gov';
+        site.Site_CSS__c = '/css/sample.css' ;
+        site.site_logo__c = '/img/sample.png';
+        site.UseAsDefault__c = false;
+        insert site;
+        
+        article_controller controller = new article_controller();
+        PageReference pg = controller.error();
+        system.assertEquals('/apex/pagenotfound', pg.getUrl());
+         
+        controller.pageError = false;
+        controller.publicViewing = false;
+        controller.customerViewing = false; 
+        pg = controller.error();
+        system.assertEquals(pg.getParameters().get('retURL'), '/article');
+         
+        controller.publicViewing = true;
+        pg = controller.error();
+        system.assertEquals(null, pg);
+     }    
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>Participant__c.HR_Data__c</field>
+    </columns>
+    <columns>
+        <field>Participant__c.Non_HR_Data__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Owner</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Joshua Blume,Michelle Sylvester-Jose,Grace Harter,Nasreen Djouini,Andrew Steele,David Ritchie,Blake Murray,Andres Lahiguera,Caitlin Fennessy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Status</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>New</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>CHILD_ID</primaryTableColumn>
+        <relatedTable>Case</relatedTable>
+        <relatedTableJoinColumn>Participation__c</relatedTableJoinColumn>
+    </crossFilters>
+    <filter>
+        <criteriaItems>
+            <column>Participant__c.Framework__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>EU-U.S. Privacy Shield Framework</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>Andrew Steele Unassigned Cases</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Participation__c$Participant__c@Participant__c.Order__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>CUST_NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>WIN__c.WIN_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>WIN Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>WIN__c.WIN_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>GRAND_SUMMARY</downGroupingContext>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Unique WIN Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_10525796</developerName>
+        <masterLabel>User Region</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>WIN__c.Contributors__r$RH_Lev_5_Country__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Nordics Denmark</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Nordics Finland</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Nordics Norway</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Nordics Sweden</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field UK England</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field UK Ireland</sourceValue>
+            </sourceValues>
+            <value>Northern Europe</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Benelux Belgium</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Benelux France</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Benelux Netherlands</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Italy</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field SPG Portugal</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field SPG Spain</sourceValue>
+            </sourceValues>
+            <value>Western and Southern Europe</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Balkans Hungary</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field GEAUS Austria</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field GEAUS Germany</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field GEAUS Slovakia</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field PoCz Czech Republic</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field PoCz Poland</sourceValue>
+            </sourceValues>
+            <value>Central Europe</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Balkans Bulgaria</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Balkans Croatia</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Balkans Romania</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Balkans Serbia</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field SPG Greece</sourceValue>
+            </sourceValues>
+            <value>Southeastern Europe</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>GM CS-EMEA-Field Turkey</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GM CS-EUR-Field Turkey</sourceValue>
+            </sourceValues>
+            <value>Turkey</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>WIN__c$Organization__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Organization__c.NAICS__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Impact_of_Exporting__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Organization__c.NumberOfEmployees</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Calendar_Year_of_Results__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>WIN__c$WIN_One__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$First_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Final_Line_Approval_Date__c</field>
+    </columns>
+    <description>Final Approval FY16-FY17, by region, country, type, w/ NAICS info on Org</description>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c$Request_WIN_Removal__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$RH_Lev_6_Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>EUR</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_10525796</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c.Contributors__r$RH_Lev_5_Country__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c$WIN_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Europe WINs FY16-FY17</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Contributors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

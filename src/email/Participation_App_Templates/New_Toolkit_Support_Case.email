@@ -1,0 +1,17 @@
+A new Toolkit Support Case has been created by {!Case.CreatedBy}. The details are below. Please login to Salesforce and utilize the Cases tab to follow this Case.
+
+Case Number: {!Case.CaseNumber}
+
+Priority: {!Case.Priority}
+
+Subject: {!Case.Subject}
+
+Description: {!Case.Description}
+
+Created Date: {!Case.CreatedDate}
+
+Link to Case: {!Case.Link}
+
+Please do not reply to this email.
+
+Thank you!

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Market_Insight__ka.Market_Insight__kav$Title</field>
+    </columns>
+    <columns>
+        <field>Market_Insight__ka$Id</field>
+    </columns>
+    <columns>
+        <field>Market_Insight__ka.Market_Insight__kav$Level_2__c</field>
+    </columns>
+    <columns>
+        <field>Market_Insight__ka.Market_Insight__kav$Level_3__c</field>
+    </columns>
+    <columns>
+        <field>Market_Insight__ka.Market_Insight__kav$IsLatestVersion</field>
+    </columns>
+    <description>Market Insight Articles with Levels</description>
+    <filter>
+        <criteriaItems>
+            <column>Market_Insight__ka.Market_Insight__kav$IsLatestVersion</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Market_Insight__ka.Market_Insight__kav$Level_0__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Market_Insight__ka.Market_Insight__kav$Level_1__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>MI Articles with Levels</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Market_Insight_Articles_with_Versions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Market_Insight__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

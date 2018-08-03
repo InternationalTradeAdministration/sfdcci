@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template for notifying organization that their Privacy Shield record has become inactive due to withdrawal.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Privacy_Shield_Letterhead</letterhead>
+    <name>PS: Inactive Status Withdrawal</name>
+    <style>formalLetter</style>
+    <subject>Removal from Privacy Shield List: Withdrawal</subject>
+    <textOnly>As of {!Asset.UsageEndDate} your organization, {!Asset.Account}, is listed on the Privacy Shield program’s Inactive List: https://www.privacyshield.gov/inactive.
+
+You are receiving this email because your organization has indicated its intention to withdraw from Privacy Shield program.  As a result, the Department of Commerce has removed your organization from the Privacy Shield List, meaning that your organization may no longer benefit from the European Commission’s adequacy decision to receive personal information from the EU and/or the Swiss Government’s adequacy decision to receive personal information from Switzerland.
+
+Your organization must remove from any relevant privacy policy any references to Privacy Shield that imply that the organization continues to actively participate in Privacy Shield and is entitled to its benefits.
+
+As part of its withdrawal, your organization is required to verify whether it will return, delete, or continue to apply the Privacy Shield Principles to the personal information that it received in reliance upon Privacy Shield, and if personal information will be retained, verify who within the organization will serve as an ongoing point of contact for Privacy Shield-related questions. Your organization was therefore required to complete and submit the &quot;Withdrawal Questionnaire&quot;.
+
+Organizations that withdraw from the Privacy Shield program and choose to retain personal information received in reliance upon Privacy Shield by continuing to apply the Privacy Shield Principles to such data must affirm to the Department of Commerce, on an annual basis, their commitment to apply the Principles to such data.  Such organizations will be required to complete and submit the “Annual Questionnaire for Organizations that Indicated upon Withdrawal that They Would Retain Personal Data Received under Privacy Shield” to privacyshield@trade.gov  as an e-mail attachment.  A copy of that follow-up, annual questionnaire is available on the Privacy Shield website at: https://www.privacyshield.gov/article?id=Withdrawal-from-Privacy-Shield.  Organizations that have returned or deleted all such data or that provide “adequate” protection by another authorized means are no longer required to complete and submit the annual questionnaire after they notify the Department of this action.
+
+If you have any questions, please contact the Privacy Shield Team via our website assistance page: https://www.privacyshield.gov/assistance.
+
+Thank you for your cooperation.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

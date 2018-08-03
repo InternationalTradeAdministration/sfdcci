@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$FirstName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$LastName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Email</field>
+    </columns>
+    <description>Jan. 2, 2018 Email Marketing Bulletin</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts$Email</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>@</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$HasOptedOutOfEmail</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Email</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>henry@nypla.com,gabi.hanna@duke.edu,rumsey_ken_x@solarturbines.com,cecy@systemstech.com,drobnick@usc.edu,peter.forster@wd40.co.uk,mjcurran@quarton.com,ajax@baoyih.com,leonard@quarton.com,michael.haley@rcc.edu,nhung.phan@damco.com,tkroning@paklab.com,wisther00@aol.com,brianh@creativeoutdoordistributor.com,dewberryassociates@yahoo.com,gjones@chemexllc.com,CBIDA@foxmail.com,winniechen@domodointl.com,timothy.j.los@rante.com,dinbar@hsrc.biz,a0986279418@gmail.com,info@aarg.ca,chris@usfifoods.com,jdreyes@jdrsales.com,jonathansr@marvingroup.com,onlychangethatmakescents@gmail.com,gregcampbell@omict.com,tonyc@monumenttools.net,adorazio@amdltd.com,maura.kawai@trade.gov,Dedi.putra948@gmail.com,breton4064@yahoo.com.pe,Kristine@yourfinancialtourguide.com,twalter@irvinechamber.com,pellum981@verizon.net,travisrascoe@outlook.com,sinoperu@163.com,releases@shippers.com,m15927462375@gmail.com,gulshan.agarwal@newnik.com,a.sankar.msc@gmail.com,drigat100@gmail.com,sa</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>PSN APBO Bulletin Clicks 1/2/2018</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Contacts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

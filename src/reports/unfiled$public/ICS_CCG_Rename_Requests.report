@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Title</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Level_1__c</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Level_3__c</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$PublishStatus</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$IsVisibleInPkb</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$IsVisibleInCsp</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Public_URL__c</field>
+    </columns>
+    <columns>
+        <field>Country_Commercial__ka.Country_Commercial__kav$VersionNumber</field>
+    </columns>
+    <description>CCG Level 2 Tags requested to be renamed/changed to a new title by Roza Pace.</description>
+    <filter>
+        <criteriaItems>
+            <column>Country_Commercial__ka.Country_Commercial__kav$Level_2__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Openness to and Restrictions upon Foreign Investment,Transparency of the Regulatory System,Efficient Capital Markets and Portfolio Investment,Competition from State-Owned Enterprises,Political Violence,Bilateral Investment Agreements,OPIC and Other Investment Insurance Programs,Labor,Foreign Trade Zones/Free Ports/Trade Facilitation,Foreign Direct Investment and Foreign Portfolio Investment Statistics,Contact for More Information on the Investment Climate Statement</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Country_Commercial__ka.Country_Commercial__kav$PublishStatus</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>2</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Country_Commercial__ka.Country_Commercial__kav$Level_2__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>ICS CCG Rename Requests</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Country_Commercial__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <sortColumn>Country_Commercial__ka.Country_Commercial__kav$Level_1__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Country_Commercial__ka$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

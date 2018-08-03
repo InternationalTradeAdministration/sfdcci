@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Activity$Subject</field>
+    </columns>
+    <description>K. Hentschel HF Assessments</description>
+    <filter>
+        <criteriaItems>
+            <column>Activity$Subject</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>HF</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Activity$Owner.Username</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Hentschel</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Germany: HF Assessment</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Activity$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

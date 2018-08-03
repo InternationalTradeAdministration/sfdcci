@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification that a new Toolkit Support Case has been created.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>New Toolkit Support Case</name>
+    <style>none</style>
+    <subject>New Toolkit Support Case: {!Case.CaseNumber}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

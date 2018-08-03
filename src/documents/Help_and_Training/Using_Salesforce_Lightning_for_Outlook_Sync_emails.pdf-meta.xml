@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>A quick step by step guidance on how to use the Salesforce lightning for outlook to sync emails</description>
+    <internalUseOnly>false</internalUseOnly>
+    <keywords>sync, email, lightning</keywords>
+    <name>Using Salesforce Lightning for Outlook (Sync emails)</name>
+    <public>true</public>
+</Document>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c.Related_Countries__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Organization__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Advocacy_Date_Contract_Signed__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Final_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Advocacy_Total_Project_Value__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$AC_Total_US_Export_Content__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Owner</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Clearance_Notes__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>(((1 AND 2 AND (3 OR 4 or 6 or 7 or 8) AND 5))) AND 9</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c$Request_WIN_Removal__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Internal_Comment__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>FY15</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Approver__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>jennifer pilat</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Approver__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Americo Tadeu</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Advocacy,WIN__c.Advocacy_Locked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Approver__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>frederick helfrich</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Approver__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>patrice williams</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Approver__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>barbara farrar</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Related_Countries__r$Country__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Brunei Darussalam,Cambodia,Indonesia,Lao People’s Democratic Republic,Malaysia,Myanmar,Philippines,Singapore,Thailand,Vietnam</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>ASEAN AC Wins</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

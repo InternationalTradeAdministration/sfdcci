@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>State_Report__ka.State_Report__kav$Title</field>
+    </columns>
+    <columns>
+        <field>State_Report__ka$Id</field>
+    </columns>
+    <columns>
+        <field>State_Report__ka.State_Report__kav$Level_1__c</field>
+    </columns>
+    <columns>
+        <field>State_Report__ka.State_Report__kav$Level_3__c</field>
+    </columns>
+    <columns>
+        <field>State_Report__ka.State_Report__kav$IsLatestVersion</field>
+    </columns>
+    <description>State Report Articles with Levels</description>
+    <filter>
+        <criteriaItems>
+            <column>State_Report__ka.State_Report__kav$IsLatestVersion</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>State_Report__ka.State_Report__kav$Level_0__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>State_Report__ka.State_Report__kav$Level_2__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SR Articles with Levels</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>State_Report_Articles_with_Versions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>State_Report__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

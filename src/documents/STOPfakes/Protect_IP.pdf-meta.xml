@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Protecting Intellectual Properties in the United Kingdom</description>
+    <internalUseOnly>false</internalUseOnly>
+    <name>Protect IP</name>
+    <public>true</public>
+</Document>

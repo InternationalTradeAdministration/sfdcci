@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_57612382</developerName>
+        <masterLabel>General Textiles</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>Case.Case_Industry_Hierarchy__r$Sector__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Yarns</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Used Textiles</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Textile Made-Ups</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Textile Equipment and Machinery</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Protective Equipment</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Medical Textiles</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Leather and Fur Products</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Fabrics</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Apparel</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Footwear</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sporting Goods</sourceValue>
+            </sourceValues>
+            <value>General Textiles</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Account</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Record_Type__c</field>
+    </columns>
+    <columns>
+        <field>Case$Status</field>
+    </columns>
+    <columns>
+        <field>Case$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Case$ClosedDate</field>
+    </columns>
+    <columns>
+        <field>Case.Case_Industry_Hierarchy__r$Sector__c</field>
+    </columns>
+    <columns>
+        <field>Case.Case_Industry_Hierarchy__r$Sub_Sector__c</field>
+    </columns>
+    <columns>
+        <field>Case$Owner</field>
+    </columns>
+    <columns>
+        <field>Case$Account.BillingStateCode</field>
+    </columns>
+    <columns>
+        <field>Case$Account.Congressional_District_formula__c</field>
+    </columns>
+    <description>Textile WINS report</description>
+    <filter>
+        <criteriaItems>
+            <column>BucketField_57612382</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>General Textiles</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_57612382</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>General Textiles Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Case.Case_Industry_Hierarchy__r$Sector__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowledgeArticle$LastModifiedDate</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$FirstPublishedDate</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$Title</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$UrlName</field>
+    </columns>
+    <description>Current FQ published content for EIL, main filter last modifier equals James Bledsoe</description>
+    <filter>
+        <criteriaItems>
+            <column>KnowledgeArticle$LastModifiedBy</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>James Bledsoe</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>FQ EIL Publilshed Content</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Articles__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>KnowledgeArticle$Title</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeArticle$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,4 @@
+This notification is to inform you that I have rejected Article {!Market_Intelligence__kav.ArticleNumber} - {!Market_Intelligence__kav.Title}. You may edit your document here: {!Market_Intelligence__kav.Link}.
+
+Thank you,  
+{!Market_Intelligence__kav.Approver__c}

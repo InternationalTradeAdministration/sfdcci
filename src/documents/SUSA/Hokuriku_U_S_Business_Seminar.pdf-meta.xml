@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>/flyers/hokuriku-us-business-seminar-2017</description>
+    <internalUseOnly>false</internalUseOnly>
+    <name>SUSA - Hokuriku-U.S. Business Seminar</name>
+    <public>true</public>
+</Document>

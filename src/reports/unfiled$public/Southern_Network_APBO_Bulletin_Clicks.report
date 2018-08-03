@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$FirstName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$LastName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Email</field>
+    </columns>
+    <description>Bulletin sent: 	01/16/2018 02:30 PM EST</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts$Email</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>@</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$HasOptedOutOfEmail</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Email</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>dayna.mcconnell@ngkf.com,tbryarly@filtrationgroup.com,gclay@criderinc.com,sales@adjuvantsunlimited.com,gerald.moore@sba.gov,cchapman@gemu.com,jthomas@casspolymers.com,wbirchard@andronicssuperblue.com,jose.ramos@sba.gov,edward.haddock@sba.gov,wilfredo.gonzalez@sba.gov,gilbert.colon@sba.gov,kenneth.hamilton@sba.gov,paul.smith@sba.gov,dorothy.overal@sba.gov,charles.long@sba.gov,mary.hernandez@sba.gov,ilene.rubio@sba.gov,Sandro.Murtas@sba.gov,sheri.weston@sba.gov,Claudia.Yarborough@sba.gov,melinda.workman@sba.gov,usadirector@in-contacto.com,mryan@teamhorner.com,carlos.b@hqualityconnection.com,breton4064@yahoo.com.pe,adragan@qpoweramerica.com,adcolbert@yahoo.com,banthony@fshconline.com,johnm@nanosynergyww.com,pes_corp@msn.com,haidaraboukhari@hotmail.com,bfonte@vohraphysicians.com,herodebeauvais@outlook.com,tifflank@gmail.com,lopezmiguelacho@gmail.com,chrisbrich55@gmail.com,dsmith@rotarycorp.com,toddwhitson@ampc.solutions,esuarez@gsspr.com,deke.johnso</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Southern Network: APBO Bulletin Clicks</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Contacts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent to submitter when their Toolkit Application has been Accepted.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Toolkit Application Accepted</name>
+    <style>freeForm</style>
+    <subject>{!Case.RecordType} Toolkit: Your Application Has Been Accepted</subject>
+    <textOnly>{!Contact.Name};
+
+Congratulations, your application to participate in the {!Case.RecordType} Toolkit has been accepted. The company information you specified for publication is active in the {!Case.RecordType} Toolkit.
+
+Participants are encouraged to use the {!Case.RecordType} Toolkit for marketing purposes. We ask that you provide updates to your profile annually when prompted, and please report commercial opportunities or inquiries generated from the {!Case.RecordType} Toolkit in a timely manner. The more we know about how the {!Case.RecordType} Toolkit is working, the better we can assist you.
+
+If you would like to report inquiries or successes, please log into your dashboard to update your profile (https://www.export.gov/dashboard).
+
+Thank you.
+The {!Case.RecordType} Toolkit Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

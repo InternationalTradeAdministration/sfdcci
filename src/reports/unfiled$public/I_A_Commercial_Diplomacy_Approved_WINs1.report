@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$WIN__c.Contact_Name__c</field>
+    </columns>
+    <columns>
+        <field>WIN_Contributor__c.Contributor_Name__c</field>
+    </columns>
+    <columns>
+        <field>FK_$WIN__c.Organization__c</field>
+    </columns>
+    <columns>
+        <field>FK_$WIN__c.First_Line_Approval__c</field>
+    </columns>
+    <columns>
+        <field>FK_CUST_RECORDTYPE</field>
+    </columns>
+    <columns>
+        <field>FK_$WIN__c.Actual_Create_Date__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>WIN_Contributor__c.RH_Lev_1_GM_All__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>IA ALL</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$WIN__c.Request_WIN_Removal__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$WIN__c.WIN_Type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Commercial Diplomacy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$WIN__c.Primary_Outcome__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Reduced/Removed/Prevented trade barrier</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN_Contributor__c.RH_Lev_2_DAS__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>I&amp;A Commercial Diplomacy Approved WINs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN_Contributor__c@WIN_Contributor__c.WIN__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>FK_$WIN__c.Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

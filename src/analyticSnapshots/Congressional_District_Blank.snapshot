@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnalyticSnapshot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>Congressional District Blank</name>
+    <runningUser>sandip.menon@trade.gov</runningUser>
+    <sourceReport>unfiled$public/Congressional_Dist_info_lacking</sourceReport>
+    <targetObject>Master_CongressionalDistrict__c</targetObject>
+</AnalyticSnapshot>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Market_Insight__ka.Market_Insight__kav$Title</field>
+    </columns>
+    <columns>
+        <field>Market_Insight__ka.Market_Insight__kav$Days_Since_Last_Published_Date__c</field>
+    </columns>
+    <columns>
+        <field>Market_Insight__ka.Market_Insight__kav$IsLatestVersion</field>
+    </columns>
+    <description>Market Insight Articles that have not been updated in the last 90 days and is the latest version.</description>
+    <filter>
+        <criteriaItems>
+            <column>Market_Insight__ka.Market_Insight__kav$Days_Since_Last_Published_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>90</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Market_Insight__ka.Market_Insight__kav$IsLatestVersion</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Market_Insight__ka.Market_Insight__kav$PublishStatus</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>2</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Market_Insight__ka$LastPublishedDate</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>Market_Insight__ka$LastPublishedDate</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>MI Articles Update&gt;90 Days - DEMO</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Market_Insight_Articles_with_Versions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Market_Insight__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

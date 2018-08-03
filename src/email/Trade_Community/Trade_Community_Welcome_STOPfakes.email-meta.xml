@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Welcome email for STOPfakes new users</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Stopfakes</letterhead>
+    <name>Trade Community - Welcome - STOPfakes</name>
+    <style>freeForm</style>
+    <subject>{!Target_User.FirstName}, Welcome to STOPfakes</subject>
+    <textOnly>Welcome {!Target_User.FirstName},
+
+We&apos;re glad you&apos;ve joined our International Trade Administration Community!
+
+Your Username is: {!Target_User.Username}
+
+As a registered community member of STOPfakes, you can:
+
+Get help resolving IPR issues
+Take part in IPR training and events
+Stay up to date on IPR news
+
+You now have access ITA&apos;s family of websites
+
+
+
+Thanks for joining!
+
+-
+Trade Community Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

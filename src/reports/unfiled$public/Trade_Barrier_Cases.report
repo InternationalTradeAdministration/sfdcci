@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case.Activities$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case.Activities$Priority</field>
+    </columns>
+    <columns>
+        <field>Case.Activities$Owner</field>
+    </columns>
+    <columns>
+        <field>Case.Activities$RH_Lev_1_GM_All__c</field>
+    </columns>
+    <columns>
+        <field>Case.Activities$RH_Lev_6_Office__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case$RecordType</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.Commercial_Diplomacy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Potential_Primary_Outcome__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Reduced/Removed/Prevented trade barrier</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Activities$Subject</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>FY17</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Trade Barrier Cases</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Case_with_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case$Actual_Case_Closed_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

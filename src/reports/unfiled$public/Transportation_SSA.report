@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$Advocacy_Pro__c</field>
+    </columns>
+    <columns>
+        <field>Case$Advocacy_Expected_Project_Value__c</field>
+    </columns>
+    <columns>
+        <field>Case$Advocacy_Expected_US_Export_Content__c</field>
+    </columns>
+    <columns>
+        <field>Case.Case_Industry_Hierarchy__r$Industry__c</field>
+    </columns>
+    <columns>
+        <field>Case.Case_Industry_Hierarchy__r$Sector__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Country__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Angola,Burundi,Cape Verde,Central African Republic,Chad,Comoros,Djibouti,Equatorial Guinea,Eritrea,Gabon,Gambia,Guinea-Bissau,Liberia,Mali,Mauritania,Sao Tome and Principe,Seychelles,Somalia,South Sudan,Zimbabwe,Benin,Botswana,Burkina Faso,Cameroon,Congo,&quot;Congo, the Democratic Republic of the&quot;,Cote d’Ivoire,Ethiopia,Ghana,Guinea,Kenya,Lesotho,Madagascar,Malawi,Mauritius,Mozambique,Namibia,Niger,Nigeria,Rwanda,Senegal,Sierra Leone,South Africa,Sudan,Swaziland,&quot;Tanzania, United Republic of&quot;,Zambia</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>Case$Id</primaryTableColumn>
+        <relatedTable>RelatedCountries__c</relatedTable>
+        <relatedTableJoinColumn>Case__c</relatedTableJoinColumn>
+    </crossFilters>
+    <filter>
+        <criteriaItems>
+            <column>Case$Record_Type__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Advocacy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Advocacy_Project_Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Due Diligence In Progress,Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Case_Industry_Hierarchy__r$Sector__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Automobiles,Aviation,Buses,Trucks,Electric Vehicles,Intelligent Transportation Systems,Maritime Transportation,Motorcycles,Rail Transportation,Recreational Vehicles,Solar Vehicles,Trucking,Air Transportation</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Transportation SSA</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

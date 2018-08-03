@@ -29,6 +29,8 @@ public class PayGovTCSOnline {
         public DateTime transaction_date;
         public Date payment_date;
         public String transaction_status;
+        public String payment_type;
+        @TestVisible private String[] payment_type_type_info = new String[]{'payment_type','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
         @TestVisible private String[] paygov_tracking_id_type_info = new String[]{'paygov_tracking_id','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
         @TestVisible private String[] agency_tracking_id_type_info = new String[]{'agency_tracking_id','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
         @TestVisible private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
@@ -173,6 +175,8 @@ public class PayGovTCSOnline {
         public DateTime transaction_date;
         public Date payment_date;
         public String transaction_status;
+        public String payment_type;
+        private String[] payment_type_type_info = new String[]{'payment_type','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
         private String[] paygov_tracking_id_type_info = new String[]{'paygov_tracking_id','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
         private String[] agency_tracking_id_type_info = new String[]{'agency_tracking_id','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
         private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
@@ -265,6 +269,8 @@ public class PayGovTCSOnline {
         public DateTime transaction_date;
         public Date payment_date;
         public String transaction_status;
+        public String payment_type;
+        private String[] payment_type_type_info = new String[]{'payment_type','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
         private String[] paygov_tracking_id_type_info = new String[]{'paygov_tracking_id','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
         private String[] agency_tracking_id_type_info = new String[]{'agency_tracking_id','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
         private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/services/tcsonline',null,'1','1','false'};
@@ -349,6 +355,7 @@ public class PayGovTCSOnline {
             PayGovTCSOnline.StartOnlineCollectionResponseType response_x;
             Map<String, PayGovTCSOnline.StartOnlineCollectionResponseType> response_map_x = new Map<String, PayGovTCSOnline.StartOnlineCollectionResponseType>();
             response_map_x.put('response_x', response_x);
+            System.debug('Request: ' + request_x);
             WebServiceCallout.invoke(
               this,
               request_x,
@@ -361,7 +368,9 @@ public class PayGovTCSOnline {
               'startOnlineCollectionResponse',
               'PayGovTCSOnline.StartOnlineCollectionResponseType'}
             );
+            System.debug('Response Map: ' + response_map_x);
             response_x = response_map_x.get('response_x');
+            System.debug('Response: ' + response_x);
             return response_x.startOnlineCollectionResponse;
         }
         public PayGovTCSOnline.CompleteOnlineCollectionWithDetailsResponse completeOnlineCollectionWithDetails(PayGovTCSOnline.CompleteOnlineCollectionWithDetailsRequest completeOnlineCollectionWithDetailsRequest) {

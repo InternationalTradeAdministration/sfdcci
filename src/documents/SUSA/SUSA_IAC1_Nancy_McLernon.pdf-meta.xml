@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>/iac/members/iac1-nancy-mclernon</description>
+    <internalUseOnly>false</internalUseOnly>
+    <name>SUSA - IAC1 Nancy McLernon</name>
+    <public>true</public>
+</Document>

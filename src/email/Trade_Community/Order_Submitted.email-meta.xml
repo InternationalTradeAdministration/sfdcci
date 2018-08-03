@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>38.0</apiVersion>
+    <available>true</available>
+    <description>Email template to use for receipts once an order has been submitted.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Order Submitted</name>
+    <style>none</style>
+    <subject>Privacy Shield Application Submitted and Payment Success</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

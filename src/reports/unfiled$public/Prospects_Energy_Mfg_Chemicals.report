@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$BillingCity</field>
+    </columns>
+    <columns>
+        <field>Account$BillingStateCode</field>
+    </columns>
+    <columns>
+        <field>Account$Industry</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Primary_Country__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Fee__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Account.Cases$Status</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>New,In Progress,Successfully Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Industry</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Energy,Manufacturing,Chemicals</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Cases$Fee__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Business Facilitation Service,Certified Trade Mission,Gold Key Matching Service,International Partner Search,International Partner Search + Virtual Introductions,Platinum Key Service,Single Company Promotion,Trade Mission,Other Event,Other Service</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Prospects_Energy, Mfg, Chemicals</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Cases__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Account$BillingStateCode</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

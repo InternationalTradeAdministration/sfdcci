@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$FirstName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$LastName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Email</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Sector__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Bakeries,Beverages,Dairy Products,Food and Grocery Retailing,Food Processing Equipment,Grains and Legumes,Meat Processing,Pet Foods and Supplies,Seafood,Snack Foods,Sweeteners,Fruit Products,Vitamins and Supplements</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>Account$Id</primaryTableColumn>
+        <relatedTable>Industry__c</relatedTable>
+        <relatedTableJoinColumn>Organization__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>Multiple Sectors</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts$Email</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>@</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$HasOptedOutOfEmail</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Owner.RH_Lev_3_Region_2__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>startsWith</operator>
+            <value>GM CS-USA-Field Pacific South</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingStateCode</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>HI,NV</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>PS NPEW (Sector List)</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Contacts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

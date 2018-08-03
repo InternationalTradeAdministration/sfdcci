@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Narrative__c</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_ADDR1_COUNTRY_CODE</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>FK_$Account.Congressional_District_formula__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>MN-05,NC-09,PA-08</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Account.Congressional_District_formula__c</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
+    <name>Cleared WINs for PA-08, MN-05, NC-09</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c@WIN__c.Organization__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Report$Id</field>
+    </columns>
+    <columns>
+        <field>Report$Name</field>
+    </columns>
+    <columns>
+        <field>Report$ReportTypeEnumOrId</field>
+    </columns>
+    <columns>
+        <field>Report$Owner</field>
+    </columns>
+    <columns>
+        <field>Report$LastRunDate</field>
+    </columns>
+    <description>All Reports with Report Type including Leads.</description>
+    <filter>
+        <criteriaItems>
+            <column>Report$ReportTypeEnumOrId</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Activities with Leads,Campaigns with Leads,Campaigns with Leads and Converted Lead Information,D&amp;B Companies with Leads,iContact Contact and Lead Message Statistics,Lead All,Lead History,Leads,Lead Status,Leads with Clean Info,Leads with converted lead information</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>ADMIN_Reports with Leads</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Report_Types_Usage__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Report$Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Report$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DelegateGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObjects>WIN</customObjects>
+    <customObjects>Case_Contributor</customObjects>
+    <customObjects>Department_Taxonomy</customObjects>
+    <customObjects>WIN_Contributor</customObjects>
+    <label>Salesforce Trainers</label>
+    <loginAccess>true</loginAccess>
+    <profiles>Standard User</profiles>
+    <profiles>Read Only</profiles>
+    <profiles>Solution Manager</profiles>
+    <profiles>Marketing User</profiles>
+    <profiles>Core Team</profiles>
+    <profiles>Data Team Admin</profiles>
+    <profiles>E&amp;C TANC</profiles>
+    <profiles>GM Advocacy</profiles>
+    <profiles>GM Commercial Service</profiles>
+    <profiles>GM SelectUSA</profiles>
+    <profiles>I&amp;A</profiles>
+    <profiles>ITA OPA/OLIA</profiles>
+    <profiles>ITA User Read Only</profiles>
+    <roles>E&amp;C TANC</roles>
+    <roles>GM Advocacy</roles>
+    <roles>GM Commercial Service</roles>
+    <roles>GM SelectUSA</roles>
+    <roles>I&amp;A</roles>
+    <roles>Core Team</roles>
+    <roles>Data Team Admins</roles>
+    <roles>ITA Read Only Access</roles>
+</DelegateGroup>

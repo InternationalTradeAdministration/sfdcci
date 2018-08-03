@@ -1,0 +1,4 @@
+This notification is to inform you that you successfully submitted Article {!Market_Intelligence__kav.ArticleNumber} - {!Market_Intelligence__kav.Title} for approval. You will receive another email informing you when it has been approved by {!Market_Intelligence__kav.Approver__c}.
+
+Thank you, 
+Salesforce System Administrator

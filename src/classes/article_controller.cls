@@ -8,6 +8,8 @@ public class article_controller {
     public string mobileTitle {get; set;}
     public string summary {get; set;}
     public string references {get; set;}
+    public string citation {get; set;}
+    public string citationsource {get; set;}    
     public string published {get; set;}
     public string created {get; set;}
     public string id {get; set;}
@@ -20,6 +22,11 @@ public class article_controller {
     public String endpoint {get; set;}
     public String type {get; set;}
     public boolean pageError {get; set;}
+    
+    public string VideoEndpoint {get; set;}
+    public string VideoDownload {get; set;}
+    public string VideoFileSize {get; set;} 
+    public string VideoDescription {get; set;}    
     
     public boolean getLoggedIn(){
         if(UserInfo.getUserType() != 'Guest'){
@@ -47,6 +54,7 @@ public class article_controller {
         public string id {get; set;}
         public string url {get; set;}
         public string summary {get; set;}
+        public boolean isTemplate {get; set;}
         public boolean empty {
             get{
                 if(this.empty == null)
@@ -152,7 +160,13 @@ public class article_controller {
                 }else{
                     this.articleType = ApexPages.currentPage().getParameters().get('type');
                 }
-                for(level__c level : [select id, name, sort_order__c, Level_Number__c, Parent_Level__c from level__c where Series_Template__r.name = :this.articleType order by parent_level__c nulls first, parent_level__r.sort_order__c, sort_order__c asc]){
+
+
+                //The following section builds the navigation used on Article.vfp.
+                //navigating through each level, associate the link to the parent level from the Template, mapping on the level's name equal to the node's text.
+                //use of 'n' as 'node' of the navigation.
+
+                for(level__c level : [select id, name, sort_order__c, Level_Number__c, Parent_Level__c from level__c where Series_Template__r.name = :this.articleType order by level_number__c asc, sort_order__c asc]){
                     boolean exists = false;
                     if(level.level_number__c == 'Level 0'){
                         for(navObject n0 : this.navObjects){
@@ -164,11 +178,16 @@ public class article_controller {
                         if(!exists){
                             navObject tmp = new navObject();
                                 tmp.text = level.name;
+                                tmp.isTemplate = true;
                                 tmp.links = new navObject[]{};
                             this.navObjects.add(tmp);
                         }
                     } else if(level.level_number__c == 'Level 1'){
                         for(navObject n0 : this.navObjects){
+                            if(n0.text == level.name){
+                                exists = true;
+                                break;
+                            }
                             for(navObject n1 : n0.links){
                                 if(n1.text == level.name){
                                     exists = true;
@@ -178,13 +197,22 @@ public class article_controller {
                             if(!exists){
                                 navObject tmp = new navObject();
                                     tmp.text = level.name;
+                                    tmp.isTemplate = true;
                                     tmp.links = new navObject[]{};
                                 n0.links.add(tmp);
                             }
                         }                
                     } else if(level.level_number__c == 'Level 2'){
                         for(navObject n0 : this.navObjects){
+                            if(n0.text == level.name){
+                                exists = true;
+                                break;
+                            }
                             for(navObject n1 : n0.links){
+                                if(n1.text == level.name){
+                                    exists = true;
+                                    break;
+                                }
                                 for(navObject n2 : n1.links){
                                     if(n2.text == level.name){
                                         exists = true;
@@ -194,6 +222,7 @@ public class article_controller {
                                 if(!exists){
                                     navObject tmp = new NavObject();
                                         tmp.text = level.name;
+                                        tmp.isTemplate = true;
                                         tmp.links = new navObject[]{};
                                     n1.links.add(tmp);
                                 }
@@ -201,8 +230,20 @@ public class article_controller {
                         }
                     } else if(level.level_number__c == 'Level 3'){
                         for(navObject n0 : this.navObjects){
+                            if(n0.text == level.name){
+                                exists = true;
+                                break;
+                            }
                             for(navObject n1 : n0.links){
+                                if(n1.text == level.name){
+                                    exists = true;
+                                    break;
+                                }
                                 for(navObject n2 : n1.links){
+                                    if(n2.text == level.name){
+                                        exists = true;
+                                        break;
+                                    }
                                     for(navObject n3 : n2.links){
                                         if(n3.text == level.name){
                                             exists = true;
@@ -212,6 +253,7 @@ public class article_controller {
                                     if(!exists){
                                         navObject tmp = new NavObject();
                                             tmp.text = level.name;
+                                            tmp.isTemplate = true;
                                             tmp.links = new navObject[]{};
                                         n2.links.add(tmp);
                                     }
@@ -220,50 +262,15 @@ public class article_controller {
                         }
                     }
                 }
-    
-                for(chapter_section__c a : [select id, name, chapter__r.name, Publication_Template__c 
-                                            from chapter_section__c 
-                                            where (chapter__r.Publication_Template__r.name = :this.articleType 
-                                                   or Publication_Template__r.name = :this.articleType) 
-                                            order by chapter__r.sort_order__c, sort_order__c asc nulls last]){
-                    boolean exists = false;
-                    if(a.chapter__c != null){
-                        for(navObject n : this.navObjects){
-                            if(n.text == a.chapter__r.name){
-                                exists = true;
-                                break;
-                            }                   
-                        }
-                        if(!exists){
-                            navObject tmp = new navObject();
-                                tmp.text = a.chapter__r.name;
-                                tmp.links = new navObject[]{};
-                            this.navObjects.add(tmp);
-                        }
-                        for(navObject n : this.navObjects){
-                            boolean ec = false;
-                            for(navObject c : n.links){
-                                if(c.text == a.name && a.chapter__r.name == n.text){
-                                    ec = true;
-                                    break;
-                                }
-                            }                   
-                            if(!ec && a.chapter__r.name == n.text){
-                                navObject tmp = new navObject();
-                                    tmp.text = a.name;
-                                    tmp.links = new navObject[]{};
-                                n.links.add(tmp);
-                            }
-                        }                
-                    }else{
-                        navObject tmp = new navObject();
-                            tmp.text = a.name;
-                            tmp.links = new navObject[]{};
-                        this.navObjects.add(tmp);
-                    }
-                }            
+                    
+                System.debug('NavObjects: ' + this.navObjects);           
                 
-                string query = 'select id, knowledgearticleid, articlenumber, title,createddate, Mobile_Title__c, atom__c, IsVisibleInPkb, IsVisibleInCsp, references__c, series__r.name, level_3__c, level_2__c, level_1__c, level_0__c, summary, lastpublisheddate, (SELECT Id, DataCategoryName, DataCategoryGroupName FROM DataCategorySelections) from '+this.articleType+' where urlname = \''+art+'\' and publishStatus = \'Online\' and language=\'en_US\' order by level_0__c asc nulls last limit 1';
+                string query = 'select id, knowledgearticleid, articlenumber, title,createddate, Mobile_Title__c, atom__c, IsVisibleInPkb, IsVisibleInCsp, references__c, series__r.name, level_3__c, level_2__c, level_1__c, level_0__c, summary, lastpublisheddate, video__c, video__r.endpoint__c, video__r.Video_Description__c, video__r.Video_File_Size__c, video__r.Video_Download__c,';
+                if(this.articleType == 'Market_Intelligence__kav' ) {
+                    query += 'Citation__c, Citation_Source__c, ';
+                }
+                    query += '(SELECT Id, DataCategoryName, DataCategoryGroupName FROM DataCategorySelections) from '+this.articleType+' where urlname = \''+art+'\' and publishStatus = \'Online\' and language=\'en_US\' order by level_0__c asc nulls last limit 1';
+
                 string KAV = this.articleType;
                 sObject[] articles = database.query(query);
                 if(articles.size() == 1){
@@ -271,6 +278,12 @@ public class article_controller {
                     this.tagCategory = new map<string, string>();
                     string DataCategory = this.articleType.replace('kav', 'DataCategorySelection');
                     system.debug(DataCategory);
+                    if((string) articles[0].get('video__c') != null){
+                        this.VideoEndpoint = (string) articles[0].getSObject('Video__r').get('Endpoint__c');
+                        this.VideoDownload = (string) articles[0].getSObject('Video__r').get('Video_Download__c');
+                        this.VideoFileSize = (string) articles[0].getSObject('Video__r').get('Video_File_Size__c');
+                        this.VideoDescription = (string) articles[0].getSObject('Video__r').get('Video_Description__c');
+                    }
                     SObject[] selections = database.query('SELECT DataCategoryGroupName,DataCategoryName, Id,ParentId FROM '+DataCategory+' where parentId = \''+(string) articles[0].get('id')+'\'');
 
                     if(this.articleType != null && KnowledgeSearch__c.getAll() != null && KnowledgeSearch__c.getAll().get(this.articleType) != null ){
@@ -327,6 +340,9 @@ public class article_controller {
                     this.title = (string) articles[0].get('title');
                     this.mobileTitle = String.isBlank((string) articles[0].get('Mobile_Title__c')) ? (string) articles[0].get('Title') : (string) articles[0].get('Mobile_Title__c');
                     this.references = (string) articles[0].get('references__c');
+                    this.citation = this.articleType == 'Market_Intelligence__kav' ? (string) articles[0].get('Citation__c') : '';
+                    this.citationsource = this.articleType == 'Market_Intelligence__kav' ? (string) articles[0].get('Citation_Source__c') : '';                    
+
                     if(articles[0].get('level_0__c') != null){
                         this.chapter = (string) articles[0].get('level_0__c');
                         this.section = (string) articles[0].get('level_1__c');
@@ -437,7 +453,7 @@ public void addToNav(sObject so){
                 }
                 if(!e1){
                     navObject tmp1 = new navObject();
-                    tmp1.text = (string) so.get('title');                           
+                    tmp1.text = (string) so.get('title');                         
                     tmp1.links = new navObject[]{};
                     if((string) so.get('level_1__c') == null && (string) so.get('level_2__c') == null){
                         n0.empty = false;

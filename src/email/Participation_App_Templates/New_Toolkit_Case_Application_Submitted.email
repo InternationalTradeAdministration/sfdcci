@@ -1,0 +1,12 @@
+<messaging:emailTemplate subject="New Toolkit Application Submitted" recipientType="User" relatedToType="Case">
+<messaging:htmlEmailBody >
+<p>A new case has been created for a(n) {!relatedTo.RecordType.Name} Provider Application. Please review the information below to begin vetting the case.</p>
+
+Case Number:&nbsp;<apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+relatedTo.Id}">{!relatedTo.CaseNumber}</apex:outputLink><br / >
+Organization: {!relatedTo.Account.Name}<br / >
+Application: {!relatedTo.Participation_Profile__r.Name}<br / >
+Related Order Number: {!relatedTo.Order__r.OrderNumber}<br / >
+
+<p>Thank you.</p>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

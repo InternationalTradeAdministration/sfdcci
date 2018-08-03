@@ -1,0 +1,14 @@
+<table border="0" cellpadding="5" width="600" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[<div><font face="arial">As of {!Asset.UsageEndDate} your organization, {!Asset.Account}, is listed on the Privacy Shield program’s Inactive List: <a href="https://www.privacyshield.gov/inactive">https://www.privacyshield.gov/inactive</a>.</font></div><div><font face="arial"><br></font></div><div><font face="arial">You are receiving this message because your organization has persistently failed to comply with the Privacy Shield Principles. As a result, the Department has removed your organization from the Privacy Shield List, meaning that your organization may no longer benefit from the European Commission’s adequacy decision to receive personal information from the EU and/or the Swiss Government’s adequacy decision to receive personal information from Switzerland. &nbsp;</font></div><div><font face="arial"><br></font></div><div><font face="arial">Your organization must remove from any relevant privacy policy any references to Privacy Shield that imply that the organization continues to actively participate in Privacy Shield and is entitled to its benefits. &nbsp;</font></div><div><font face="arial"><br></font></div><div><font face="arial">Your organization must return or delete the personal information it received while it participated in Privacy Shield.</font></div><div><font face="arial"><br></font></div><div><font face="arial">If you have any questions, please contact the Privacy Shield Team via our website assistance page: <a href="https://www.privacyshield.gov/assistance">https://www.privacyshield.gov/assistance</a>.&nbsp;</font></div><div><font face="arial"><br></font></div><div><font face="arial">Thank you for your cooperation.</font></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="0" >
+<![CDATA[]]></td>
+</tr>
+</table>

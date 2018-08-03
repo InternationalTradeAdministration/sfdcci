@@ -1,0 +1,6 @@
+This notification is to inform you that a market intelligence article has been submitted for your approval. You will find it in the Salesforce Article Management Library. To view and approve the article, please go here: {!Market_Intelligence__kav.Link}.
+
+Thank you, 
+{!Market_Intelligence__kav.LastModifiedBy}
+
+***SYSTEM WARNING: Once you have approved the article it will be active on Export.gov and the general public will be able to view it***.

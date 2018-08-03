@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>GROUP_ID</field>
+    </columns>
+    <columns>
+        <field>NAME</field>
+    </columns>
+    <columns>
+        <field>GROUP_OWNER</field>
+    </columns>
+    <columns>
+        <field>MEMBER_COUNT</field>
+    </columns>
+    <columns>
+        <field>POST_COUNT</field>
+    </columns>
+    <columns>
+        <field>COMMENT_COUNT</field>
+    </columns>
+    <columns>
+        <field>LIKE_COUNT</field>
+    </columns>
+    <columns>
+        <field>TOTAL_QUESTIONS</field>
+    </columns>
+    <columns>
+        <field>UNANSWERED_QUESTIONS</field>
+    </columns>
+    <description>This report shows chatter usage activity by chatter group.</description>
+    <format>Summary</format>
+    <name>All Chatter Group Collaboration Report</name>
+    <params>
+        <name>scopeid</name>
+        <value></value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CollabGroup</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>MEMBER_COUNT</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>LAST_MODIFIED</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

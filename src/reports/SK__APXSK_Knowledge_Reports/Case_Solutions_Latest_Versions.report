@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case_Solution__ka$ArticleNumber</field>
+    </columns>
+    <columns>
+        <field>Case_Solution__ka.Case_Solution__kav$Title</field>
+    </columns>
+    <columns>
+        <field>Case_Solution__ka$CaseAssociationCount</field>
+    </columns>
+    <description>All current versions of Case Solution articles by Expiration date</description>
+    <filter>
+        <criteriaItems>
+            <column>Case_Solution__ka.Case_Solution__kav$IsLatestVersion</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>Case_Solution__ka.Case_Solution__kav$Article_Expiration_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Case Solutions - Latest Versions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Case_Solution_Resources__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case_Solution__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

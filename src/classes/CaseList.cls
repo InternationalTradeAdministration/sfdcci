@@ -7,6 +7,7 @@ public with sharing class CaseList{
     public Case psC {get; set;}
     public String caseRT {get; set;}
     public Case[] openCases {get; set;}
+    public Case[] closedCases {get; set;}
     public Case[] actionReqCases {get; set;}
     public Case[] orgOpenCases {get; set;}
     public Site__c currentDomain {get; set;} 
@@ -51,7 +52,7 @@ public with sharing class CaseList{
         items = new List<SelectOption>();
         items.add(new SelectOption('My Open Cases', 'My Open Cases'));
         items.add(new SelectOption('Action Required', 'Action Required'));
-        items.add(new SelectOption('My Company Cases', 'My Company Cases'));
+        //items.add(new SelectOption('My Company Cases', 'My Company Cases'));
         items.add(new SelectOption('My Closed Cases', 'My Closed Cases'));
         
         RecPerPageOption = new list<SelectOption>();
@@ -67,6 +68,11 @@ public with sharing class CaseList{
                           FROM Case 
                           WHERE contactid = :getcontactid() 
                           and status <> 'Successfully Closed' 
+                          Limit 1000];
+        this.closedCases = [SELECT CaseNumber, Status, Subject, CreatedDate, CreatedBy.Name,LastModifiedDate 
+                          FROM Case 
+                          WHERE contactid = :getcontactid() 
+                          and status = 'Successfully Closed' 
                           Limit 1000];
         this.actionReqCases = [select Id, CaseNumber, AccountId, Subject, Priority, Status,CreatedBy.Name, CreatedDate, ContactId, LastModifiedDate 
                                FROM Case 
@@ -198,7 +204,7 @@ public with sharing class CaseList{
                                         'FROM Case '+
                                         'WHERE contactid = \''+ getContactId() + '\' and status = \'Successfully Closed\' ' +
                                         'order by ' + SortField +' '+ SortDirection + ' Limit ' + list_size + ' offset ' + counter);                                
-            total_size = this.openCases.size(); //set the total size 
+            total_size = this.closedCases.size(); //set the total size 
         }else{
             results = database.query('SELECT Id, CaseNumber, AccountId, Subject, Priority, Status, CreatedDate, ContactId, CreatedBy.Name, LastModifiedDate ' + 
                                         'FROM Case '+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE_CODE</field>
+    </columns>
+    <description>zip codes</description>
+    <filter>
+        <criteriaItems>
+            <column>ADDRESS1_ZIP</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>startsWith</operator>
+            <value>917,918</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS1_ZIP</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>91701,91708,91709,91710,91729,91730,91737,91739,91743,91752,91758,91761,91762,91763,91764,91784,91785,91786,91798</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADDRESS1_COUNTRY_CODE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>US</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Los Angeles Total Clients - 2 of 2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

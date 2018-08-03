@@ -1,0 +1,107 @@
+<messaging:emailTemplate subject="Privacy Shield Application Submitted and Payment Success" recipientType="User" relatedToType="Order">
+<messaging:htmlEmailBody >
+<!-- Bootstrap core CSS -->
+<link href="{!URLFor($Resource.bootstrap, 'bootstrap/css/bootstrap.css')}" rel="stylesheet" />
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://use.fontawesome.com/e6603bca54.css" />
+<!-- Application Style Sheet -->
+<link href="{!URLFor($Resource.ps, 'ps/application.css')}" rel="stylesheet" /> 
+<img style="width:200px" src="https://www.privacyshield.gov/resource/1470393202000/logos/logos/privacy_shield.png" />
+
+<p>Dear {!Recipient.FirstName} {!Recipient.LastName},</p>
+
+<p>Thank you for your organization’s interest in self-certifying its adherence to the Privacy Shield Principles. The Privacy Shield team at the U.S. Department of Commerce’s International Trade Administration (ITA) has received your organization’s self-certification application, as well as payment of the processing fee, and will review your organization’s self-certification application in a timely manner. Please note that the processing time will depend on the completeness of the self-certification application and the volume of self-certification applications received.</p>
+
+<p>As the designated representative of your organization, you will be notified by e-mail regarding the status of the self-certification. You will receive either:
+<ul>
+  <li>Confirmation that your organization’s self-certification has been finalized; or</li>
+  <li>A request for additional information to complete the review of your organization’s self-certification application or revisions to materials relevant to the self-certification, such as the applicable privacy policy statement(s).</li>
+</ul>
+When an organization’s self-certification has been finalized, the organization is placed on the authoritative Privacy Shield List maintained by the U.S. Department of Commerce. The Privacy Shield List is made available to the public on the Privacy Shield website: https://www.privacyshield.gov/. Privacy Shield benefits are assured from the date that the Department places an organization on the Privacy Shield List.</p>
+<p>Thank you for your cooperation.</p>
+
+<h3>Order Details</h3>
+    <div class="panel panel-default order" id="order">
+        <div class="panel-heading" id="grayheading" >
+        <div class="row pad-left-zero pad-right-zero pad-up-down">
+            <div class="col-md-9">
+                <strong>Order Date:</strong>  <apex:outputText styleClass="field" value="{0,date,MM/dd/yyyy}"> <apex:param value="{!relatedTo.CreatedDate}" /> </apex:outputtext>
+            </div>
+            <div class="col-md-9">
+                <strong>Order Number:</strong>  <span class="field">{!relatedTo.orderNumber}</span>
+            </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row pad-left-zero pad-right-zero pad-up-down2">
+            <div class="col-md-9">
+            <apex:repeat value="{!relatedTo.OrderItems}" var="orderitem">
+                <span class="field-item">{!orderItem.PricebookEntry.product2.name}</span>
+            </apex:repeat>
+            </div>
+</div>
+            <apex:repeat var="transaction" value="{!relatedTo.payments__r}">
+            <apex:outputpanel rendered="{!transaction.Pay_Gov_Tracking_Id__c != null}">
+                <div class="row pad-left-zero pad-right-zero pad-up-down3">
+                 <div class="col-md-3">
+                 <br/><strong>Transaction Date:</strong>  <apex:outputText value="{0,date,MM/dd/yyyy 'at' hh:mm a}"> <apex:param value="{!transaction.Transaction_Date__c}" /> </apex:outputtext>   
+                </div>
+                <div class="col-md-3">
+                 <br/><strong>Transaction ID:</strong>  {!transaction.Pay_Gov_Tracking_Id__c}
+                 </div>
+                <div class="col-md-3">
+
+                 <br/><strong>Amount:</strong>  
+                 <apex:outputText value=" ${0, number, 00.00}">
+				      <apex:param value="{!transaction.Transaction_Amount__c}" />
+				 </apex:outputText> 
+
+                </div>
+                <div class="col-md-1">
+                 <br/><strong>Status:</strong>  {!transaction.Transaction_Status__c} 
+                </div>
+               </div>
+            </apex:outputpanel>
+            </apex:repeat>
+        </div>
+    </div>
+</messaging:htmlEmailBody>
+<messaging:plainTextEmailBody >
+Dear {!Recipient.FirstName} {!Recipient.LastName}, 
+
+Thank you for your organization’s interest in self-certifying its adherence to the Privacy Shield Principles. The Privacy Shield team at the U.S. Department of Commerce’s International Trade Administration (ITA) has received your organization’s self-certification application, as well as payment of the processing fee, and will review your organization’s self-certification application in a timely manner. Please note that the processing time will depend on the completeness of the self-certification application and the volume of self-certification applications received. 
+
+As the designated representative of your organization, you will be notified by e-mail regarding the status of the self-certification. You will receive either: 
+
+*Confirmation that your organization’s self-certification has been finalized; or 
+*A request for additional information to complete the review of your organization’s self-certification application or revisions to materials relevant to the self-certification, such as the applicable privacy policy statement(s). 
+
+When an organization’s self-certification has been finalized, the organization is placed on the authoritative Privacy Shield List maintained by the U.S. Department of Commerce. The Privacy Shield List is made available to the public on the Privacy Shield website: https://www.privacyshield.gov/. Privacy Shield benefits are assured from the date that the Department places an organization on the Privacy Shield List. 
+
+Thank you for your cooperation.
+
+ODER DETAILS
+===============
+Order Date: <apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!relatedTo.CreatedDate}" /> </apex:outputtext>
+Order Number:  {!relatedTo.orderNumber}
+
+
+<apex:repeat value="{!relatedTo.OrderItems}" var="orderitem">
+                *{!orderItem.PricebookEntry.product2.name}
+</apex:repeat>
+
+
+            <apex:repeat var="transaction" value="{!relatedTo.payments__r}">
+            <apex:outputtext rendered="{!transaction.Pay_Gov_Tracking_Id__c != null}">
+
+* Transaction Date:  <apex:outputText value="{0,date,MM/dd/yyyy 'at' hh:mm a}"> <apex:param value="{!transaction.Transaction_Date__c}" /> </apex:outputtext>   
+  Transaction ID:  {!transaction.Pay_Gov_Tracking_Id__c}
+  Amount:  
+ <apex:outputText value=" ${0, number, 00.00}">
+      <apex:param value="{!transaction.Transaction_Amount__c}" />
+ </apex:outputText> 
+  Status:  {!transaction.Transaction_Status__c} 
+            </apex:outputtext>
+            </apex:repeat>
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

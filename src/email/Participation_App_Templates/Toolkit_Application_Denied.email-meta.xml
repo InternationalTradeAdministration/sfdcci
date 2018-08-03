@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent on Final Determination Denial</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Toolkit Application Denied</name>
+    <style>freeForm</style>
+    <subject>{!Case.RecordType} Toolkit: Your Application Has Been Declined</subject>
+    <textOnly>{!Contact.Name};
+
+Thank you for submitting an application to participate in the {!Case.RecordType} Toolkit. Unfortunately, your application failed to meet the U.S. Department of Commerce&apos;s criteria for acceptance. If you feel this assessment was made in error, or would like to provide additional justification for your company&apos;s participation, please complete the following steps:
+
+1. Log in to your Assistance Dashboard (https://www.export.gov/dashboard).
+2. Click on the link to your application.
+3. Enter a comment in the “Attachments &amp; Comments” box.
+4. Click “Add” to communicate directly with a member of the {!Case.RecordType} Team.
+
+Thank you.
+The {!Case.RecordType} Toolkit Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
